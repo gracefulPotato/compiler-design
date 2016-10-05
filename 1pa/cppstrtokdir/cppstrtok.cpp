@@ -60,10 +60,9 @@ void eprint_status (const char* command, int status) {
 
 
 // Run cpp against the lines of the file.
-string cpplines (FILE* pipe, char* filename) {//ofstream& myfile, char* filename) {
+string cpplines (FILE* pipe, char* filename,string retstr) {//ofstream& myfile, char* filename) {
    int linenr = 1;
    char inputname[LINESIZE];
-   string retstr;
    strcpy (inputname, filename);
    for (;;) {   //infinite loop
       char buffer[LINESIZE];  //array w/ 1024 entries
@@ -72,7 +71,7 @@ string cpplines (FILE* pipe, char* filename) {//ofstream& myfile, char* filename
       chomp (buffer, '\n');
       string bufferstr(buffer);
       string filestr(filename);
-      retstr = filestr+":line "+to_string(linenr)+": ["+bufferstr+"]\n";
+      retstr = retstr+filestr+":line "+to_string(linenr)+": ["+bufferstr+"]\n";
       //printf("%s:line %d: [%s]\n", filename, linenr, buffer);
       // http://gcc.gnu.org/onlinedocs/cpp/Preprocessor-Output.html
       int sscanf_rc = sscanf (buffer, "# %d \"%[^\"]\"",
@@ -100,8 +99,8 @@ string cpplines (FILE* pipe, char* filename) {//ofstream& myfile, char* filename
    return retstr;
 }
 
-pair<string,int> cpp_line(int argi, char** argv,const char* execname,int exit_status){
-    printf("in cpp_line()");
+pair<string,int> cpp_line(int argi, char** argv,string execname,int exit_status){
+    printf("in cpp_line()\n");
     char* filename = argv[argi];
     string command = CPP + " " + filename;
     string procline="command=\""+command+"\"\n";//, command.c_str());
@@ -109,14 +108,14 @@ pair<string,int> cpp_line(int argi, char** argv,const char* execname,int exit_st
     if (pipe == NULL) {
          exit_status = EXIT_FAILURE;
          fprintf (stderr, "%s: %s: %s\n",
-                  execname, command.c_str(), strerror (errno));
+                  execname.c_str(), command.c_str(), strerror (errno));
 	}else {
-         procline = procline + cpplines (pipe, filename);//myfile, filename);
+         procline = procline + cpplines (pipe, filename,procline);//myfile, filename);
          int pclose_rc = pclose (pipe);
          eprint_status (command.c_str(), pclose_rc);
          if (pclose_rc != 0) exit_status = EXIT_FAILURE;
 	}
-   cout<<"procline (in cppstrtok: "<<procline;
+   cout<<"procline (in cppstrtok: )"<<procline;
    pair<string,int> rettomain = pair<string,int>(procline, exit_status);
    return rettomain;
 }

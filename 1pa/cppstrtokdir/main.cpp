@@ -15,7 +15,7 @@ using namespace std;
 
 int main(int argc, char** argv){
    printf("main.cpp\n");
-   const char* execname = basename (argv[0]);
+   string execname = basename (argv[0]);
    int exit_status = EXIT_SUCCESS;
    string dotstr(basename(argv[1]));
    int dot_index = dotstr.find_last_of(".");
@@ -23,13 +23,15 @@ int main(int argc, char** argv){
    ofstream myfile;
    myfile.open(dotstr+".str");
    myfile<<"test";
-   for (int argi = 1; argi < argc; ++argi) {
+   for (int argi = 1; argi < argc; ++argi){
        string procline;
-       pair<string,int>(procline,exit_status) = cpp_line(argi,argv,execname,exit_status);
-       cout<<procline;
+       pair<string,int> cpp_ret = cpp_line(argi,argv,execname,exit_status);
+       cout<<cpp_ret.first;
        cout<<"printing procline"<<procline<<"\n";
-   }        
+   }
+   
    string_set::intern ("hello");
    string_set::dump (stdout);
+   myfile.close();
    return exit_status;
 }
