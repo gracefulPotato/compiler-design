@@ -14,7 +14,9 @@ using namespace std;
 #include <string.h>
 #include <wait.h>
 #include <fstream>
+#include <iostream>
 
+#include "cppstrtok.h"
 #include "string_set.h"
 const string CPP = "/usr/bin/cpp";
 constexpr size_t LINESIZE = 1024;
@@ -58,9 +60,10 @@ void eprint_status (const char* command, int status) {
 
 
 // Run cpp against the lines of the file.
-void cpplines (FILE* pipe, ofstream& myfile, char* filename) {
+string cpplines (FILE* pipe, char* filename) {//ofstream& myfile, char* filename) {
    int linenr = 1;
    char inputname[LINESIZE];
+   string retstr;
    strcpy (inputname, filename);
    for (;;) {   //infinite loop
       char buffer[LINESIZE];  //array w/ 1024 entries
@@ -69,7 +72,7 @@ void cpplines (FILE* pipe, ofstream& myfile, char* filename) {
       chomp (buffer, '\n');
       string bufferstr(buffer);
       string filestr(filename);
-      myfile<<filestr<<":line "<<linenr<<": ["<<bufferstr<<"]\n";
+      retstr = filestr+":line "+to_string(linenr)+": ["+bufferstr+"]\n";
       //printf("%s:line %d: [%s]\n", filename, linenr, buffer);
       // http://gcc.gnu.org/onlinedocs/cpp/Preprocessor-Output.html
       int sscanf_rc = sscanf (buffer, "# %d \"%[^\"]\"",
@@ -77,7 +80,7 @@ void cpplines (FILE* pipe, ofstream& myfile, char* filename) {
       //if line has pattern linenr "
       if (sscanf_rc == 2) {
          string inputstr(inputname);
-         myfile<<"DIRECTIVE: line "<<linenr<<" file \""<<inputstr<<"\"\n";
+         retstr=retstr+"DIRECTIVE: line "+to_string(linenr)+" file \""+inputstr+"\"\n";
          //printf ("DIRECTIVE: line %d file \"%s\"\n", linenr, inputname);
          continue;
       }
@@ -88,42 +91,65 @@ void cpplines (FILE* pipe, ofstream& myfile, char* filename) {
          bufptr = NULL;
          if (token == NULL) break;
          string tokenstr(token);
-         myfile<<"token "<<linenr<<"."<<tokenct<<": ["<<tokenstr<<"]\n";
+         retstr=retstr+"token "+to_string(linenr)+"."+to_string(tokenct)+": ["+tokenstr+"]\n";
          //printf ("token %d.%d: [%s]\n",linenr, tokenct, token);
       }
       ++linenr;
+
    }
+   return retstr;
 }
 
-int main (int argc, char** argv) {
-   const char* execname = basename (argv[0]);
-   int exit_status = EXIT_SUCCESS;
-   string dotstr(basename(argv[1]));
-   int dot_index = dotstr.find_last_of(".");
-   dotstr = dotstr.substr(0,dot_index);
-   ofstream myfile;
-   myfile.open(dotstr+".str");
-   //myfile<<"test";
-   for (int argi = 1; argi < argc; ++argi) {
-      char* filename = argv[argi];
-      string command = CPP + " " + filename;
-      myfile<<"command=\""+command+"\"\n";//, command.c_str());
-      FILE* pipe = popen (command.c_str(), "r");
-      if (pipe == NULL) {
+pair<string,int> cpp_line(int argi, char** argv,const char* execname,int exit_status){
+    printf("in cpp_line()");
+    char* filename = argv[argi];
+    string command = CPP + " " + filename;
+    string procline="command=\""+command+"\"\n";//, command.c_str());
+    FILE* pipe = popen (command.c_str(), "r");
+    if (pipe == NULL) {
          exit_status = EXIT_FAILURE;
          fprintf (stderr, "%s: %s: %s\n",
                   execname, command.c_str(), strerror (errno));
-      }else {
-         cpplines (pipe, myfile, filename);
+	}else {
+         procline = procline + cpplines (pipe, filename);//myfile, filename);
          int pclose_rc = pclose (pipe);
          eprint_status (command.c_str(), pclose_rc);
          if (pclose_rc != 0) exit_status = EXIT_FAILURE;
-      }
-   }
-   //string_set::intern ("test");
-   //string_set::dump (stdout);
-   return exit_status;
+	}
+   cout<<"procline (in cppstrtok: "<<procline;
+   pair<string,int> rettomain = pair<string,int>(procline, exit_status);
+   return rettomain;
 }
+
+//int main (int argc, char** argv) {
+//   const char* execname = basename (argv[0]);
+//   int exit_status = EXIT_SUCCESS;
+//   string dotstr(basename(argv[1]));
+//   int dot_index = dotstr.find_last_of(".");
+//   dotstr = dotstr.substr(0,dot_index);
+//   ofstream myfile;
+//   myfile.open(dotstr+".str");
+//   //myfile<<"test";
+//   for (int argi = 1; argi < argc; ++argi) {
+//      char* filename = argv[argi];
+//      string command = CPP + " " + filename;
+//      myfile<<"command=\""+command+"\"\n";//, command.c_str());
+//      FILE* pipe = popen (command.c_str(), "r");
+//      if (pipe == NULL) {
+//         exit_status = EXIT_FAILURE;
+//         fprintf (stderr, "%s: %s: %s\n",
+//                  execname, command.c_str(), strerror (errno));
+//      }else {
+//         cpplines (pipe, myfile, filename);
+//         int pclose_rc = pclose (pipe);
+//         eprint_status (command.c_str(), pclose_rc);
+//         if (pclose_rc != 0) exit_status = EXIT_FAILURE;
+//      }
+//   }
+//   //string_set::intern ("test");
+//   //string_set::dump (stdout);
+//   return exit_status;
+//}
 
 //int main (int argc, char** argv) {
 //   for (int i = 1; i < argc; ++i) {         //for each command-line argument,
