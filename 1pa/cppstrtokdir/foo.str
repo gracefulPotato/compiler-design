@@ -1,1 +1,4 @@
-test
+string_set[   0]:    2762169579135187400 0x1fc40a8->"hello"
+load_factor = 0.500
+bucket_count = 2
+max_bucket_size = 1
