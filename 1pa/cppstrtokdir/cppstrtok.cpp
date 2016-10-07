@@ -100,7 +100,7 @@ string cpplines (FILE* pipe, char* filename,string retstr) {//ofstream& myfile, 
 }
 
 pair<string,int> cpp_line(int argi, char** argv,string execname,int exit_status){
-    printf("in cpp_line()\n");
+    //printf("in cpp_line()\n");
     char* filename = argv[argi];
     string command = CPP + " " + filename;
     string procline="command=\""+command+"\"\n";//, command.c_str());
@@ -115,48 +115,7 @@ pair<string,int> cpp_line(int argi, char** argv,string execname,int exit_status)
          eprint_status (command.c_str(), pclose_rc);
          if (pclose_rc != 0) exit_status = EXIT_FAILURE;
 	}
-   cout<<"procline (in cppstrtok: )"<<procline;
+   //cout<<"procline (in cppstrtok: )"<<procline;
    pair<string,int> rettomain = pair<string,int>(procline, exit_status);
    return rettomain;
 }
-
-//int main (int argc, char** argv) {
-//   const char* execname = basename (argv[0]);
-//   int exit_status = EXIT_SUCCESS;
-//   string dotstr(basename(argv[1]));
-//   int dot_index = dotstr.find_last_of(".");
-//   dotstr = dotstr.substr(0,dot_index);
-//   ofstream myfile;
-//   myfile.open(dotstr+".str");
-//   //myfile<<"test";
-//   for (int argi = 1; argi < argc; ++argi) {
-//      char* filename = argv[argi];
-//      string command = CPP + " " + filename;
-//      myfile<<"command=\""+command+"\"\n";//, command.c_str());
-//      FILE* pipe = popen (command.c_str(), "r");
-//      if (pipe == NULL) {
-//         exit_status = EXIT_FAILURE;
-//         fprintf (stderr, "%s: %s: %s\n",
-//                  execname, command.c_str(), strerror (errno));
-//      }else {
-//         cpplines (pipe, myfile, filename);
-//         int pclose_rc = pclose (pipe);
-//         eprint_status (command.c_str(), pclose_rc);
-//         if (pclose_rc != 0) exit_status = EXIT_FAILURE;
-//      }
-//   }
-//   //string_set::intern ("test");
-//   //string_set::dump (stdout);
-//   return exit_status;
-//}
-
-//int main (int argc, char** argv) {
-//   for (int i = 1; i < argc; ++i) {         //for each command-line argument,
-//      const string* str = string_set::intern (argv[i]); //add it to string_set
-//      printf ("intern (\"%s\") returned %p->\"%s\"\n",  //print debug statement
-//              argv[i], str, str->c_str());
-//   }
-//   string_set::dump (stdout);   //print out string_set contents
-//   return EXIT_SUCCESS;
-//}
-

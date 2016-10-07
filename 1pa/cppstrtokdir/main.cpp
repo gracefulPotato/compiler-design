@@ -9,39 +9,37 @@
 #include <wait.h>
 #include <iostream>
 #include <sstream>
+#include <typeinfo>
 using namespace std;
 
 #include "string_set.h"
 #include "cppstrtok.h"
 
 int main(int argc, char** argv){
-   printf("main.cpp\n");
    string execname = basename (argv[0]);
    int exit_status = EXIT_SUCCESS;
    string dotstr = basename(argv[1]);
    int dot_index = dotstr.find_last_of(".");
-   dotstr = dotstr.substr(0,dot_index)+".str";
+   string extension = dotstr.substr(dot_index,dotstr.length()-1);
+   if(extension!=".oc"){
+       exit_status = EXIT_FAILURE;
+       fprintf(stderr,"Exiting with status %d\n",exit_status);
+       return exit_status;
+   }
    FILE * outfile = fopen(dotstr.c_str(),"w");
    for (int argi = 1; argi < argc; ++argi){
        string procline;
        pair<string,int> cpp_ret = cpp_line(argi,argv,execname,exit_status);
-       cout<<cpp_ret.first;
-       cout<<"printing procline"<<procline<<"\n";
    
-       istringstream input(cpp_ret.first);
-       char* line=0;
-       //for(;;){
-           //if(input.getline(line,1024)){
-              //string_set::intern (line);
-           //}else break;
-           //if(!line) break;
-           //else{
-              //string_set::intern (line);
-           //}
-       //}
+       istringstream iss(cpp_ret.first);
+       string line;
+       while(getline(iss,line)){
+              string_set::intern (line.c_str());
+       }
    }
    string_set::intern ("hello");
    string_set::dump (outfile);
    fclose(outfile);
+   fprintf(stderr,"Exiting with status %d\n",exit_status);
    return exit_status;
 }
