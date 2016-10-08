@@ -48,13 +48,17 @@ int main(int argc, char** argv){
    }
    int fileindex = argc-1;
    string dotstr = basename(argv[fileindex]);
+   cout<<"dotstr: "<<dotstr<<"\n";
    int dot_index = dotstr.find_last_of(".");
    string extension = dotstr.substr(dot_index,dotstr.length()-1);
+   cout<<"extension: "<<extension<<"\n";
    if(extension!=".oc"){
        exit_status = EXIT_FAILURE;
        fprintf(stderr,"Exiting with status %d\n",exit_status);
        return exit_status;
    }
+   dotstr=dotstr.substr(0,dot_index)+".str";
+   cout<<"dotstr mark 2: "<<dotstr<<"\n";
    FILE * outfile = fopen(dotstr.c_str(),"w");
    //for (int argi = 1; argi < argc; ++argi){
        string procline;

@@ -1,13 +1,9 @@
-string_set[   1]:    1548505337888211165 0x1537478->"foo.oc:line 1: [# 1 "foo.oc"]"
-                     3006220971073013915 0x1537418->"DIRECTIVE: line 1 file "foo.oc""
-string_set[   3]:   14703057761320442605 0x1537798->"DIRECTIVE: line 1 file "/usr/include/stdc-predef.h""
-                    17467027766471176578 0x1537778->"foo.oc:line 1: [# 1 "/usr/include/stdc-predef.h" 1 3 4]"
-string_set[   5]:    8706924094644059993 0x1537758->"DIRECTIVE: line 1 file "<command-line>""
-                     1081870269723340773 0x1537618->"DIRECTIVE: line 1 file "<built-in>""
-                     2104597742220240261 0x15374e8->"foo.oc:line 1: [# 1 "<built-in>"]"
-string_set[   8]:     164824800827099575 0x1537ee8->"foo.oc:line 1: [# 1 "<command-line>" 2]"
-string_set[   9]:   17783654298379757544 0x15376e8->"foo.oc:line 1: [# 1 "<command-line>"]"
-                    11463340655748426344 0x15373f8->"command="/usr/bin/cpp foo.oc""
-load_factor = 0.909
-bucket_count = 11
-max_bucket_size = 3
+line 1// $Id: foo.oc,v 1.3 2013-09-19 18:03:21-07 - - $
+__FILE__ __LINE__ __DATE__ __TIME__
+foo.oc, line 3.
+#include "foo1.oh"
+foo.oc, line 5.
+#include "foo2.oh"
+/* Comment */ on line 7
+FOO1 + FOO2;
+foo.oc, line 9, last line.
