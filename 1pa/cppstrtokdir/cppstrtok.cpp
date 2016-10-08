@@ -72,15 +72,12 @@ string cpplines (FILE* pipe, char* filename,string retstr) {//ofstream& myfile, 
       string bufferstr(buffer);
       string filestr(filename);
       retstr = retstr+filestr+":line "+to_string(linenr)+": ["+bufferstr+"]\n";
-      //printf("%s:line %d: [%s]\n", filename, linenr, buffer);
       // http://gcc.gnu.org/onlinedocs/cpp/Preprocessor-Output.html
       int sscanf_rc = sscanf (buffer, "# %d \"%[^\"]\"",
                               &linenr, inputname);
-      //if line has pattern linenr "
       if (sscanf_rc == 2) {
          string inputstr(inputname);
          retstr=retstr+"DIRECTIVE: line "+to_string(linenr)+" file \""+inputstr+"\"\n";
-         //printf ("DIRECTIVE: line %d file \"%s\"\n", linenr, inputname);
          continue;
       }
       char* savepos = NULL;
@@ -91,7 +88,6 @@ string cpplines (FILE* pipe, char* filename,string retstr) {//ofstream& myfile, 
          if (token == NULL) break;
          string tokenstr(token);
          retstr=retstr+"token "+to_string(linenr)+"."+to_string(tokenct)+": ["+tokenstr+"]\n";
-         //printf ("token %d.%d: [%s]\n",linenr, tokenct, token);
       }
       ++linenr;
 
@@ -99,10 +95,10 @@ string cpplines (FILE* pipe, char* filename,string retstr) {//ofstream& myfile, 
    return retstr;
 }
 
-pair<string,int> cpp_line(int argi, char** argv,string execname,int exit_status){
-    //printf("in cpp_line()\n");
+pair<string,int> cpp_line(int argi, char** argv,string execname,int exit_status,string d_args){
     char* filename = argv[argi];
-    string command = CPP + " " + filename;
+    string command = CPP + " " + d_args + filename;
+    cout<<"command: "<<command<<"\n";
     string procline="command=\""+command+"\"\n";//, command.c_str());
     FILE* pipe = popen (command.c_str(), "r");
     if (pipe == NULL) {
@@ -115,7 +111,6 @@ pair<string,int> cpp_line(int argi, char** argv,string execname,int exit_status)
          eprint_status (command.c_str(), pclose_rc);
          if (pclose_rc != 0) exit_status = EXIT_FAILURE;
 	}
-   //cout<<"procline (in cppstrtok: )"<<procline;
    pair<string,int> rettomain = pair<string,int>(procline, exit_status);
    return rettomain;
 }
