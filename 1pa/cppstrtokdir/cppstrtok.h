@@ -10,5 +10,5 @@ using namespace std;
 #include <wait.h>
 #include <fstream>
 
-pair<string,int> cpp_line(int argi,char** argv,string exec,
+pair<string,int> cpp_line(int i,char** argv,string exec,
     int ext_stat,string darg);

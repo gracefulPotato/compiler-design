@@ -17,21 +17,7 @@ using namespace std;
 #include "cppstrtok.h"
 #include "auxlib.h"
 
-string check_filename(string dotstr){
-   cout<<"dotstr: "<<dotstr<<"\n";
-   if(dotstr.find('.')==std::string::npos){
-       fprintf(stderr,"Usage is\noc -ly <program>.oc\nExiting with status 1\n");
-       return "EXIT_FAILURE";
-   }
-   int dot_index = dotstr.find_last_of(".");
-   dotstr=dotstr.substr(0,dot_index)+".str";
-   cout<<"dotstr mark 2: "<<dotstr<<"\n";
-   return dotstr;
-}
-
-int main(int argc, char** argv){
-   string execname = basename (argv[0]);
-   int exit_status = EXIT_SUCCESS;
+string check_options(int argc, char** argv){
    int option;
    int yy_flex_debug = 0;
    int yydebug = 0;
@@ -63,6 +49,25 @@ int main(int argc, char** argv){
                break;
        }
    }
+   return d_args;
+}
+
+string check_filename(string dotstr){
+   cout<<"dotstr: "<<dotstr<<"\n";
+   if(dotstr.find('.')==std::string::npos){
+       fprintf(stderr,"Usage is\noc -ly <program>.oc\nExiting with status 1\n");
+       return "EXIT_FAILURE";
+   }
+   int dot_index = dotstr.find_last_of(".");
+   dotstr=dotstr.substr(0,dot_index)+".str";
+   cout<<"dotstr mark 2: "<<dotstr<<"\n";
+   return dotstr;
+}
+
+int main(int argc, char** argv){
+   string execname = basename (argv[0]);
+   int exit_status = EXIT_SUCCESS;
+   string d_args = check_options(argc, argv);
    int fileindex = argc-1;
    string dotstr = check_filename(argv[fileindex]);
    if(dotstr.compare("EXIT_FAILURE")){
@@ -79,6 +84,7 @@ int main(int argc, char** argv){
    istringstream iss(cpp_ret.first);
    string line;
    while(getline(iss,line)){
+       //const char* tmp = line.c_str();
        string_set::intern (line.c_str());
    }
    string_set::dump (outfile);
