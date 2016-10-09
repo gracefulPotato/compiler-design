@@ -31,8 +31,7 @@ clean :
 	- rm ${OBJECTS}
 
 spotless : clean
-	- rm ${EXECBIN} ${LISTING} ${DEPFILE}
-   #${LISTING} ${LISTING:.ps=.pdf} test.out misc.lis
+	- rm ${EXECBIN} ${DEPFILE}
 
 ${DEPFILE} :
 	${MKDEP} ${SOURCES} >${DEPFILE}

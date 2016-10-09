@@ -20,7 +20,7 @@ const string* string_set::intern (const char* string) {
 void string_set::dump (FILE* out) {
    static unordered_set<string>::hasher hash_fn
                = string_set::set.hash_function();
-     //string_set's hash_function() is same as unordered_set<string>'s hasher. 
+//string_set's hash_function() same as unordered_set<string> hasher 
    size_t max_bucket_size = 0;
    //bucket starts from 1 (not 0) because ++ is prefixed
    for (size_t bucket = 0; bucket < set.bucket_count(); ++bucket) {
@@ -28,7 +28,8 @@ void string_set::dump (FILE* out) {
       size_t curr_size = set.bucket_size (bucket);
       if (max_bucket_size < curr_size) max_bucket_size = curr_size;
       //max_bucket_size will equal the number of buckets at end of loop
-      for (auto itor = set.cbegin (bucket); //is an iterator starting at num 
+      for (auto itor = set.cbegin (bucket);
+      //is an iterator starting at num 
            itor != set.cend (bucket); ++itor) {
          if (need_index) fprintf (out, "string_set[%4zu]: ", bucket);
                     else fprintf (out, "           %4s   ", "");
