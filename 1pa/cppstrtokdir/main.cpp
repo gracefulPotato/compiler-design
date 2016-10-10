@@ -20,7 +20,8 @@ using namespace std;
 string check_filename(string dotstr){
    cout<<"dotstr: "<<dotstr<<"\n";
    if(dotstr.find('.')==std::string::npos){
-       fprintf(stderr,"Usage is\noc -ly <program>.oc\nExiting with status 1\n");
+       fprintf(stderr,"Usage is\noc -ly <program>.oc\n");
+       fprintf(stderr,"Exiting with status 1\n");
        return "EXIT_FAILURE";
    }
    int dot_index = dotstr.find_last_of(".");
