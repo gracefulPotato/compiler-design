@@ -66,10 +66,13 @@ int main(int argc, char** argv){
    }
    int fileindex = argc-1;
    string dotstr = check_filename(argv[fileindex]);
-   if(dotstr.compare("EXIT_FAILURE")){
+   cout<<"just returned from check_filename with dotstr="<<dotstr;
+   if(dotstr.compare("EXIT_FAILURE")==0){
+       cout<<"dotstr is EXIT_FAILURE, exiting";
        return EXIT_FAILURE;
    }
    FILE * outfile = fopen(dotstr.c_str(),"w");
+   cout<<"just opened outfile";
    string procline;
    pair<string,int> cpp_ret = cpp_line(fileindex,argv,
        execname,exit_status,d_args);
@@ -77,9 +80,11 @@ int main(int argc, char** argv){
        fprintf(stderr,"Exiting with status %d\n",exit_status);
        return exit_status;
    }
+   cout<<cpp_ret.first;
    istringstream iss(cpp_ret.first);
    string line;
    while(getline(iss,line)){
+       //const char* tmp = line.c_str();
        string_set::intern (line.c_str());
    }
    string_set::dump (outfile);

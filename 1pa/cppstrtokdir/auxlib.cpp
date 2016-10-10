@@ -17,12 +17,6 @@ int exec::exit_status = EXIT_SUCCESS;
 const char* debugflags = "";
 bool alldebugflags = false;
 
-static void eprint_signal (const char* kind, int signal) {
-   eprintf (", %s %d", kind, signal);
-   const char* sigstr = strsignal (signal);
-   if (sigstr != NULL) fprintf (stderr, " %s", sigstr);
-}
-
 void veprintf (const char* format, va_list args) {
    assert (exec::execname.size() != 0);
    assert (format != NULL);
