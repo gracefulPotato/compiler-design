@@ -41,9 +41,6 @@ void syserrprintf (const char* object);
 // the reason is taken from the external variable errno.
 // Sets the exit status to EXIT_FAILURE.
 
-void eprint_status (const char* command, int status);
-// Print the status returned by wait(2) from a subprocess.
-
 //
 // Support for stub messages.
 //

@@ -19,7 +19,7 @@ using namespace std;
 
 string check_filename(string dotstr){
    cout<<"dotstr: "<<dotstr<<"\n";
-   if(dotstr.find('.')==std::string::npos){
+   if(dotstr.find(".oc")==std::string::npos){
        fprintf(stderr,"Usage is\noc -ly <program>.oc\n");
        fprintf(stderr,"Exiting with status 1\n");
        return "EXIT_FAILURE";
@@ -45,7 +45,7 @@ int main(int argc, char** argv){
                fprintf(stderr,"option @ used with optarg %s\n",optarg);
                //strcpy(tmparg,optarg);
                //string opt(optarg);
-               //set_debugflags(*optarg);
+               set_debugflags(optarg);
                break;
            }
            case 'l':

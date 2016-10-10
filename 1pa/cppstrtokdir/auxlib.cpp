@@ -23,27 +23,6 @@ static void eprint_signal (const char* kind, int signal) {
    if (sigstr != NULL) fprintf (stderr, " %s", sigstr);
 }
 
-void eprint_status (const char* command, int status) {
-   if (status == 0) return; 
-   eprintf ("%s: status 0x%04X", command, status);
-   if (WIFEXITED (status)) {
-      eprintf (", exit %d", WEXITSTATUS (status));
-   }
-   if (WIFSIGNALED (status)) {
-      eprint_signal ("Terminated", WTERMSIG (status));
-      #ifdef WCOREDUMP
-      if (WCOREDUMP (status)) eprintf (", core dumped");
-      #endif
-   }
-   if (WIFSTOPPED (status)) {
-      eprint_signal ("Stopped", WSTOPSIG (status));
-   }
-   if (WIFCONTINUED (status)) {
-      eprintf (", Continued");
-   }
-   eprintf ("\n");
-}
-
 void veprintf (const char* format, va_list args) {
    assert (exec::execname.size() != 0);
    assert (format != NULL);

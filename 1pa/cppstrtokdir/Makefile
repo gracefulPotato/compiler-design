@@ -6,14 +6,15 @@ VALGRIND   = valgrind --leak-check=full --show-reachable=yes
 
 MKFILE     = Makefile
 DEPFILE    = Makefile.dep
-SOURCES    = main.cpp cppstrtok.cpp string_set.cpp
-HEADERS    = string_set.h cppstrtok.h
+SOURCES    = main.cpp cppstrtok.cpp string_set.cpp auxlib.cpp
+HEADERS    = string_set.h cppstrtok.h auxlib.h
 OBJECTS    = ${SOURCES:.cpp=.o}
 EXECBIN    = oc
 SRCFILES   = ${SOURCES} ${MKFILE}
 SMALLFILES = ${DEPFILE} foo.oc foo1.oh foo2.oh
 CHECKINS   = ${SRCFILES} ${SMALLFILES}
 LISTING    = Listing.ps
+SUBMIT     = submit cmps104a-wm.f16 asg1
 
 all : ${EXECBIN}
 
@@ -54,3 +55,5 @@ lis : misc.lis test
 again :
 	${MAKE} spotless dep all test lis
 
+submit : $(SOURCES)
+	$(SUBMIT) $(SOURCES) $(HEADERS) README Makefile
