@@ -102,7 +102,6 @@ pair<string,int> cpp_line(int i,char** argv,string exec,
     int extstat,string d){
     char* filename = argv[i];
     string command = CPP + " " + d + filename;
-    cout<<"command: "<<command<<"\n";
     string procline="command=\""+command+"\"\n";//, command.c_str());
     FILE* pipe = popen (command.c_str(), "r");
     if (pipe == NULL) {

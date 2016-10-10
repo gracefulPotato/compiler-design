@@ -18,7 +18,6 @@ using namespace std;
 #include "auxlib.h"
 
 string check_filename(string dotstr){
-   cout<<"dotstr: "<<dotstr<<"\n";
    if(dotstr.find(".oc")==std::string::npos){
        fprintf(stderr,"Usage is\noc -ly <program>.oc\n");
        fprintf(stderr,"Exiting with status 1\n");
@@ -26,7 +25,6 @@ string check_filename(string dotstr){
    }
    int dot_index = dotstr.find_last_of(".");
    dotstr=dotstr.substr(0,dot_index)+".str";
-   cout<<"dotstr mark 2: "<<dotstr<<"\n";
    return dotstr;
 }
 
@@ -66,21 +64,18 @@ int main(int argc, char** argv){
    }
    int fileindex = argc-1;
    string dotstr = check_filename(argv[fileindex]);
-   cout<<"just returned from check_filename with dotstr="<<dotstr;
    if(dotstr.compare("EXIT_FAILURE")==0){
-       cout<<"dotstr is EXIT_FAILURE, exiting";
        return EXIT_FAILURE;
    }
    FILE * outfile = fopen(dotstr.c_str(),"w");
-   cout<<"just opened outfile";
    string procline;
    pair<string,int> cpp_ret = cpp_line(fileindex,argv,
        execname,exit_status,d_args);
    if(cpp_ret.second==EXIT_FAILURE){
+       exit_status = cpp_ret.second;
        fprintf(stderr,"Exiting with status %d\n",exit_status);
        return exit_status;
    }
-   cout<<cpp_ret.first;
    istringstream iss(cpp_ret.first);
    string line;
    while(getline(iss,line)){
