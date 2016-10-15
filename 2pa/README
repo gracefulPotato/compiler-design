@@ -1,0 +1,15 @@
+Grace O'Hair-Sherman
+CMPS 104A Compiler Design
+Assignment 1
+
+files:
+
+auxlib.cpp
+auxlib.h
+cppstrtok.cpp
+cppstrtok.h
+main.cpp
+Makefile
+README
+string_set.cpp
+string_set.h
