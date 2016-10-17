@@ -1,0 +1,13 @@
+string_set[   1]:   17083421862201579138 0x1a21678->"command="/usr/bin/cpp empty.oc""
+string_set[   2]:   16715524098040976848 0x1a21e48->"empty.oc:line 1: [# 1 "/usr/include/stdc-predef.h" 1 3 4]"
+string_set[   3]:   14703057761320442605 0x1a21ec8->"DIRECTIVE: line 1 file "/usr/include/stdc-predef.h""
+string_set[   5]:    9428640307143423107 0x1a21f38->"empty.oc:line 1: [# 1 "<command-line>" 2]"
+                     8706924094644059993 0x1a21dc8->"DIRECTIVE: line 1 file "<command-line>""
+                     1081870269723340773 0x1a21c88->"DIRECTIVE: line 1 file "<built-in>""
+string_set[   7]:   10649656345183043327 0x1a21698->"DIRECTIVE: line 1 file "empty.oc""
+string_set[   9]:   17758370155757738043 0x1a21768->"empty.oc:line 1: [# 1 "<built-in>"]"
+string_set[  10]:    9760488436548883010 0x1a21d58->"empty.oc:line 1: [# 1 "<command-line>"]"
+                    11563307737605054694 0x1a21748->"empty.oc:line 1: [# 1 "empty.oc"]"
+load_factor = 0.909
+bucket_count = 11
+max_bucket_size = 3
