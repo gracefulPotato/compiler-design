@@ -16,6 +16,8 @@ using namespace std;
 #include "string_set.h"
 #include "cppstrtok.h"
 #include "auxlib.h"
+#include "lyutils.h"
+#include "astree.h"
 
 string check_filename(string dotstr){
    //dotstr = string(basename(dotstr.c_str()));
@@ -82,6 +84,7 @@ int main(int argc, char** argv){
        string_set::intern(line.c_str());
    }
    string_set::dump (outfile);
+   yylex ();
    fclose(outfile);
    fprintf(stderr,"Exiting with status %d\n",exit_status);
    return exit_status;

@@ -6,9 +6,9 @@ VALGRIND   = valgrind --leak-check=full --show-reachable=yes
 
 MKFILE     = Makefile
 DEPFILE    = Makefile.dep
-SOURCES    = main.cpp cppstrtok.cpp string_set.cpp auxlib.cpp oclib.c
+CPPSRC     = main.cpp cppstrtok.cpp string_set.cpp auxlib.cpp
+SOURCES    = ${CPPSRC} oclib.c
 HEADERS    = string_set.h cppstrtok.h auxlib.h oclib.oh
-OBJECTS    = ${SOURCES:.cpp=.o}
 EXECBIN    = oc
 SRCFILES   = ${SOURCES} ${MKFILE}
 SMALLFILES = ${DEPFILE} foo.oc foo1.oh foo2.oh
@@ -21,6 +21,9 @@ HYGEN      = yyparse.h
 CYGEN      = yyparse.cpp
 LREPORT    = yylex.output
 YREPORT    = yyparse.output
+CGENS      = ${CLGEN} ${CYGEN}
+ALLCSRC    = ${CPPSRC} ${CGENS}
+OBJECTS    = ${ALLCSRC:.cpp=.o}	
 SUBMIT     = submit cmps104a-wm.f16 asg1
 
 all : ${EXECBIN}
@@ -46,7 +49,7 @@ ${DEPFILE} :
 
 ${CLGEN} : ${LSOURCES}
 	flex --outfile=${CLGEN} ${LSOURCES} 2>${LREPORT}
-	- grep -v ’ˆ ’ ${LREPORT}
+	- grep -v '^ ' ${LREPORT}
 
 ${CYGEN} ${HYGEN} : ${YSOURCES}
 	bison --defines=${HYGEN} --output=${CYGEN} ${YSOURCES}
