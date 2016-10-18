@@ -1,5 +1,6 @@
 %{
 #include "lyutils.h"
+
 %}
 
 %option 8bit
@@ -14,5 +15,5 @@ LETTER		[A-Za-z_]
 
 %%
 
-.		{lyutils::lexer::badchar (*yytext);}
+.		{lexer::badchar (*yytext);}
 %%

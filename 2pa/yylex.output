@@ -1,5 +1,5 @@
-scanner.l:18: warning, -s option given but default rule can be matched
-flex version 2.5.37 usage statistics:
+scanner.l:19: warning, -s option given but default rule can be matched
+flex version 2.6.0 usage statistics:
   scanner options: -dsvI8 -Cem -oyylex.cpp
   9/2000 NFA states
   5/1000 DFA states (9 words)
