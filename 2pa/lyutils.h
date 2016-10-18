@@ -24,6 +24,7 @@ int yylex();
 int yylex_destroy();
 int yyparse();
 void yyerror (const char* message);
+const char *get_yytname (int symbol);
 
 struct lexer {
    static bool interactive;
