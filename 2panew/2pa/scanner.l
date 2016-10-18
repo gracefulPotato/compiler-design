@@ -18,4 +18,5 @@
 LETTER		[A-Za-z_]
 
 %%
+.               { lexer::badchar (*yytext); }
 %%

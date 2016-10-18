@@ -6,9 +6,9 @@ VALGRIND   = valgrind --leak-check=full --show-reachable=yes
 
 MKFILE     = Makefile
 DEPFILE    = Makefile.dep
-CPPSRC     = main.cpp cppstrtok.cpp string_set.cpp auxlib.cpp
+CPPSRC     = main.cpp cppstrtok.cpp string_set.cpp auxlib.cpp lyutils.cpp astree.cpp
 SOURCES    = ${CPPSRC} oclib.c
-HEADERS    = string_set.h cppstrtok.h auxlib.h oclib.oh
+HEADERS    = string_set.h cppstrtok.h auxlib.h oclib.oh lyutils.h astree.h
 EXECBIN    = oc
 SRCFILES   = ${SOURCES} ${MKFILE}
 SMALLFILES = ${DEPFILE} foo.oc foo1.oh foo2.oh

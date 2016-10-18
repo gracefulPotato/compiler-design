@@ -17,7 +17,6 @@ using namespace std;
 #include <iostream>
 
 #include "cppstrtok.h"
-#include "lyutils.h"
 #include "string_set.h"
 const string CPP = "/usr/bin/cpp";
 constexpr size_t LINESIZE = 1024;
@@ -104,14 +103,14 @@ pair<string,int> cpp_line(int i,char** argv,string exec,
     char* filename = argv[i];
     string command = CPP + " " + d + filename;
     string procline="command=\""+command+"\"\n";//, command.c_str());
-    yyin = popen (command.c_str(), "r");
-    if (yyin == NULL) {
+    FILE* pipe = popen (command.c_str(), "r");
+    if (pipe == NULL) {
          extstat = EXIT_FAILURE;
          fprintf (stderr, "%s: %s: %s\n",
                   exec.c_str(), command.c_str(), strerror (errno));
     }else {
-         procline = procline + cpplines (yyin, filename,procline);
-         int pclose_rc = pclose (yyin);
+         procline = procline + cpplines (pipe, filename,procline);
+         int pclose_rc = pclose (pipe);
          eprint_status (command.c_str(), pclose_rc);
          if (pclose_rc != 0) extstat = EXIT_FAILURE;
     }

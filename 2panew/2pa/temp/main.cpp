@@ -16,8 +16,6 @@ using namespace std;
 #include "string_set.h"
 #include "cppstrtok.h"
 #include "auxlib.h"
-#include "lyutils.h"
-#include "astree.h"
 
 string check_filename(string dotstr){
    //dotstr = string(basename(dotstr.c_str()));
@@ -71,7 +69,8 @@ int main(int argc, char** argv){
    cout<<dotstr;
    FILE * outfile = fopen(dotstr.c_str(),"w");
    string procline;
-   pair<string,int> cpp_ret = cpp_line(fileindex,argv,execname,exit_status,d_args);
+   pair<string,int> cpp_ret = cpp_line(fileindex,argv,
+       execname,exit_status,d_args);
    if(cpp_ret.second==EXIT_FAILURE){
        exit_status = cpp_ret.second;
        fprintf(stderr,"Exiting with status %d\n",exit_status);
@@ -81,13 +80,9 @@ int main(int argc, char** argv){
    string line;
    while(getline(iss,line)){
        //const char* tmp = line.c_str();
-       string_set::intern(line.c_str());
+       string_set::intern (line.c_str());
    }
    string_set::dump (outfile);
-   while(true){
-       int token = yylex ();
-       if(token==YYEOF) break;
-   }
    fclose(outfile);
    fprintf(stderr,"Exiting with status %d\n",exit_status);
    return exit_status;
