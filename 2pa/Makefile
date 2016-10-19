@@ -23,7 +23,7 @@ LREPORT    = yylex.output
 YREPORT    = yyparse.output
 CGENS      = ${CLGEN} ${CYGEN} ${HYGEN}
 ALLCSRC    = ${CPPSRC} ${CGENS}
-OBJECTS    = ${ALLCSRC:.cpp=.o}	
+OBJECTS    = ${ALLCSRC:.cpp=.o}	${CLGEN}
 SUBMIT     = submit cmps104a-wm.f16 asg1
 
 all : ${EXECBIN}
