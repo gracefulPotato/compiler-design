@@ -5,6 +5,7 @@
    yylval = new astree (SYMBOL, lexer::lloc, yytext); \
    return SYMBOL; \
 }
+
 %}
 
 %option 8bit
@@ -15,8 +16,10 @@
 %option noyywrap
 %option warn
 
-LETTER		[A-Za-z_]
+LETTER          [A-Za-z_]
+IDENT           ({LETTER}*)
 
 %%
+{IDENT}         { RETURN (IDENT);}
 .               { lexer::badchar (*yytext); }
 %%

@@ -110,7 +110,13 @@ pair<string,int> cpp_line(int i,char** argv,string exec,
          fprintf (stderr, "%s: %s: %s\n",
                   exec.c_str(), command.c_str(), strerror (errno));
     }else {
-         procline = procline + cpplines (yyin, filename,procline);
+         //procline = procline + cpplines (yyin, filename,procline);
+         while(true){
+             int token=yylex();
+             if(token==YYEOF) break;
+             string tmp = to_string(token);
+             string_set::intern(tmp.c_str());
+         }
          int pclose_rc = pclose (yyin);
          eprint_status (command.c_str(), pclose_rc);
          if (pclose_rc != 0) extstat = EXIT_FAILURE;
