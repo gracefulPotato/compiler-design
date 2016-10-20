@@ -67,6 +67,7 @@ string cpplines (FILE* pipe, char* filename, string retstr){
    for (;;) {   //infinite loop
       char buffer[LINESIZE];  //array w/ 1024 entries
       char* fgets_rc = fgets (buffer, LINESIZE, pipe);
+      fprintf(stderr,"line: %s",fgets_rc);
       if (fgets_rc == NULL) break;
       chomp (buffer, '\n');
       string bufferstr(buffer);

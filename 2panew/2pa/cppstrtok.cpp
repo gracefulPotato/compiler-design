@@ -19,6 +19,8 @@ using namespace std;
 #include "cppstrtok.h"
 #include "lyutils.h"
 #include "string_set.h"
+#include "astree.h"
+
 const string CPP = "/usr/bin/cpp";
 constexpr size_t LINESIZE = 1024;
 
@@ -61,43 +63,43 @@ void eprint_status (const char* command, int status) {
 
 
 // Run cpp against the lines of the file.
-string cpplines (FILE* pipe, char* filename, string retstr){
-   int linenr = 1;
-   char inputname[LINESIZE];
-   strcpy (inputname, filename);
-   for (;;) {   //infinite loop
-      char buffer[LINESIZE];  //array w/ 1024 entries
-      char* fgets_rc = fgets (buffer, LINESIZE, pipe);
-      if (fgets_rc == NULL) break;
-      chomp (buffer, '\n');
-      string bufferstr(buffer);
-      string filestr(filename);
-      retstr=retstr+filestr+":line "+to_string(linenr);
-      retstr=retstr+": ["+bufferstr+"]\n";
-      // http://gcc.gnu.org/onlinedocs/cpp/Preprocessor-Output.html
-      int sscanf_rc = sscanf (buffer, "# %d \"%[^\"]\"",
-                              &linenr, inputname);
-      if (sscanf_rc == 2) {
-         string inputstr(inputname);
-         retstr=retstr+"DIRECTIVE: line "+to_string(linenr);
-         retstr=retstr+" file \""+inputstr+"\"\n";
-         continue;
-      }
-      char* savepos = NULL;
-      char* bufptr = buffer;
-      for (int tokenct = 1;; ++tokenct) {
-         char* token = strtok_r (bufptr, " \t\n", &savepos);
-         bufptr = NULL;
-         if (token == NULL) break;
-         string tokenstr(token);
-         retstr=retstr+"token "+to_string(linenr)+".";
-         retstr=retstr+to_string(tokenct)+": ["+tokenstr+"]\n";
-      }
-      ++linenr;
-
-   }
-   return retstr;
-}
+//string cpplines (FILE* pipe, char* filename, string retstr){
+//   int linenr = 1;
+//   char inputname[LINESIZE];
+//   strcpy (inputname, filename);
+//   for (;;) {   //infinite loop
+//      char buffer[LINESIZE];  //array w/ 1024 entries
+//      char* fgets_rc = fgets (buffer, LINESIZE, pipe);
+//      if (fgets_rc == NULL) break;
+//      chomp (buffer, '\n');
+//      string bufferstr(buffer);
+//      string filestr(filename);
+//      retstr=retstr+filestr+":line "+to_string(linenr);
+//      retstr=retstr+": ["+bufferstr+"]\n";
+//      // http://gcc.gnu.org/onlinedocs/cpp/Preprocessor-Output.html
+//      int sscanf_rc = sscanf (buffer, "# %d \"%[^\"]\"",
+//                              &linenr, inputname);
+//      if (sscanf_rc == 2) {
+//         string inputstr(inputname);
+//         retstr=retstr+"DIRECTIVE: line "+to_string(linenr);
+//         retstr=retstr+" file \""+inputstr+"\"\n";
+//         continue;
+//      }
+//      char* savepos = NULL;
+//      char* bufptr = buffer;
+//      for (int tokenct = 1;; ++tokenct) {
+//         char* token = strtok_r (bufptr, " \t\n", &savepos);
+//         bufptr = NULL;
+//         if (token == NULL) break;
+//         string tokenstr(token);
+//         retstr=retstr+"token "+to_string(linenr)+".";
+//         retstr=retstr+to_string(tokenct)+": ["+tokenstr+"]\n";
+//      }
+//      ++linenr;
+//
+//   }
+//   return retstr;
+//}
 
 pair<string,int> cpp_line(int i,char** argv,string exec,
     int extstat,string d){
@@ -110,11 +112,19 @@ pair<string,int> cpp_line(int i,char** argv,string exec,
          fprintf (stderr, "%s: %s: %s\n",
                   exec.c_str(), command.c_str(), strerror (errno));
     }else {
+         fprintf(stderr,"yyin not null\n");
+         char buffer[1024];
+         char* fgets_rc = fgets (buffer, 1024, yyin);
+         fprintf(stderr,"yyin line: %s\n",fgets_rc);
+         FILE* testout = fopen("test.out","w");
          //procline = procline + cpplines (yyin, filename,procline);
          while(true){
+             fprintf(stderr,"beginning yylex while loop iteration\n");
+             astree::dump(testout,yylval);
              int token=yylex();
              if(token==YYEOF) break;
              string tmp = to_string(token);
+             fprintf(stderr,"token : %d\n",token);
              string_set::intern(tmp.c_str());
          }
          int pclose_rc = pclose (yyin);

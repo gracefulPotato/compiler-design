@@ -1,6 +1,6 @@
 # $Id: Makefile,v 1.13 2016-08-18 13:01:32-07 - - $
 
-GCC        = g++ -g -O0 -Wall -Wextra -std=gnu++14
+GCC        = g++ -g -O0 -Wall -Wextra -std=gnu++14 -static-libstdc++
 MKDEP      = g++ -MM -std=gnu++14
 VALGRIND   = valgrind --leak-check=full --show-reachable=yes
 
