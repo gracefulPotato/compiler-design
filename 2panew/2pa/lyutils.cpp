@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <fstream>
 
 #include "auxlib.h"
 #include "lyutils.h"
@@ -66,6 +67,10 @@ void lexer::include() {
       if (yy_flex_debug) {
          fprintf (stderr, "--included # %zd \"%s\"\n",
                   linenr, filename);
+         std::ofstream outfile;
+         outfile.open("test.txt", ios::app);
+         std::string filenamestr(filename);
+         outfile << "# "+std::to_string(linenr)+" \""+filenamestr+"\"\n";
       }
       lexer::lloc.linenr = linenr - 1;
       lexer::newfilename (filename);

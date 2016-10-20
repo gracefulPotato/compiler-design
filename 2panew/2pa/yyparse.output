@@ -16,7 +16,7 @@ Grammar
     0 $accept: program $end
 
     1 program: program token
-    2        | /* empty */
+    2        | %empty
 
     3 token: '('
     4      | ')'

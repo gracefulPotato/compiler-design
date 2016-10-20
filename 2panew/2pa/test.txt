@@ -1,0 +1,8 @@
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h"
+# 1 "<command-line>"
+# 1 "03-test3.oc"
+# 1 "oclib.oh"
+# 26 "oclib.oh"
+# 4 "03-test3.oc"
