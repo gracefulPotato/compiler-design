@@ -33,13 +33,13 @@ IDENT (({LETTER}|{UNDERSCORE})({LETTER}|{DIGIT}|{UNDERSCORE})*)
 
 %%
 
+"\'\\n\'"        { RETURN ('\n'); }
 " "             { }
 "#".*           { lexer::include(); }
 NEWLINECHAR     { RETURN (TOK_STRING); }
 CHAR            { RETURN (TOK_CHAR); }
 \n              { lexer::newline(); }
 STRING          { RETURN (TOK_STRING); }
-"\'"            { RETURN ('\''); }
 "\""            { RETURN ('"'); }
 "("             { RETURN ('('); }
 ")"             { RETURN (')'); }
@@ -66,16 +66,16 @@ STRING          { RETURN (TOK_STRING); }
 "char"          { RETURN (TOK_CHAR); }
 "if"            { RETURN (TOK_IF); }
 "else"          { RETURN (TOK_ELSE); }
-"int"          { RETURN (TOK_INT); }
-"new"          { RETURN (TOK_NEW); }
+"int"           { RETURN (TOK_INT); }
+"new"           { RETURN (TOK_NEW); }
 "null"          { RETURN (TOK_NULL); }
-"return"          { RETURN (TOK_RETURN); }
+"return"        { RETURN (TOK_RETURN); }
 "string"        { RETURN (TOK_STRING); }
-"struct"          { RETURN (TOK_STRUCT); }
+"struct"        { RETURN (TOK_STRUCT); }
 "void"          { RETURN (TOK_VOID); }
-"while"          { RETURN (TOK_WHILE); }
+"while"         { RETURN (TOK_WHILE); }
 
-{NUMBER}        { RETURN (TOK_INT); }
+{NUMBER}        { RETURN (TOK_INTCON); }
 {IDENT}         { RETURN (TOK_IDENT); }
 .               { lexer::badchar (*yytext); }
 

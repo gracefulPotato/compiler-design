@@ -28,6 +28,8 @@ int yyparse();
 void yyerror (const char* message);
 const char *get_yytname (int symbol);
 
+static string tokstr;//=null;
+
 struct lexer {
    static bool interactive;
    static location lloc;

@@ -1,0 +1,3 @@
+string_set.o: string_set.cpp string_set.h
+auxlib.o: auxlib.cpp auxlib.h
+oclib.o: oclib.c oclib.oh

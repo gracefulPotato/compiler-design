@@ -13,13 +13,13 @@
 #include <typeinfo>
 using namespace std;
 
+#include "lyutils.h"
 #include "string_set.h"
 #include "cppstrtok.h"
 #include "auxlib.h"
-#include "lyutils.h"
 #include "astree.h"
 
-string check_filename(string dotstr){
+string check_filename (string dotstr){
    //dotstr = string(basename(dotstr.c_str()));
    if(dotstr.find(".oc")==std::string::npos){
        fprintf(stderr,"Usage is\noc -ly <program>.oc\n");
@@ -28,6 +28,8 @@ string check_filename(string dotstr){
    }
    int dot_index = dotstr.find_last_of(".");
    dotstr=dotstr.substr(0,dot_index)+".str";
+   tokstr=dotstr.substr(0,dot_index)+".tok";
+   cout<<"tokstr: "<<tokstr<<"\n\n";
    return dotstr;
 }
 

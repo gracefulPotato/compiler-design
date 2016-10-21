@@ -116,15 +116,22 @@ pair<string,int> cpp_line(int i,char** argv,string exec,
          char buffer[1024];
          char* fgets_rc = fgets (buffer, 1024, yyin);
          fprintf(stderr,"yyin line: %s\n",fgets_rc);
-         FILE* testout = fopen("test.out","w");
+        
+         //FILE* tokstrfile = fopen(tokstr.c_str(),"w+");
+         //fprintf(tokstrfile,"test");
+         //fclose(tokstrfile);
          //procline = procline + cpplines (yyin, filename,procline);
          while(true){
              fprintf(stderr,"beginning yylex while loop iteration\n");
-             astree::dump(testout,yylval);
+             //astree::dump(testout,yylval);
              int token=yylex();
              if(token==YYEOF) break;
              string tmp = to_string(token);
-             fprintf(stderr,"token : %d\n",token);
+             fprintf(stderr,"yylval::symbol result: %s\n",get_yytname(token));//lexinfo->c_str());
+             std::ofstream outfile;
+             outfile.open(tokstr, ios::app);
+             std::string stryytext(yytext);
+             outfile << "  "<<token<<"  "<<get_yytname(token)<<"  ("+stryytext+")\n";
              string_set::intern(tmp.c_str());
          }
          int pclose_rc = pclose (yyin);

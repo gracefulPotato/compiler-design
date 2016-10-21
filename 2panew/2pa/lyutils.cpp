@@ -7,8 +7,8 @@
 #include <string.h>
 #include <fstream>
 
-#include "auxlib.h"
 #include "lyutils.h"
+#include "auxlib.h"
 
 bool lexer::interactive = false;
 location lexer::lloc = {0, 1, 0};
@@ -16,6 +16,8 @@ size_t lexer::last_yyleng = 0;
 vector<string> lexer::filenames;
 
 astree* parser::root = nullptr;
+
+//tokstr = "defaultvalue";
 
 const string* lexer::filename (int filenr) {
    return &lexer::filenames.at(filenr);
@@ -56,6 +58,10 @@ void lexer::badtoken (char* lexeme) {
    errllocprintf (lexer::lloc, "invalid token (%s)\n", lexeme);
 }
 
+//void lexer::setfilename() {
+  
+//}
+
 void lexer::include() {
    size_t linenr;
    static char filename[0x1000];
@@ -68,7 +74,7 @@ void lexer::include() {
          fprintf (stderr, "--included # %zd \"%s\"\n",
                   linenr, filename);
          std::ofstream outfile;
-         outfile.open("test.txt", ios::app);
+         outfile.open(tokstr, ios::app);
          std::string filenamestr(filename);
          outfile << "# "+std::to_string(linenr)+" \""+filenamestr+"\"\n";
       }
