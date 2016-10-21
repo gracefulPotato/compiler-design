@@ -13,7 +13,7 @@ XML2HTML  = xsltproc /usr/share/bison/xslt/xml2xhtml.xsl
 MODULES   = astree lyutils string_set emitter auxlib
 HDRSRC    = ${MODULES:=.h}
 CPPSRC    = ${MODULES:=.cpp} main.cpp
-FLEXSRC   = lexer.l
+FLEXSRC   = scanner.l
 BISONSRC  = parser.y
 PARSEHDR  = yyparse.h
 LEXCPP    = yylex.cpp
