@@ -74,6 +74,7 @@ void lexer::include() {
          fprintf (stderr, "--included # %zd \"%s\"\n",
                   linenr, filename);
          std::ofstream outfile;
+         fprintf(stderr,"lyutils sees tokstr as %s",tokstr.c_str());
          outfile.open(tokstr, ios::app);
          std::string filenamestr(filename);
          outfile << "# "+std::to_string(linenr)+" \""+filenamestr+"\"\n";

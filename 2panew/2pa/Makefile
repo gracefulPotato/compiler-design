@@ -11,16 +11,16 @@ BISON     = bison --defines=${PARSEHDR} --output=${PARSECPP} --xml
 XML2HTML  = xsltproc /usr/share/bison/xslt/xml2xhtml.xsl
 
 MODULES   = astree lyutils string_set emitter auxlib
-HDRSRC    = ${MODULES:=.h}
+HDRSRC    = ${MODULES:=.h} oclib.oh
 CPPSRC    = ${MODULES:=.cpp} main.cpp
 FLEXSRC   = scanner.l
 BISONSRC  = parser.y
 PARSEHDR  = yyparse.h
 LEXCPP    = yylex.cpp
 PARSECPP  = yyparse.cpp
-CGENS     = ${LEXCPP} ${PARSECPP}
+CGENS     = ${LEXCPP} ${PARSECPP} oclib.c
 ALLGENS   = ${PARSEHDR} ${CGENS}
-EXECBIN   = zexprsm
+EXECBIN   = oc
 ALLCSRC   = ${CPPSRC} ${CGENS}
 OBJECTS   = ${ALLCSRC:.cpp=.o}
 LEXOUT    = yylex.output
@@ -32,6 +32,7 @@ ALLSRC    = README ${FLEXSRC} ${BISONSRC} ${MODSRC} ${MISCSRC} Makefile
 TESTINS   = ${wildcard test*.in}
 EXECTEST  = ${EXECBIN} -ly
 LISTSRC   = ${ALLSRC} ${DEPSFILE} ${PARSEHDR}
+SUBMIT    = submit cmps104a-wm.f16 asg2
 
 all : ${EXECBIN}
 
@@ -90,7 +91,10 @@ tests : ${EXECBIN}
 
 again :
 	gmake --no-print-directory spotless deps ci all lis
-	
+
+submit : $(ALLCSRC)
+	$(SUBMIT) $(CPPSRC) $(HDRSRC) $(FLEXSRC) $(BISONSRC) oclib.c README Makefile
+
 ifeq "${NEEDINCL}" ""
 include ${DEPSFILE}
 endif
