@@ -96,6 +96,14 @@ pair<string,int> cpp_line(int i,char** argv,string exec,
    return rettomain;
 }
 
+bool file_exists(const char *file)
+{
+    fprintf(stderr,"checking if %s exists\n",file);
+    std::ifstream infile(file);
+    fprintf(stderr,"file_exists returning %d\n",infile.good());
+    return infile.good();
+}
+
 string check_filename (string dotstr){
    //dotstr = string(basename(dotstr.c_str()));
    if(dotstr.find(".oc")==std::string::npos){
@@ -107,6 +115,12 @@ string check_filename (string dotstr){
    dotstr=dotstr.substr(0,dot_index)+".str";
    tokstr=dotstr.substr(0,dot_index)+".tok";
    cout<<"tokstr: "<<tokstr<<"\n\n";
+   if(file_exists(tokstr.c_str())){
+       fprintf(stderr,"file exists!\n");
+       remove(tokstr.c_str());
+   }else{
+       fprintf(stderr,"file doesn't exist\n");
+   }
    return dotstr;
 }
 

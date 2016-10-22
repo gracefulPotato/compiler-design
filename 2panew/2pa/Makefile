@@ -1,6 +1,6 @@
 # $Id: Makefile,v 1.23 2016-10-12 16:59:53-07 - - $
 
-DEPSFILE  = Makefile.deps
+DEPSFILE  = Makefile.dep
 NOINCLUDE = ci clean spotless
 NEEDINCL  = ${filter ${NOINCLUDE}, ${MAKECMDGOALS}}
 CPP       = g++ -g -O0 -Wall -Wextra -std=gnu++14
@@ -66,7 +66,7 @@ lis : ${LISTSRC} tests
 		${patsubst %, ${test}.%, in out err log}}
 
 clean :
-	- rm ${OBJECTS} ${ALLGENS} ${REPORTS} ${DEPSFILE} core
+	- rm ${OBJECTS} ${ALLGENS} ${REPORTS} ${DEPSFILE}
 	- rm ${foreach test, ${TESTINS:.in=}, \
 		${patsubst %, ${test}.%, out err log}}
 

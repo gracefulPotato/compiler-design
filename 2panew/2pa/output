@@ -1,0 +1,560 @@
+checking if 03-test3.tok exists
+file_exists returning 1
+file exists!
+yyin not null
+yyin line: # 1 "03-test3.oc"
+
+beginning yylex while loop iteration
+--(end of buffer or a NUL)
+--accepting rule at line 38 ("# 1 "<built-in>"")
+--included # 1 "<built-in>"
+lyutils sees tokstr as --accepting rule at line 41 ("
+")
+--accepting rule at line 38 ("# 1 "<command-line>"")
+--included # 1 "<command-line>"
+lyutils sees tokstr as --accepting rule at line 41 ("
+")
+--accepting rule at line 38 ("# 1 "/usr/include/stdc-predef.h" 1 3 4")
+--included # 1 "/usr/include/stdc-predef.h"
+lyutils sees tokstr as --accepting rule at line 41 ("
+")
+--accepting rule at line 38 ("# 1 "<command-line>" 2")
+--included # 1 "<command-line>"
+lyutils sees tokstr as --accepting rule at line 41 ("
+")
+--accepting rule at line 38 ("# 1 "03-test3.oc"")
+--included # 1 "03-test3.oc"
+lyutils sees tokstr as --accepting rule at line 41 ("
+")
+--accepting rule at line 41 ("
+")
+--accepting rule at line 41 ("
+")
+--accepting rule at line 38 ("# 1 "oclib.oh" 1")
+--included # 1 "oclib.oh"
+lyutils sees tokstr as --accepting rule at line 41 ("
+")
+--accepting rule at line 38 ("# 26 "oclib.oh"")
+--included # 26 "oclib.oh"
+lyutils sees tokstr as --accepting rule at line 41 ("
+")
+--accepting rule at line 75 ("void")
+yytext: void
+yylval::symbol result: TOK_VOID
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("__assert_fail")
+yytext: __assert_fail
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+yylval::symbol result: '('
+beginning yylex while loop iteration
+--accepting rule at line 73 ("string")
+yytext: string
+yylval::symbol result: TOK_STRING
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("expr")
+yytext: expr
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 46 (",")
+yytext: ,
+yylval::symbol result: ','
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 73 ("string")
+yytext: string
+yylval::symbol result: TOK_STRING
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("file")
+yytext: file
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 46 (",")
+yytext: ,
+yylval::symbol result: ','
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 69 ("int")
+yytext: int
+yylval::symbol result: TOK_INT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("line")
+yytext: line
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 45 (")")
+yytext: )
+yylval::symbol result: ')'
+beginning yylex while loop iteration
+--accepting rule at line 49 (";")
+yytext: ;
+yylval::symbol result: ';'
+beginning yylex while loop iteration
+--accepting rule at line 41 ("
+")
+--accepting rule at line 75 ("void")
+yytext: void
+yylval::symbol result: TOK_VOID
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("putb")
+yytext: putb
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+yylval::symbol result: '('
+beginning yylex while loop iteration
+--accepting rule at line 69 ("int")
+yytext: int
+yylval::symbol result: TOK_INT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("b")
+yytext: b
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 45 (")")
+yytext: )
+yylval::symbol result: ')'
+beginning yylex while loop iteration
+--accepting rule at line 49 (";")
+yytext: ;
+yylval::symbol result: ';'
+beginning yylex while loop iteration
+--accepting rule at line 41 ("
+")
+--accepting rule at line 75 ("void")
+yytext: void
+yylval::symbol result: TOK_VOID
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("putc")
+yytext: putc
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+yylval::symbol result: '('
+beginning yylex while loop iteration
+--accepting rule at line 66 ("char")
+yytext: char
+yylval::symbol result: TOK_CHAR
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("c")
+yytext: c
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 45 (")")
+yytext: )
+yylval::symbol result: ')'
+beginning yylex while loop iteration
+--accepting rule at line 49 (";")
+yytext: ;
+yylval::symbol result: ';'
+beginning yylex while loop iteration
+--accepting rule at line 41 ("
+")
+--accepting rule at line 75 ("void")
+yytext: void
+yylval::symbol result: TOK_VOID
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("puti")
+yytext: puti
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+yylval::symbol result: '('
+beginning yylex while loop iteration
+--accepting rule at line 69 ("int")
+yytext: int
+yylval::symbol result: TOK_INT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("i")
+yytext: i
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 45 (")")
+yytext: )
+yylval::symbol result: ')'
+beginning yylex while loop iteration
+--accepting rule at line 49 (";")
+yytext: ;
+yylval::symbol result: ';'
+beginning yylex while loop iteration
+--accepting rule at line 41 ("
+")
+--accepting rule at line 75 ("void")
+yytext: void
+yylval::symbol result: TOK_VOID
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("puts")
+yytext: puts
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+yylval::symbol result: '('
+beginning yylex while loop iteration
+--accepting rule at line 73 ("string")
+yytext: string
+yylval::symbol result: TOK_STRING
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("s")
+yytext: s
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 45 (")")
+yytext: )
+yylval::symbol result: ')'
+beginning yylex while loop iteration
+--accepting rule at line 49 (";")
+yytext: ;
+yylval::symbol result: ';'
+beginning yylex while loop iteration
+--accepting rule at line 41 ("
+")
+--accepting rule at line 75 ("void")
+yytext: void
+yylval::symbol result: TOK_VOID
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("endl")
+yytext: endl
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+yylval::symbol result: '('
+beginning yylex while loop iteration
+--accepting rule at line 45 (")")
+yytext: )
+yylval::symbol result: ')'
+beginning yylex while loop iteration
+--accepting rule at line 49 (";")
+yytext: ;
+yylval::symbol result: ';'
+beginning yylex while loop iteration
+--accepting rule at line 41 ("
+")
+--accepting rule at line 69 ("int")
+yytext: int
+yylval::symbol result: TOK_INT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("getc")
+yytext: getc
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+yylval::symbol result: '('
+beginning yylex while loop iteration
+--accepting rule at line 45 (")")
+yytext: )
+yylval::symbol result: ')'
+beginning yylex while loop iteration
+--accepting rule at line 49 (";")
+yytext: ;
+yylval::symbol result: ';'
+beginning yylex while loop iteration
+--accepting rule at line 41 ("
+")
+--accepting rule at line 73 ("string")
+yytext: string
+yylval::symbol result: TOK_STRING
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("getw")
+yytext: getw
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+yylval::symbol result: '('
+beginning yylex while loop iteration
+--accepting rule at line 45 (")")
+yytext: )
+yylval::symbol result: ')'
+beginning yylex while loop iteration
+--accepting rule at line 49 (";")
+yytext: ;
+yylval::symbol result: ';'
+beginning yylex while loop iteration
+--accepting rule at line 41 ("
+")
+--accepting rule at line 73 ("string")
+yytext: string
+yylval::symbol result: TOK_STRING
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("getln")
+yytext: getln
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+yylval::symbol result: '('
+beginning yylex while loop iteration
+--accepting rule at line 45 (")")
+yytext: )
+yylval::symbol result: ')'
+beginning yylex while loop iteration
+--accepting rule at line 49 (";")
+yytext: ;
+yylval::symbol result: ';'
+beginning yylex while loop iteration
+--accepting rule at line 41 ("
+")
+--accepting rule at line 73 ("string")
+yytext: string
+yylval::symbol result: TOK_STRING
+beginning yylex while loop iteration
+--accepting rule at line 63 ("[]")
+yytext: []
+yylval::symbol result: $undefined
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("getargv")
+yytext: getargv
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+yylval::symbol result: '('
+beginning yylex while loop iteration
+--accepting rule at line 45 (")")
+yytext: )
+yylval::symbol result: ')'
+beginning yylex while loop iteration
+--accepting rule at line 49 (";")
+yytext: ;
+yylval::symbol result: ';'
+beginning yylex while loop iteration
+--accepting rule at line 41 ("
+")
+--accepting rule at line 75 ("void")
+yytext: void
+yylval::symbol result: TOK_VOID
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("exit")
+yytext: exit
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+yylval::symbol result: '('
+beginning yylex while loop iteration
+--accepting rule at line 69 ("int")
+yytext: int
+yylval::symbol result: TOK_INT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("status")
+yytext: status
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 45 (")")
+yytext: )
+yylval::symbol result: ')'
+beginning yylex while loop iteration
+--accepting rule at line 49 (";")
+yytext: ;
+yylval::symbol result: ';'
+beginning yylex while loop iteration
+--accepting rule at line 41 ("
+")
+--accepting rule at line 38 ("# 4 "03-test3.oc" 2")
+--included # 4 "03-test3.oc"
+lyutils sees tokstr as --accepting rule at line 41 ("
+")
+--accepting rule at line 41 ("
+")
+--accepting rule at line 69 ("int")
+yytext: int
+yylval::symbol result: TOK_INT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("a")
+yytext: a
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 51 ("=")
+yytext: =
+yylval::symbol result: '='
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 78 ("3")
+yytext: 3
+yylval::symbol result: TOK_INTCON
+beginning yylex while loop iteration
+--accepting rule at line 49 (";")
+yytext: ;
+yylval::symbol result: ';'
+beginning yylex while loop iteration
+--accepting rule at line 41 ("
+")
+--accepting rule at line 69 ("int")
+yytext: int
+yylval::symbol result: TOK_INT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("b")
+yytext: b
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 51 ("=")
+yytext: =
+yylval::symbol result: '='
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 78 ("8")
+yytext: 8
+yylval::symbol result: TOK_INTCON
+beginning yylex while loop iteration
+--accepting rule at line 49 (";")
+yytext: ;
+yylval::symbol result: ';'
+beginning yylex while loop iteration
+--accepting rule at line 41 ("
+")
+--accepting rule at line 69 ("int")
+yytext: int
+yylval::symbol result: TOK_INT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("c")
+yytext: c
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 51 ("=")
+yytext: =
+yylval::symbol result: '='
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("a")
+yytext: a
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 60 ("+")
+yytext: +
+yylval::symbol result: '+'
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("b")
+yytext: b
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 49 (";")
+yytext: ;
+yylval::symbol result: ';'
+beginning yylex while loop iteration
+--accepting rule at line 41 ("
+")
+--accepting rule at line 79 ("a")
+yytext: a
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 51 ("=")
+yytext: =
+yylval::symbol result: '='
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("b")
+yytext: b
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 60 ("+")
+yytext: +
+yylval::symbol result: '+'
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 79 ("c")
+yytext: c
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 49 (";")
+yytext: ;
+yylval::symbol result: ';'
+beginning yylex while loop iteration
+--accepting rule at line 41 ("
+")
+--accepting rule at line 79 ("puti")
+yytext: puti
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+yylval::symbol result: '('
+beginning yylex while loop iteration
+--accepting rule at line 79 ("a")
+yytext: a
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 45 (")")
+yytext: )
+yylval::symbol result: ')'
+beginning yylex while loop iteration
+--accepting rule at line 49 (";")
+yytext: ;
+yylval::symbol result: ';'
+beginning yylex while loop iteration
+--accepting rule at line 41 ("
+")
+--accepting rule at line 79 ("putc")
+yytext: putc
+yylval::symbol result: TOK_IDENT
+beginning yylex while loop iteration
+--accepting rule at line 37 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+yylval::symbol result: '('
+beginning yylex while loop iteration
+--accepting rule at line 36 ("'\n'")
+yytext: '\n'
+yylval::symbol result: $undefined
+beginning yylex while loop iteration
+--accepting rule at line 45 (")")
+yytext: )
+yylval::symbol result: ')'
+beginning yylex while loop iteration
+--accepting rule at line 49 (";")
+yytext: ;
+yylval::symbol result: ';'
+beginning yylex while loop iteration
+--accepting rule at line 41 ("
+")
+--(end of buffer or a NUL)
+--EOF (start condition 0)
+--(end of buffer or a NUL)
