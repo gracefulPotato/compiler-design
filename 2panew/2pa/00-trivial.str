@@ -1,0 +1,4 @@
+string_set[   1]:   12151444931976085803 0xf655a8->"command="/usr/bin/cpp 00-trivial.oc""
+load_factor = 0.500
+bucket_count = 2
+max_bucket_size = 1

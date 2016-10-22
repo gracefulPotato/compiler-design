@@ -633,11 +633,11 @@ int yy_flex_debug = 1;
 
 static yyconst flex_int16_t yy_rule_linenum[45] =
     {   0,
-       36,   37,   38,   39,   40,   41,   42,   43,   44,   45,
-       46,   47,   48,   49,   50,   51,   52,   53,   54,   55,
-       56,   57,   58,   59,   60,   61,   62,   63,   64,   65,
-       66,   67,   68,   69,   70,   71,   72,   73,   74,   75,
-       76,   78,   79,   80
+       38,   39,   40,   41,   42,   43,   44,   45,   46,   47,
+       48,   49,   50,   51,   52,   53,   54,   55,   56,   57,
+       58,   59,   60,   61,   62,   63,   64,   65,   66,   67,
+       68,   69,   70,   71,   72,   73,   74,   75,   76,   77,
+       78,   80,   81,   82
     } ;
 
 /* The intent behind this definition is that it'll catch
@@ -651,16 +651,18 @@ char *yytext;
 #line 1 "scanner.l"
 #line 2 "scanner.l"
 #include "lyutils.h"
+#include "astree.h"
 
 #define YY_USER_ACTION  { lexer::advance(); }
 
 #define RETURN(SYMBOL) { \
    yylval = new astree (SYMBOL, lexer::lloc, yytext); \
    fprintf(stderr,"yytext: %s\n",yytext); \
+   astree::print(tok,yylval,SYMBOL,0); \
    return SYMBOL; \
 }
 
-#line 664 "yylex.cpp"
+#line 666 "yylex.cpp"
 
 #define INITIAL 0
 
@@ -943,10 +945,10 @@ YY_DECL
 
 	{
 /* %% [7.0] user's declarations go here */
-#line 34 "scanner.l"
+#line 36 "scanner.l"
 
 
-#line 950 "yylex.cpp"
+#line 952 "yylex.cpp"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -1028,231 +1030,231 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 36 "scanner.l"
+#line 38 "scanner.l"
 { RETURN ('\n'); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 37 "scanner.l"
+#line 39 "scanner.l"
 { }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 38 "scanner.l"
+#line 40 "scanner.l"
 { lexer::include(); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 39 "scanner.l"
+#line 41 "scanner.l"
 { RETURN (TOK_STRING); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 40 "scanner.l"
+#line 42 "scanner.l"
 { RETURN (TOK_CHAR); }
 	YY_BREAK
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
-#line 41 "scanner.l"
+#line 43 "scanner.l"
 { lexer::newline(); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 42 "scanner.l"
+#line 44 "scanner.l"
 { RETURN (TOK_STRING); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 43 "scanner.l"
+#line 45 "scanner.l"
 { RETURN ('"'); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 44 "scanner.l"
+#line 46 "scanner.l"
 { RETURN ('('); }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 45 "scanner.l"
+#line 47 "scanner.l"
 { RETURN (')'); }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 46 "scanner.l"
+#line 48 "scanner.l"
 { RETURN (','); }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 47 "scanner.l"
+#line 49 "scanner.l"
 { RETURN ('.'); }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 48 "scanner.l"
+#line 50 "scanner.l"
 { RETURN ('/'); }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 49 "scanner.l"
+#line 51 "scanner.l"
 { RETURN (';'); }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 50 "scanner.l"
+#line 52 "scanner.l"
 { RETURN ('<='); }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 51 "scanner.l"
+#line 53 "scanner.l"
 { RETURN ('='); }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 52 "scanner.l"
+#line 54 "scanner.l"
 { RETURN ('<'); }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 53 "scanner.l"
+#line 55 "scanner.l"
 { RETURN ('>='); }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 54 "scanner.l"
+#line 56 "scanner.l"
 { RETURN ('>'); }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 55 "scanner.l"
+#line 57 "scanner.l"
 { RETURN ('=='); }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 56 "scanner.l"
+#line 58 "scanner.l"
 { RETURN ('!='); }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 57 "scanner.l"
+#line 59 "scanner.l"
 { RETURN ('!'); }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 58 "scanner.l"
+#line 60 "scanner.l"
 { RETURN ('%'); }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 59 "scanner.l"
+#line 61 "scanner.l"
 { RETURN ('*'); }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 60 "scanner.l"
+#line 62 "scanner.l"
 { RETURN ('+'); }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 61 "scanner.l"
+#line 63 "scanner.l"
 { RETURN ('['); }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 62 "scanner.l"
+#line 64 "scanner.l"
 { RETURN (']'); }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 63 "scanner.l"
+#line 65 "scanner.l"
 { RETURN ('[]'); }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 64 "scanner.l"
+#line 66 "scanner.l"
 { RETURN ('{'); }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 65 "scanner.l"
+#line 67 "scanner.l"
 { RETURN ('}'); }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 66 "scanner.l"
+#line 68 "scanner.l"
 { RETURN (TOK_CHAR); }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 67 "scanner.l"
+#line 69 "scanner.l"
 { RETURN (TOK_IF); }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 68 "scanner.l"
+#line 70 "scanner.l"
 { RETURN (TOK_ELSE); }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 69 "scanner.l"
+#line 71 "scanner.l"
 { RETURN (TOK_INT); }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 70 "scanner.l"
+#line 72 "scanner.l"
 { RETURN (TOK_NEW); }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 71 "scanner.l"
+#line 73 "scanner.l"
 { RETURN (TOK_NULL); }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 72 "scanner.l"
+#line 74 "scanner.l"
 { RETURN (TOK_RETURN); }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 73 "scanner.l"
+#line 75 "scanner.l"
 { RETURN (TOK_STRING); }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 74 "scanner.l"
+#line 76 "scanner.l"
 { RETURN (TOK_STRUCT); }
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 75 "scanner.l"
+#line 77 "scanner.l"
 { RETURN (TOK_VOID); }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 76 "scanner.l"
+#line 78 "scanner.l"
 { RETURN (TOK_WHILE); }
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 78 "scanner.l"
+#line 80 "scanner.l"
 { RETURN (TOK_INTCON); }
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 79 "scanner.l"
+#line 81 "scanner.l"
 { RETURN (TOK_IDENT); }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 80 "scanner.l"
+#line 82 "scanner.l"
 { lexer::badchar (*yytext); }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 82 "scanner.l"
+#line 84 "scanner.l"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
-#line 1256 "yylex.cpp"
+#line 1258 "yylex.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2356,7 +2358,7 @@ void yyfree (void * ptr )
 
 /* %ok-for-header */
 
-#line 82 "scanner.l"
+#line 84 "scanner.l"
 
 
 

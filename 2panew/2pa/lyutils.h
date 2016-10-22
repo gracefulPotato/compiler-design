@@ -29,6 +29,8 @@ void yyerror (const char* message);
 const char *get_yytname (int symbol);
 
 static string tokstr;//=null;
+extern FILE* tok;
+static int directive_count;
 
 struct lexer {
    static bool interactive;

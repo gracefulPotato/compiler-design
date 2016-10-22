@@ -1,3 +1,4 @@
+
 // $Id: astree.cpp,v 1.14 2016-08-18 15:05:42-07 - - $
 
 #include <assert.h>
@@ -66,11 +67,11 @@ void astree::dump (FILE* outfile, astree* tree) {
                    else tree->dump_node (outfile);
 }
 
-void astree::print (FILE* outfile, astree* tree, int depth) {
-   fprintf (outfile, "; %*s", depth * 3, "");
-   fprintf (outfile, "%s \"%s\" (%zd.%zd.%zd)\n",
-            get_yytname (tree->symbol), tree->lexinfo->c_str(),
-            tree->lloc.filenr, tree->lloc.linenr, tree->lloc.offset);
+void astree::print (FILE* outfile, astree* tree, int symbol, int depth) {
+   fprintf (outfile, "   %d  %02d.%03d  %3d  %-16s(%s)",
+            tree->lloc.filenr, tree->lloc.linenr, tree->lloc.offset,
+            symbol, get_yytname (tree->symbol), tree->lexinfo->c_str());
+   fprintf (outfile, "%*s\n", depth * 3, "");
    for (astree* child: tree->children) {
       astree::print (outfile, child, depth + 1);
    }

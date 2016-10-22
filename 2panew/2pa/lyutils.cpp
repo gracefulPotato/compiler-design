@@ -73,12 +73,19 @@ void lexer::include() {
       if (yy_flex_debug) {
          fprintf (stderr, "--included # %zd \"%s\"\n",
                   linenr, filename);
-         std::ofstream outfile;
-         fprintf(stderr,"lyutils sees tokstr as %s",tokstr.c_str());
-         outfile.open(tokstr, ios::app);
-         std::string filenamestr(filename);
-         outfile << "# "+std::to_string(linenr)+" \""+filenamestr+"\"\n";
+         //std::ofstream outfile;
+         //fprintf(stderr,"lyutils sees tokstr as %s",tokstr.c_str());
+         //outfile.open(tokstr, ios::app);
+         //std::string filenamestr(filename);
+         //outfile << "# "+std::to_string(linenr)+" \""+filenamestr+"\"\n";
       }
+         //std::ofstream outfile;
+         //fprintf(stderr,"lyutils sees tokstr as %s",tokstr.c_str());
+         //outfile.open(tokstr, ios::app);
+      std::string filenamestr(filename);
+      fprintf(stderr,"filenamestr: %s\n",filenamestr);
+         //outfile << "# "+std::to_string(linenr)+" \""+filenamestr+"\"\n";
+      fprintf(tok,"# %2d \"%s\"\n",linenr,filename);
       lexer::lloc.linenr = linenr - 1;
       lexer::newfilename (filename);
    }

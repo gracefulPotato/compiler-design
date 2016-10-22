@@ -19,9 +19,9 @@ PARSEHDR  = yyparse.h
 LEXCPP    = yylex.cpp
 PARSECPP  = yyparse.cpp
 CGENS     = ${LEXCPP} ${PARSECPP} oclib.c
-ALLGENS   = ${PARSEHDR} ${CGENS}
+ALLGENS   = ${PARSEHDR} ${LEXCPP} ${PARSECPP}
 EXECBIN   = oc
-ALLCSRC   = ${CPPSRC} ${CGENS}
+ALLCSRC   = ${CPPSRC} ${LEXCPP} ${PARSECPP}
 OBJECTS   = ${ALLCSRC:.cpp=.o}
 LEXOUT    = yylex.output
 PARSEOUT  = yyparse.output
