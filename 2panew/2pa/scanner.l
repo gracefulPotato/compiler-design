@@ -21,25 +21,25 @@
 %option noyywrap
 %option warn
 
-LETTER [A-Za-z_]
 DIGIT [0-9]
+LETTER [A-Za-z_]
 UNDERSCORE _
+NEWLINE '\n'
 QUOTE "
+ESCAPE [\\(t|n|0)]
 NEWLINECHAR \'\n\'
-DOT .
-
 NUMBER ({DIGIT}+)
-CHAR ({LETTER}|{NEWLINE}|{DOT})
-STRING ({QUOTE}({CHAR}|{NEWLINE})*{QUOTE})
+CHARCON (')
+
+STRING ({QUOTE}({LETTER}|{NEWLINE})*{QUOTE})
 IDENT (({LETTER}|{UNDERSCORE})({LETTER}|{DIGIT}|{UNDERSCORE})*)
+
 
 %%
 
-"\'\\n\'"        { RETURN ('\n'); }
 " "             { }
 "#".*           { lexer::include(); }
-NEWLINECHAR     { RETURN (TOK_STRING); }
-CHAR            { RETURN (TOK_CHAR); }
+"'\\n'"         { RETURN (TOK_CHARCON); }
 \n              { lexer::newline(); }
 STRING          { RETURN (TOK_STRING); }
 "\""            { RETURN ('"'); }
@@ -49,13 +49,13 @@ STRING          { RETURN (TOK_STRING); }
 "."             { RETURN ('.'); }
 "/"             { RETURN ('/'); }
 ";"             { RETURN (';'); }
-"<="            { RETURN ('<='); }
+"<="            { RETURN (TOK_LE); }
+"<"             { RETURN (TOK_LT); }
 "="             { RETURN ('='); }
-"<"             { RETURN ('<'); }
-">="            { RETURN ('>='); }
-">"             { RETURN ('>'); }
-"=="            { RETURN ('=='); }
-"!="            { RETURN ('!='); }
+">="            { RETURN (TOK_GE); }
+">"             { RETURN (TOK_GT); }
+"=="            { RETURN (TOK_EQ); }
+"!="            { RETURN (TOK_NE); }
 "!"             { RETURN ('!'); }
 "%"             { RETURN ('%'); }
 "*"             { RETURN ('*'); }
