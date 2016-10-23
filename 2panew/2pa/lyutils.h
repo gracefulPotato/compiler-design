@@ -30,7 +30,7 @@ const char *get_yytname (int symbol);
 
 static string tokstr;//=null;
 extern FILE* tok;
-static int directive_count;
+extern FILE* outfile;
 
 struct lexer {
    static bool interactive;

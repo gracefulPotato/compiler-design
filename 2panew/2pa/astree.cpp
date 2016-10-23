@@ -73,6 +73,7 @@ void astree::print (FILE* outfile, astree* tree, int symbol, int depth) {
             symbol, get_yytname (tree->symbol), tree->lexinfo->c_str());
    fprintf (outfile, "%*s\n", depth * 3, "");
    for (astree* child: tree->children) {
+      fprintf(stderr,"calling print on a child\n");
       astree::print (outfile, child, depth + 1);
    }
 }

@@ -29,9 +29,8 @@ QUOTE "
 ESCAPE [\\(t|n|0)]
 NEWLINECHAR \'\n\'
 NUMBER ({DIGIT}+)
-CHARCON (')
-
-STRING ({QUOTE}({LETTER}|{NEWLINE})*{QUOTE})
+CHARCON ('([^\\'\n]|\\[\\'"0nt])')
+STRING (\"([^\\"\n]|\\[\\'"0nt])*\")
 IDENT (({LETTER}|{UNDERSCORE})({LETTER}|{DIGIT}|{UNDERSCORE})*)
 
 
@@ -41,8 +40,7 @@ IDENT (({LETTER}|{UNDERSCORE})({LETTER}|{DIGIT}|{UNDERSCORE})*)
 "#".*           { lexer::include(); }
 "'\\n'"         { RETURN (TOK_CHARCON); }
 \n              { lexer::newline(); }
-STRING          { RETURN (TOK_STRING); }
-"\""            { RETURN ('"'); }
+{STRING}        { RETURN (TOK_STRINGCON); }
 "("             { RETURN ('('); }
 ")"             { RETURN (')'); }
 ","             { RETURN (','); }
@@ -60,9 +58,10 @@ STRING          { RETURN (TOK_STRING); }
 "%"             { RETURN ('%'); }
 "*"             { RETURN ('*'); }
 "+"             { RETURN ('+'); }
+"-"             { RETURN ('-'); }
 "["             { RETURN ('['); }
 "]"             { RETURN (']'); }
-"[]"            { RETURN ('[]'); }
+"[]"            { RETURN (TOK_ARRAY); }
 "{"             { RETURN ('{'); }
 "}"             { RETURN ('}'); }
 "char"          { RETURN (TOK_CHAR); }

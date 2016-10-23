@@ -1,560 +1,1332 @@
-checking if 03-test3.tok exists
+flag l used!
+yy_flex_debug set to 1checking if 45-towers-of-hanoi.tok exists
 file_exists returning 1
 file exists!
 yyin not null
-yyin line: # 1 "03-test3.oc"
-
-beginning yylex while loop iteration
 --(end of buffer or a NUL)
---accepting rule at line 38 ("# 1 "<built-in>"")
+--accepting rule at line 40 ("# 1 "45-towers-of-hanoi.oc"")
+--included # 1 "45-towers-of-hanoi.oc"
+filenamestr: p”%
+--accepting rule at line 42 ("
+")
+--accepting rule at line 40 ("# 1 "<built-in>"")
 --included # 1 "<built-in>"
-lyutils sees tokstr as --accepting rule at line 41 ("
+filenamestr: ê•¥∞ˇ
+--accepting rule at line 42 ("
 ")
---accepting rule at line 38 ("# 1 "<command-line>"")
+--accepting rule at line 40 ("# 1 "<command-line>"")
 --included # 1 "<command-line>"
-lyutils sees tokstr as --accepting rule at line 41 ("
+filenamestr: ê•¥∞ˇ
+--accepting rule at line 42 ("
 ")
---accepting rule at line 38 ("# 1 "/usr/include/stdc-predef.h" 1 3 4")
+--accepting rule at line 40 ("# 1 "/usr/include/stdc-predef.h" 1 3 4")
 --included # 1 "/usr/include/stdc-predef.h"
-lyutils sees tokstr as --accepting rule at line 41 ("
+filenamestr: ¿„%
+--accepting rule at line 42 ("
 ")
---accepting rule at line 38 ("# 1 "<command-line>" 2")
+--accepting rule at line 40 ("# 1 "<command-line>" 2")
 --included # 1 "<command-line>"
-lyutils sees tokstr as --accepting rule at line 41 ("
+filenamestr: ê•¥∞ˇ
+--accepting rule at line 42 ("
 ")
---accepting rule at line 38 ("# 1 "03-test3.oc"")
---included # 1 "03-test3.oc"
-lyutils sees tokstr as --accepting rule at line 41 ("
+--accepting rule at line 40 ("# 1 "45-towers-of-hanoi.oc"")
+--included # 1 "45-towers-of-hanoi.oc"
+filenamestr: p”%
+--accepting rule at line 42 ("
 ")
---accepting rule at line 41 ("
+--accepting rule at line 42 ("
 ")
---accepting rule at line 41 ("
+--accepting rule at line 42 ("
 ")
---accepting rule at line 38 ("# 1 "oclib.oh" 1")
+--accepting rule at line 40 ("# 1 "oclib.oh" 1")
 --included # 1 "oclib.oh"
-lyutils sees tokstr as --accepting rule at line 41 ("
+filenamestr: ê•¥∞ˇ
+--accepting rule at line 42 ("
 ")
---accepting rule at line 38 ("# 26 "oclib.oh"")
+--accepting rule at line 40 ("# 26 "oclib.oh"")
 --included # 26 "oclib.oh"
-lyutils sees tokstr as --accepting rule at line 41 ("
+filenamestr: ê•¥∞ˇ
+--accepting rule at line 42 ("
 ")
---accepting rule at line 75 ("void")
+--accepting rule at line 76 ("void")
 yytext: void
-yylval::symbol result: TOK_VOID
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("__assert_fail")
+lexer::lloc:
+filenr: 7
+linenr: 26
+offset: 1
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("__assert_fail")
 yytext: __assert_fail
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
+lexer::lloc:
+filenr: 7
+linenr: 26
+offset: 6
+--accepting rule at line 39 (" ")
 --accepting rule at line 44 ("(")
 yytext: (
-yylval::symbol result: '('
-beginning yylex while loop iteration
---accepting rule at line 73 ("string")
+lexer::lloc:
+filenr: 7
+linenr: 26
+offset: 20
+--accepting rule at line 74 ("string")
 yytext: string
-yylval::symbol result: TOK_STRING
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("expr")
+lexer::lloc:
+filenr: 7
+linenr: 26
+offset: 21
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("expr")
 yytext: expr
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 26
+offset: 28
 --accepting rule at line 46 (",")
 yytext: ,
-yylval::symbol result: ','
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 73 ("string")
+lexer::lloc:
+filenr: 7
+linenr: 26
+offset: 32
+--accepting rule at line 39 (" ")
+--accepting rule at line 74 ("string")
 yytext: string
-yylval::symbol result: TOK_STRING
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("file")
+lexer::lloc:
+filenr: 7
+linenr: 26
+offset: 34
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("file")
 yytext: file
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 26
+offset: 41
 --accepting rule at line 46 (",")
 yytext: ,
-yylval::symbol result: ','
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 69 ("int")
+lexer::lloc:
+filenr: 7
+linenr: 26
+offset: 45
+--accepting rule at line 39 (" ")
+--accepting rule at line 70 ("int")
 yytext: int
-yylval::symbol result: TOK_INT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("line")
+lexer::lloc:
+filenr: 7
+linenr: 26
+offset: 47
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("line")
 yytext: line
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 26
+offset: 51
 --accepting rule at line 45 (")")
 yytext: )
-yylval::symbol result: ')'
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 26
+offset: 55
 --accepting rule at line 49 (";")
 yytext: ;
-yylval::symbol result: ';'
-beginning yylex while loop iteration
---accepting rule at line 41 ("
+lexer::lloc:
+filenr: 7
+linenr: 26
+offset: 56
+--accepting rule at line 42 ("
 ")
---accepting rule at line 75 ("void")
+--accepting rule at line 76 ("void")
 yytext: void
-yylval::symbol result: TOK_VOID
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("putb")
+lexer::lloc:
+filenr: 7
+linenr: 27
+offset: 1
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("putb")
 yytext: putb
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
+lexer::lloc:
+filenr: 7
+linenr: 27
+offset: 6
+--accepting rule at line 39 (" ")
 --accepting rule at line 44 ("(")
 yytext: (
-yylval::symbol result: '('
-beginning yylex while loop iteration
---accepting rule at line 69 ("int")
+lexer::lloc:
+filenr: 7
+linenr: 27
+offset: 11
+--accepting rule at line 70 ("int")
 yytext: int
-yylval::symbol result: TOK_INT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("b")
+lexer::lloc:
+filenr: 7
+linenr: 27
+offset: 12
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("b")
 yytext: b
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 27
+offset: 16
 --accepting rule at line 45 (")")
 yytext: )
-yylval::symbol result: ')'
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 27
+offset: 17
 --accepting rule at line 49 (";")
 yytext: ;
-yylval::symbol result: ';'
-beginning yylex while loop iteration
---accepting rule at line 41 ("
+lexer::lloc:
+filenr: 7
+linenr: 27
+offset: 18
+--accepting rule at line 42 ("
 ")
---accepting rule at line 75 ("void")
+--accepting rule at line 76 ("void")
 yytext: void
-yylval::symbol result: TOK_VOID
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("putc")
+lexer::lloc:
+filenr: 7
+linenr: 28
+offset: 1
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("putc")
 yytext: putc
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
+lexer::lloc:
+filenr: 7
+linenr: 28
+offset: 6
+--accepting rule at line 39 (" ")
 --accepting rule at line 44 ("(")
 yytext: (
-yylval::symbol result: '('
-beginning yylex while loop iteration
---accepting rule at line 66 ("char")
+lexer::lloc:
+filenr: 7
+linenr: 28
+offset: 11
+--accepting rule at line 67 ("char")
 yytext: char
-yylval::symbol result: TOK_CHAR
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("c")
+lexer::lloc:
+filenr: 7
+linenr: 28
+offset: 12
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("c")
 yytext: c
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 28
+offset: 17
 --accepting rule at line 45 (")")
 yytext: )
-yylval::symbol result: ')'
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 28
+offset: 18
 --accepting rule at line 49 (";")
 yytext: ;
-yylval::symbol result: ';'
-beginning yylex while loop iteration
---accepting rule at line 41 ("
+lexer::lloc:
+filenr: 7
+linenr: 28
+offset: 19
+--accepting rule at line 42 ("
 ")
---accepting rule at line 75 ("void")
+--accepting rule at line 76 ("void")
 yytext: void
-yylval::symbol result: TOK_VOID
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("puti")
+lexer::lloc:
+filenr: 7
+linenr: 29
+offset: 1
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("puti")
 yytext: puti
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
+lexer::lloc:
+filenr: 7
+linenr: 29
+offset: 6
+--accepting rule at line 39 (" ")
 --accepting rule at line 44 ("(")
 yytext: (
-yylval::symbol result: '('
-beginning yylex while loop iteration
---accepting rule at line 69 ("int")
+lexer::lloc:
+filenr: 7
+linenr: 29
+offset: 11
+--accepting rule at line 70 ("int")
 yytext: int
-yylval::symbol result: TOK_INT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("i")
+lexer::lloc:
+filenr: 7
+linenr: 29
+offset: 12
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("i")
 yytext: i
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 29
+offset: 16
 --accepting rule at line 45 (")")
 yytext: )
-yylval::symbol result: ')'
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 29
+offset: 17
 --accepting rule at line 49 (";")
 yytext: ;
-yylval::symbol result: ';'
-beginning yylex while loop iteration
---accepting rule at line 41 ("
+lexer::lloc:
+filenr: 7
+linenr: 29
+offset: 18
+--accepting rule at line 42 ("
 ")
---accepting rule at line 75 ("void")
+--accepting rule at line 76 ("void")
 yytext: void
-yylval::symbol result: TOK_VOID
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("puts")
+lexer::lloc:
+filenr: 7
+linenr: 30
+offset: 1
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("puts")
 yytext: puts
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
+lexer::lloc:
+filenr: 7
+linenr: 30
+offset: 6
+--accepting rule at line 39 (" ")
 --accepting rule at line 44 ("(")
 yytext: (
-yylval::symbol result: '('
-beginning yylex while loop iteration
---accepting rule at line 73 ("string")
+lexer::lloc:
+filenr: 7
+linenr: 30
+offset: 11
+--accepting rule at line 74 ("string")
 yytext: string
-yylval::symbol result: TOK_STRING
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("s")
+lexer::lloc:
+filenr: 7
+linenr: 30
+offset: 12
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("s")
 yytext: s
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 30
+offset: 19
 --accepting rule at line 45 (")")
 yytext: )
-yylval::symbol result: ')'
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 30
+offset: 20
 --accepting rule at line 49 (";")
 yytext: ;
-yylval::symbol result: ';'
-beginning yylex while loop iteration
---accepting rule at line 41 ("
+lexer::lloc:
+filenr: 7
+linenr: 30
+offset: 21
+--accepting rule at line 42 ("
 ")
---accepting rule at line 75 ("void")
+--accepting rule at line 76 ("void")
 yytext: void
-yylval::symbol result: TOK_VOID
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("endl")
+lexer::lloc:
+filenr: 7
+linenr: 31
+offset: 1
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("endl")
 yytext: endl
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
+lexer::lloc:
+filenr: 7
+linenr: 31
+offset: 6
+--accepting rule at line 39 (" ")
 --accepting rule at line 44 ("(")
 yytext: (
-yylval::symbol result: '('
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 31
+offset: 11
 --accepting rule at line 45 (")")
 yytext: )
-yylval::symbol result: ')'
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 31
+offset: 12
 --accepting rule at line 49 (";")
 yytext: ;
-yylval::symbol result: ';'
-beginning yylex while loop iteration
---accepting rule at line 41 ("
+lexer::lloc:
+filenr: 7
+linenr: 31
+offset: 13
+--accepting rule at line 42 ("
 ")
---accepting rule at line 69 ("int")
+--accepting rule at line 70 ("int")
 yytext: int
-yylval::symbol result: TOK_INT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("getc")
+lexer::lloc:
+filenr: 7
+linenr: 32
+offset: 1
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("getc")
 yytext: getc
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
+lexer::lloc:
+filenr: 7
+linenr: 32
+offset: 5
+--accepting rule at line 39 (" ")
 --accepting rule at line 44 ("(")
 yytext: (
-yylval::symbol result: '('
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 32
+offset: 10
 --accepting rule at line 45 (")")
 yytext: )
-yylval::symbol result: ')'
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 32
+offset: 11
 --accepting rule at line 49 (";")
 yytext: ;
-yylval::symbol result: ';'
-beginning yylex while loop iteration
---accepting rule at line 41 ("
+lexer::lloc:
+filenr: 7
+linenr: 32
+offset: 12
+--accepting rule at line 42 ("
 ")
---accepting rule at line 73 ("string")
+--accepting rule at line 74 ("string")
 yytext: string
-yylval::symbol result: TOK_STRING
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("getw")
+lexer::lloc:
+filenr: 7
+linenr: 33
+offset: 1
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("getw")
 yytext: getw
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
+lexer::lloc:
+filenr: 7
+linenr: 33
+offset: 8
+--accepting rule at line 39 (" ")
 --accepting rule at line 44 ("(")
 yytext: (
-yylval::symbol result: '('
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 33
+offset: 13
 --accepting rule at line 45 (")")
 yytext: )
-yylval::symbol result: ')'
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 33
+offset: 14
 --accepting rule at line 49 (";")
 yytext: ;
-yylval::symbol result: ';'
-beginning yylex while loop iteration
---accepting rule at line 41 ("
+lexer::lloc:
+filenr: 7
+linenr: 33
+offset: 15
+--accepting rule at line 42 ("
 ")
---accepting rule at line 73 ("string")
+--accepting rule at line 74 ("string")
 yytext: string
-yylval::symbol result: TOK_STRING
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("getln")
+lexer::lloc:
+filenr: 7
+linenr: 34
+offset: 1
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("getln")
 yytext: getln
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
+lexer::lloc:
+filenr: 7
+linenr: 34
+offset: 8
+--accepting rule at line 39 (" ")
 --accepting rule at line 44 ("(")
 yytext: (
-yylval::symbol result: '('
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 34
+offset: 14
 --accepting rule at line 45 (")")
 yytext: )
-yylval::symbol result: ')'
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 34
+offset: 15
 --accepting rule at line 49 (";")
 yytext: ;
-yylval::symbol result: ';'
-beginning yylex while loop iteration
---accepting rule at line 41 ("
+lexer::lloc:
+filenr: 7
+linenr: 34
+offset: 16
+--accepting rule at line 42 ("
 ")
---accepting rule at line 73 ("string")
+--accepting rule at line 74 ("string")
 yytext: string
-yylval::symbol result: TOK_STRING
-beginning yylex while loop iteration
---accepting rule at line 63 ("[]")
+lexer::lloc:
+filenr: 7
+linenr: 35
+offset: 1
+--accepting rule at line 64 ("[]")
 yytext: []
-yylval::symbol result: $undefined
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("getargv")
+lexer::lloc:
+filenr: 7
+linenr: 35
+offset: 7
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("getargv")
 yytext: getargv
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
+lexer::lloc:
+filenr: 7
+linenr: 35
+offset: 10
+--accepting rule at line 39 (" ")
 --accepting rule at line 44 ("(")
 yytext: (
-yylval::symbol result: '('
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 35
+offset: 18
 --accepting rule at line 45 (")")
 yytext: )
-yylval::symbol result: ')'
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 35
+offset: 19
 --accepting rule at line 49 (";")
 yytext: ;
-yylval::symbol result: ';'
-beginning yylex while loop iteration
---accepting rule at line 41 ("
+lexer::lloc:
+filenr: 7
+linenr: 35
+offset: 20
+--accepting rule at line 42 ("
 ")
---accepting rule at line 75 ("void")
+--accepting rule at line 76 ("void")
 yytext: void
-yylval::symbol result: TOK_VOID
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("exit")
+lexer::lloc:
+filenr: 7
+linenr: 36
+offset: 1
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("exit")
 yytext: exit
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
+lexer::lloc:
+filenr: 7
+linenr: 36
+offset: 6
+--accepting rule at line 39 (" ")
 --accepting rule at line 44 ("(")
 yytext: (
-yylval::symbol result: '('
-beginning yylex while loop iteration
---accepting rule at line 69 ("int")
+lexer::lloc:
+filenr: 7
+linenr: 36
+offset: 11
+--accepting rule at line 70 ("int")
 yytext: int
-yylval::symbol result: TOK_INT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("status")
+lexer::lloc:
+filenr: 7
+linenr: 36
+offset: 12
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("status")
 yytext: status
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 36
+offset: 16
 --accepting rule at line 45 (")")
 yytext: )
-yylval::symbol result: ')'
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 7
+linenr: 36
+offset: 22
 --accepting rule at line 49 (";")
 yytext: ;
-yylval::symbol result: ';'
-beginning yylex while loop iteration
---accepting rule at line 41 ("
+lexer::lloc:
+filenr: 7
+linenr: 36
+offset: 23
+--accepting rule at line 42 ("
 ")
---accepting rule at line 38 ("# 4 "03-test3.oc" 2")
---included # 4 "03-test3.oc"
-lyutils sees tokstr as --accepting rule at line 41 ("
+--accepting rule at line 40 ("# 4 "45-towers-of-hanoi.oc" 2")
+--included # 4 "45-towers-of-hanoi.oc"
+filenamestr: p”%
+--accepting rule at line 42 ("
 ")
---accepting rule at line 41 ("
+--accepting rule at line 42 ("
 ")
---accepting rule at line 69 ("int")
-yytext: int
-yylval::symbol result: TOK_INT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("a")
-yytext: a
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 51 ("=")
-yytext: =
-yylval::symbol result: '='
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 78 ("3")
-yytext: 3
-yylval::symbol result: TOK_INTCON
-beginning yylex while loop iteration
---accepting rule at line 49 (";")
-yytext: ;
-yylval::symbol result: ';'
-beginning yylex while loop iteration
---accepting rule at line 41 ("
-")
---accepting rule at line 69 ("int")
-yytext: int
-yylval::symbol result: TOK_INT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("b")
-yytext: b
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 51 ("=")
-yytext: =
-yylval::symbol result: '='
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 78 ("8")
-yytext: 8
-yylval::symbol result: TOK_INTCON
-beginning yylex while loop iteration
---accepting rule at line 49 (";")
-yytext: ;
-yylval::symbol result: ';'
-beginning yylex while loop iteration
---accepting rule at line 41 ("
-")
---accepting rule at line 69 ("int")
-yytext: int
-yylval::symbol result: TOK_INT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("c")
-yytext: c
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 51 ("=")
-yytext: =
-yylval::symbol result: '='
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("a")
-yytext: a
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 60 ("+")
-yytext: +
-yylval::symbol result: '+'
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("b")
-yytext: b
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 49 (";")
-yytext: ;
-yylval::symbol result: ';'
-beginning yylex while loop iteration
---accepting rule at line 41 ("
-")
---accepting rule at line 79 ("a")
-yytext: a
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 51 ("=")
-yytext: =
-yylval::symbol result: '='
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("b")
-yytext: b
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 60 ("+")
-yytext: +
-yylval::symbol result: '+'
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
---accepting rule at line 79 ("c")
-yytext: c
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 49 (";")
-yytext: ;
-yylval::symbol result: ';'
-beginning yylex while loop iteration
---accepting rule at line 41 ("
-")
---accepting rule at line 79 ("puti")
-yytext: puti
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
+--accepting rule at line 76 ("void")
+yytext: void
+lexer::lloc:
+filenr: 8
+linenr: 5
+offset: 1
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("move")
+yytext: move
+lexer::lloc:
+filenr: 8
+linenr: 5
+offset: 6
+--accepting rule at line 39 (" ")
 --accepting rule at line 44 ("(")
 yytext: (
-yylval::symbol result: '('
-beginning yylex while loop iteration
---accepting rule at line 79 ("a")
-yytext: a
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 8
+linenr: 5
+offset: 11
+--accepting rule at line 74 ("string")
+yytext: string
+lexer::lloc:
+filenr: 8
+linenr: 5
+offset: 12
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("src")
+yytext: src
+lexer::lloc:
+filenr: 8
+linenr: 5
+offset: 19
+--accepting rule at line 46 (",")
+yytext: ,
+lexer::lloc:
+filenr: 8
+linenr: 5
+offset: 22
+--accepting rule at line 39 (" ")
+--accepting rule at line 74 ("string")
+yytext: string
+lexer::lloc:
+filenr: 8
+linenr: 5
+offset: 24
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("dst")
+yytext: dst
+lexer::lloc:
+filenr: 8
+linenr: 5
+offset: 31
 --accepting rule at line 45 (")")
 yytext: )
-yylval::symbol result: ')'
-beginning yylex while loop iteration
---accepting rule at line 49 (";")
-yytext: ;
-yylval::symbol result: ';'
-beginning yylex while loop iteration
---accepting rule at line 41 ("
+lexer::lloc:
+filenr: 8
+linenr: 5
+offset: 34
+--accepting rule at line 39 (" ")
+--accepting rule at line 65 ("{")
+yytext: {
+lexer::lloc:
+filenr: 8
+linenr: 5
+offset: 36
+--accepting rule at line 42 ("
 ")
---accepting rule at line 79 ("putc")
-yytext: putc
-yylval::symbol result: TOK_IDENT
-beginning yylex while loop iteration
---accepting rule at line 37 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("puts")
+yytext: puts
+lexer::lloc:
+filenr: 8
+linenr: 6
+offset: 4
+--accepting rule at line 39 (" ")
 --accepting rule at line 44 ("(")
 yytext: (
-yylval::symbol result: '('
-beginning yylex while loop iteration
---accepting rule at line 36 ("'\n'")
-yytext: '\n'
-yylval::symbol result: $undefined
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 8
+linenr: 6
+offset: 9
+--accepting rule at line 43 (""Move a disk from "")
+yytext: "Move a disk from "
+lexer::lloc:
+filenr: 8
+linenr: 6
+offset: 10
 --accepting rule at line 45 (")")
 yytext: )
-yylval::symbol result: ')'
-beginning yylex while loop iteration
+lexer::lloc:
+filenr: 8
+linenr: 6
+offset: 29
 --accepting rule at line 49 (";")
 yytext: ;
-yylval::symbol result: ';'
-beginning yylex while loop iteration
---accepting rule at line 41 ("
+lexer::lloc:
+filenr: 8
+linenr: 6
+offset: 30
+--accepting rule at line 42 ("
+")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("puts")
+yytext: puts
+lexer::lloc:
+filenr: 8
+linenr: 7
+offset: 4
+--accepting rule at line 39 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+lexer::lloc:
+filenr: 8
+linenr: 7
+offset: 9
+--accepting rule at line 80 ("src")
+yytext: src
+lexer::lloc:
+filenr: 8
+linenr: 7
+offset: 10
+--accepting rule at line 45 (")")
+yytext: )
+lexer::lloc:
+filenr: 8
+linenr: 7
+offset: 13
+--accepting rule at line 49 (";")
+yytext: ;
+lexer::lloc:
+filenr: 8
+linenr: 7
+offset: 14
+--accepting rule at line 42 ("
+")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("puts")
+yytext: puts
+lexer::lloc:
+filenr: 8
+linenr: 8
+offset: 4
+--accepting rule at line 39 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+lexer::lloc:
+filenr: 8
+linenr: 8
+offset: 9
+--accepting rule at line 43 ("" to "")
+yytext: " to "
+lexer::lloc:
+filenr: 8
+linenr: 8
+offset: 10
+--accepting rule at line 45 (")")
+yytext: )
+lexer::lloc:
+filenr: 8
+linenr: 8
+offset: 16
+--accepting rule at line 49 (";")
+yytext: ;
+lexer::lloc:
+filenr: 8
+linenr: 8
+offset: 17
+--accepting rule at line 42 ("
+")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("puts")
+yytext: puts
+lexer::lloc:
+filenr: 8
+linenr: 9
+offset: 4
+--accepting rule at line 39 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+lexer::lloc:
+filenr: 8
+linenr: 9
+offset: 9
+--accepting rule at line 80 ("dst")
+yytext: dst
+lexer::lloc:
+filenr: 8
+linenr: 9
+offset: 10
+--accepting rule at line 45 (")")
+yytext: )
+lexer::lloc:
+filenr: 8
+linenr: 9
+offset: 13
+--accepting rule at line 49 (";")
+yytext: ;
+lexer::lloc:
+filenr: 8
+linenr: 9
+offset: 14
+--accepting rule at line 42 ("
+")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("puts")
+yytext: puts
+lexer::lloc:
+filenr: 8
+linenr: 10
+offset: 4
+--accepting rule at line 39 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+lexer::lloc:
+filenr: 8
+linenr: 10
+offset: 9
+--accepting rule at line 43 ("".\n"")
+yytext: ".\n"
+lexer::lloc:
+filenr: 8
+linenr: 10
+offset: 10
+--accepting rule at line 45 (")")
+yytext: )
+lexer::lloc:
+filenr: 8
+linenr: 10
+offset: 15
+--accepting rule at line 49 (";")
+yytext: ;
+lexer::lloc:
+filenr: 8
+linenr: 10
+offset: 16
+--accepting rule at line 42 ("
+")
+--accepting rule at line 66 ("}")
+yytext: }
+lexer::lloc:
+filenr: 8
+linenr: 11
+offset: 1
+--accepting rule at line 42 ("
+")
+--accepting rule at line 42 ("
+")
+--accepting rule at line 76 ("void")
+yytext: void
+lexer::lloc:
+filenr: 8
+linenr: 13
+offset: 1
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("towers")
+yytext: towers
+lexer::lloc:
+filenr: 8
+linenr: 13
+offset: 6
+--accepting rule at line 39 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+lexer::lloc:
+filenr: 8
+linenr: 13
+offset: 13
+--accepting rule at line 70 ("int")
+yytext: int
+lexer::lloc:
+filenr: 8
+linenr: 13
+offset: 14
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("ndisks")
+yytext: ndisks
+lexer::lloc:
+filenr: 8
+linenr: 13
+offset: 18
+--accepting rule at line 46 (",")
+yytext: ,
+lexer::lloc:
+filenr: 8
+linenr: 13
+offset: 24
+--accepting rule at line 39 (" ")
+--accepting rule at line 74 ("string")
+yytext: string
+lexer::lloc:
+filenr: 8
+linenr: 13
+offset: 26
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("src")
+yytext: src
+lexer::lloc:
+filenr: 8
+linenr: 13
+offset: 33
+--accepting rule at line 46 (",")
+yytext: ,
+lexer::lloc:
+filenr: 8
+linenr: 13
+offset: 36
+--accepting rule at line 39 (" ")
+--accepting rule at line 74 ("string")
+yytext: string
+lexer::lloc:
+filenr: 8
+linenr: 13
+offset: 38
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("tmp")
+yytext: tmp
+lexer::lloc:
+filenr: 8
+linenr: 13
+offset: 45
+--accepting rule at line 46 (",")
+yytext: ,
+lexer::lloc:
+filenr: 8
+linenr: 13
+offset: 48
+--accepting rule at line 39 (" ")
+--accepting rule at line 74 ("string")
+yytext: string
+lexer::lloc:
+filenr: 8
+linenr: 13
+offset: 50
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("dst")
+yytext: dst
+lexer::lloc:
+filenr: 8
+linenr: 13
+offset: 57
+--accepting rule at line 45 (")")
+yytext: )
+lexer::lloc:
+filenr: 8
+linenr: 13
+offset: 60
+--accepting rule at line 39 (" ")
+--accepting rule at line 65 ("{")
+yytext: {
+lexer::lloc:
+filenr: 8
+linenr: 13
+offset: 62
+--accepting rule at line 42 ("
+")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 68 ("if")
+yytext: if
+lexer::lloc:
+filenr: 8
+linenr: 14
+offset: 4
+--accepting rule at line 39 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+lexer::lloc:
+filenr: 8
+linenr: 14
+offset: 7
+--accepting rule at line 80 ("ndisks")
+yytext: ndisks
+lexer::lloc:
+filenr: 8
+linenr: 14
+offset: 8
+--accepting rule at line 39 (" ")
+--accepting rule at line 51 ("<")
+yytext: <
+lexer::lloc:
+filenr: 8
+linenr: 14
+offset: 15
+--accepting rule at line 39 (" ")
+--accepting rule at line 79 ("1")
+yytext: 1
+lexer::lloc:
+filenr: 8
+linenr: 14
+offset: 17
+--accepting rule at line 45 (")")
+yytext: )
+lexer::lloc:
+filenr: 8
+linenr: 14
+offset: 18
+--accepting rule at line 39 (" ")
+--accepting rule at line 73 ("return")
+yytext: return
+lexer::lloc:
+filenr: 8
+linenr: 14
+offset: 20
+--accepting rule at line 49 (";")
+yytext: ;
+lexer::lloc:
+filenr: 8
+linenr: 14
+offset: 26
+--accepting rule at line 42 ("
+")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("towers")
+yytext: towers
+lexer::lloc:
+filenr: 8
+linenr: 15
+offset: 4
+--accepting rule at line 39 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+lexer::lloc:
+filenr: 8
+linenr: 15
+offset: 11
+--accepting rule at line 80 ("ndisks")
+yytext: ndisks
+lexer::lloc:
+filenr: 8
+linenr: 15
+offset: 12
+--accepting rule at line 39 (" ")
+--accepting rule at line 61 ("-")
+yytext: -
+lexer::lloc:
+filenr: 8
+linenr: 15
+offset: 19
+--accepting rule at line 39 (" ")
+--accepting rule at line 79 ("1")
+yytext: 1
+lexer::lloc:
+filenr: 8
+linenr: 15
+offset: 21
+--accepting rule at line 46 (",")
+yytext: ,
+lexer::lloc:
+filenr: 8
+linenr: 15
+offset: 22
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("src")
+yytext: src
+lexer::lloc:
+filenr: 8
+linenr: 15
+offset: 24
+--accepting rule at line 46 (",")
+yytext: ,
+lexer::lloc:
+filenr: 8
+linenr: 15
+offset: 27
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("dst")
+yytext: dst
+lexer::lloc:
+filenr: 8
+linenr: 15
+offset: 29
+--accepting rule at line 46 (",")
+yytext: ,
+lexer::lloc:
+filenr: 8
+linenr: 15
+offset: 32
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("tmp")
+yytext: tmp
+lexer::lloc:
+filenr: 8
+linenr: 15
+offset: 34
+--accepting rule at line 45 (")")
+yytext: )
+lexer::lloc:
+filenr: 8
+linenr: 15
+offset: 37
+--accepting rule at line 49 (";")
+yytext: ;
+lexer::lloc:
+filenr: 8
+linenr: 15
+offset: 38
+--accepting rule at line 42 ("
+")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("move")
+yytext: move
+lexer::lloc:
+filenr: 8
+linenr: 16
+offset: 4
+--accepting rule at line 39 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+lexer::lloc:
+filenr: 8
+linenr: 16
+offset: 9
+--accepting rule at line 80 ("src")
+yytext: src
+lexer::lloc:
+filenr: 8
+linenr: 16
+offset: 10
+--accepting rule at line 46 (",")
+yytext: ,
+lexer::lloc:
+filenr: 8
+linenr: 16
+offset: 13
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("dst")
+yytext: dst
+lexer::lloc:
+filenr: 8
+linenr: 16
+offset: 15
+--accepting rule at line 45 (")")
+yytext: )
+lexer::lloc:
+filenr: 8
+linenr: 16
+offset: 18
+--accepting rule at line 49 (";")
+yytext: ;
+lexer::lloc:
+filenr: 8
+linenr: 16
+offset: 19
+--accepting rule at line 42 ("
+")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("towers")
+yytext: towers
+lexer::lloc:
+filenr: 8
+linenr: 17
+offset: 4
+--accepting rule at line 39 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+lexer::lloc:
+filenr: 8
+linenr: 17
+offset: 11
+--accepting rule at line 80 ("ndisks")
+yytext: ndisks
+lexer::lloc:
+filenr: 8
+linenr: 17
+offset: 12
+--accepting rule at line 39 (" ")
+--accepting rule at line 61 ("-")
+yytext: -
+lexer::lloc:
+filenr: 8
+linenr: 17
+offset: 19
+--accepting rule at line 39 (" ")
+--accepting rule at line 79 ("1")
+yytext: 1
+lexer::lloc:
+filenr: 8
+linenr: 17
+offset: 21
+--accepting rule at line 46 (",")
+yytext: ,
+lexer::lloc:
+filenr: 8
+linenr: 17
+offset: 22
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("tmp")
+yytext: tmp
+lexer::lloc:
+filenr: 8
+linenr: 17
+offset: 24
+--accepting rule at line 46 (",")
+yytext: ,
+lexer::lloc:
+filenr: 8
+linenr: 17
+offset: 27
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("src")
+yytext: src
+lexer::lloc:
+filenr: 8
+linenr: 17
+offset: 29
+--accepting rule at line 46 (",")
+yytext: ,
+lexer::lloc:
+filenr: 8
+linenr: 17
+offset: 32
+--accepting rule at line 39 (" ")
+--accepting rule at line 80 ("dst")
+yytext: dst
+lexer::lloc:
+filenr: 8
+linenr: 17
+offset: 34
+--accepting rule at line 45 (")")
+yytext: )
+lexer::lloc:
+filenr: 8
+linenr: 17
+offset: 37
+--accepting rule at line 49 (";")
+yytext: ;
+lexer::lloc:
+filenr: 8
+linenr: 17
+offset: 38
+--accepting rule at line 42 ("
+")
+--accepting rule at line 66 ("}")
+yytext: }
+lexer::lloc:
+filenr: 8
+linenr: 18
+offset: 1
+--accepting rule at line 42 ("
+")
+--accepting rule at line 42 ("
+")
+--accepting rule at line 80 ("towers")
+yytext: towers
+lexer::lloc:
+filenr: 8
+linenr: 20
+offset: 1
+--accepting rule at line 39 (" ")
+--accepting rule at line 44 ("(")
+yytext: (
+lexer::lloc:
+filenr: 8
+linenr: 20
+offset: 8
+--accepting rule at line 79 ("4")
+yytext: 4
+lexer::lloc:
+filenr: 8
+linenr: 20
+offset: 9
+--accepting rule at line 46 (",")
+yytext: ,
+lexer::lloc:
+filenr: 8
+linenr: 20
+offset: 10
+--accepting rule at line 39 (" ")
+--accepting rule at line 43 (""Source"")
+yytext: "Source"
+lexer::lloc:
+filenr: 8
+linenr: 20
+offset: 12
+--accepting rule at line 46 (",")
+yytext: ,
+lexer::lloc:
+filenr: 8
+linenr: 20
+offset: 20
+--accepting rule at line 39 (" ")
+--accepting rule at line 43 (""Temporary"")
+yytext: "Temporary"
+lexer::lloc:
+filenr: 8
+linenr: 20
+offset: 22
+--accepting rule at line 46 (",")
+yytext: ,
+lexer::lloc:
+filenr: 8
+linenr: 20
+offset: 33
+--accepting rule at line 39 (" ")
+--accepting rule at line 43 (""Destination"")
+yytext: "Destination"
+lexer::lloc:
+filenr: 8
+linenr: 20
+offset: 35
+--accepting rule at line 45 (")")
+yytext: )
+lexer::lloc:
+filenr: 8
+linenr: 20
+offset: 48
+--accepting rule at line 49 (";")
+yytext: ;
+lexer::lloc:
+filenr: 8
+linenr: 20
+offset: 49
+--accepting rule at line 42 ("
 ")
 --(end of buffer or a NUL)
 --EOF (start condition 0)
 --(end of buffer or a NUL)
+input in flex scanner failed
+tokstr: 45-towers-of-hanoi.tok
+
+45-towers-of-hanoi.str; 0.  1: # 1 "45-towers-of-hanoi.oc"; 0.  0: 
+; 0.  1: # 1 "<built-in>"
+; 1.  1: # 1 "<command-line>"
+; 2.  1: # 1 "/usr/include/stdc-predef.h" 1 3 4
+; 3.  1: # 1 "<command-line>" 2
+; 4.  1: # 1 "45-towers-of-hanoi.oc"
+; 5.  1: 
+; 5.  2: 
+; 5.  3: # 1 "oclib.oh" 1
+; 6.  1: # 26 "oclib.oh"
+; 7. 26: void __assert_fail (string expr, string file, int line);
+; 7. 27: void putb (int b);
+; 7. 28: void putc (char c);
+; 7. 29: void puti (int i);
+; 7. 30: void puts (string s);
+; 7. 31: void endl ();
+; 7. 32: int getc ();
+; 7. 33: string getw ();
+; 7. 34: string getln ();
+; 7. 35: string[] getargv ();
+; 7. 36: void exit (int status);
+; 7. 37: # 4 "45-towers-of-hanoi.oc" 2
+; 8.  4: 
+; 8.  5: void move (string src, string dst) {
+; 8.  6:    puts ("Move a disk from ");
+; 8.  7:    puts (src);
+; 8.  8:    puts (" to ");
+; 8.  9:    puts (dst);
+; 8. 10:    puts (".\n");
+; 8. 11: }
+; 8. 12: 
+; 8. 13: void towers (int ndisks, string src, string tmp, string dst) {
+; 8. 14:    if (ndisks < 1) return;
+; 8. 15:    towers (ndisks - 1, src, dst, tmp);
+; 8. 16:    move (src, dst);
+; 8. 17:    towers (ndisks - 1, tmp, src, dst);
+; 8. 18: }
+; 8. 19: 
+; 8. 20: towers (4, "Source", "Temporary", "Destination");

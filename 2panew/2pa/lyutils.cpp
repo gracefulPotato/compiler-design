@@ -1,3 +1,4 @@
+
 // $Id: lyutils.cpp,v 1.3 2016-10-06 16:42:35-07 - - $
 
 #include <assert.h>
@@ -9,6 +10,7 @@
 
 #include "lyutils.h"
 #include "auxlib.h"
+#include "string_set.h"
 
 bool lexer::interactive = false;
 location lexer::lloc = {0, 1, 0};
@@ -83,9 +85,10 @@ void lexer::include() {
          //fprintf(stderr,"lyutils sees tokstr as %s",tokstr.c_str());
          //outfile.open(tokstr, ios::app);
       std::string filenamestr(filename);
-      fprintf(stderr,"filenamestr: %s\n",filenamestr);
+      //fprintf(stderr,"filenamestr: %s\n",filenamestr);
          //outfile << "# "+std::to_string(linenr)+" \""+filenamestr+"\"\n";
-      fprintf(tok,"# %2d \"%s\"\n",linenr,filename);
+      fprintf(tok,"# %2zd \"%s\"\n",linenr,filename);
+      string_set::intern(filename);
       lexer::lloc.linenr = linenr - 1;
       lexer::newfilename (filename);
    }

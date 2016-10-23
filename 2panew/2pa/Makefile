@@ -23,9 +23,8 @@ ALLGENS   = ${PARSEHDR} ${LEXCPP} ${PARSECPP}
 EXECBIN   = oc
 ALLCSRC   = ${CPPSRC} ${LEXCPP} ${PARSECPP}
 OBJECTS   = ${ALLCSRC:.cpp=.o}
-LEXOUT    = yylex.output
 PARSEOUT  = yyparse.output
-REPORTS   = ${LEXOUT} ${PARSEOUT}
+REPORTS   = ${PARSEOUT}
 MODSRC    = ${foreach MOD, ${MODULES}, ${MOD}.h ${MOD}.cpp}
 MISCSRC   = ${filter-out ${MODSRC}, ${HDRSRC} ${CPPSRC}}
 ALLSRC    = README ${FLEXSRC} ${BISONSRC} ${MODSRC} ${MISCSRC} Makefile
@@ -67,11 +66,9 @@ lis : ${LISTSRC} tests
 
 clean :
 	- rm ${OBJECTS} ${ALLGENS} ${REPORTS} ${DEPSFILE}
-	- rm ${foreach test, ${TESTINS:.in=}, \
-		${patsubst %, ${test}.%, out err log}}
 
 spotless : clean
-	- rm ${EXECBIN} List.*.ps List.*.pdf
+	- rm ${EXECBIN}
 
 deps : ${ALLCSRC}
 	@ echo "# ${DEPSFILE} created `date` by ${MAKE}" >${DEPSFILE}

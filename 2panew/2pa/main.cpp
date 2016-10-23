@@ -21,6 +21,7 @@ using namespace std;
 const string CPP = "/usr/bin/cpp";
 constexpr size_t LINESIZE = 1024;
 FILE* tok;
+FILE* outfile;
 
 // Chomp the last character from a buffer if it is delim.
 void chomp (char* string, char delim) {
@@ -65,18 +66,18 @@ string cpplines (FILE* pipe, char* filename, string retstr){
    for (;;) {   //infinite loop
       int token = yylex();
       if(token==YYEOF) break;
-      string tmp = to_string(token);
+      //string tmp = to_string(token);
       //fprintf(stderr,"yylval::symbol result: %s\n",get_yytname(token));
       fprintf(stderr,"lexer::lloc:\nfilenr: %d\nlinenr: %d\noffset: %d\n",
               lexer::lloc.filenr,lexer::lloc.linenr,lexer::lloc.offset);
-      std::ofstream outfile;
-      outfile.open(tokstr, ios::app);
-      std::string stryytext(yytext);
-      //outfile <<lexer::lloc.filenr<<left<<lexer::lloc.linenr<<left<<".0"<<lexer::lloc.offset<<left<<token<<left<<"  "<<get_yytname(token)<<left<<"("+stryytext<<left<<+")\n";
-      outfile<<"   "<<lexer::lloc.filenr<<"  "<<lexer::lloc.linenr<<".0";
-      outfile<<lexer::lloc.offset<<"  "<<token<<left<<"  "<<get_yytname(token);
-      outfile<<"  ("+stryytext<<+")\n";
-      string_set::intern(tmp.c_str());
+      //std::ofstream outfile;
+      //outfile.open(tokstr, ios::app);
+      //std::string stryytext(yytext);
+      ////outfile <<lexer::lloc.filenr<<left<<lexer::lloc.linenr<<left<<".0"<<lexer::lloc.offset<<left<<token<<left<<"  "<<get_yytname(token)<<left<<"("+stryytext<<left<<+")\n";
+      //outfile<<"   "<<lexer::lloc.filenr<<"  "<<lexer::lloc.linenr<<".0";
+      //outfile<<lexer::lloc.offset<<"  "<<token<<left<<"  "<<get_yytname(token);
+      //outfile<<"  ("+stryytext<<+")\n";
+      //string_set::intern(tmp.c_str());
 
       //char buffer[LINESIZE];  //array w/ 1024 entries
       //char* fgets_rc = fgets (buffer, LINESIZE, pipe);
@@ -111,6 +112,7 @@ string cpplines (FILE* pipe, char* filename, string retstr){
       //++linenr;
 
    }
+   string_set::dump (outfile);
    return retstr;
 }
 
@@ -223,7 +225,7 @@ int main(int argc, char** argv){
        return EXIT_FAILURE;
    }
    cout<<dotstr;
-   FILE * outfile = fopen(dotstr.c_str(),"w");
+   outfile = fopen(dotstr.c_str(),"w");
    string procline;
    pair<string,int> cpp_ret = cpp_line(fileindex,argv,execname,exit_status,d_args);
    if(cpp_ret.second==EXIT_FAILURE){
@@ -231,13 +233,13 @@ int main(int argc, char** argv){
        fprintf(stderr,"Exiting with status %d\n",exit_status);
        return exit_status;
    }
-   istringstream iss(cpp_ret.first);
-   string line;
-   while(getline(iss,line)){
+   //istringstream iss(cpp_ret.first);
+   //string line;
+   //while(getline(iss,line)){
        //const char* tmp = line.c_str();
-       string_set::intern(line.c_str());
-   }
-   string_set::dump (outfile);
+       //string_set::intern(line.c_str());
+   //}
+   //string_set::dump (outfile);
    while(true){
        int token = yylex ();
        if(token==YYEOF) break;
