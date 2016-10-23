@@ -31,6 +31,7 @@ ALLSRC    = README ${FLEXSRC} ${BISONSRC} ${MODSRC} ${MISCSRC} Makefile
 TESTINS   = ${wildcard test*.in}
 EXECTEST  = ${EXECBIN} -ly
 LISTSRC   = ${ALLSRC} ${DEPSFILE} ${PARSEHDR}
+AUX       = oclib.c README Makefile
 SUBMIT    = submit cmps104a-wm.f16 asg2
 
 all : ${EXECBIN}
@@ -68,7 +69,7 @@ clean :
 	- rm ${OBJECTS} ${ALLGENS} ${REPORTS} ${DEPSFILE}
 
 spotless : clean
-	- rm ${EXECBIN}
+	- rm ${EXECBIN} yyparse.html yyparse.xml
 
 deps : ${ALLCSRC}
 	@ echo "# ${DEPSFILE} created `date` by ${MAKE}" >${DEPSFILE}
@@ -90,7 +91,7 @@ again :
 	gmake --no-print-directory spotless deps ci all lis
 
 submit : $(ALLCSRC)
-	$(SUBMIT) $(CPPSRC) $(HDRSRC) $(FLEXSRC) $(BISONSRC) oclib.c README Makefile
+	$(SUBMIT) $(CPPSRC) $(HDRSRC) $(FLEXSRC) $(BISONSRC) $(AUX)
 
 ifeq "${NEEDINCL}" ""
 include ${DEPSFILE}

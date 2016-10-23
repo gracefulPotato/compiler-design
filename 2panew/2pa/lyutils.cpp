@@ -33,10 +33,10 @@ void lexer::newfilename (const string& filename) {
 void lexer::advance() {
    if (not interactive) {
       if (lexer::lloc.offset == 0) {
-         printf (";%2zd.%3zd: ",
-                 lexer::lloc.filenr, lexer::lloc.linenr);
+         //printf (";%2zd.%3zd: ",
+         //        lexer::lloc.filenr, lexer::lloc.linenr);
       }
-      printf ("%s", yytext);
+      //printf ("%s", yytext);
    }
    lexer::lloc.offset += last_yyleng;
    last_yyleng = yyleng;
@@ -75,18 +75,8 @@ void lexer::include() {
       if (yy_flex_debug) {
          fprintf (stderr, "--included # %zd \"%s\"\n",
                   linenr, filename);
-         //std::ofstream outfile;
-         //fprintf(stderr,"lyutils sees tokstr as %s",tokstr.c_str());
-         //outfile.open(tokstr, ios::app);
-         //std::string filenamestr(filename);
-         //outfile << "# "+std::to_string(linenr)+" \""+filenamestr+"\"\n";
       }
-         //std::ofstream outfile;
-         //fprintf(stderr,"lyutils sees tokstr as %s",tokstr.c_str());
-         //outfile.open(tokstr, ios::app);
       std::string filenamestr(filename);
-      //fprintf(stderr,"filenamestr: %s\n",filenamestr);
-         //outfile << "# "+std::to_string(linenr)+" \""+filenamestr+"\"\n";
       fprintf(tok,"# %2zd \"%s\"\n",linenr,filename);
       string_set::intern(filename);
       lexer::lloc.linenr = linenr - 1;

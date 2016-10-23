@@ -67,13 +67,12 @@ void astree::dump (FILE* outfile, astree* tree) {
                    else tree->dump_node (outfile);
 }
 
-void astree::print (FILE* outfile, astree* tree, int symbol, int depth) {
-   fprintf (outfile, "   %d  %02d.%03d  %3d  %-16s(%s)",
+void astree::print (FILE* outfile,astree* tree,int symbol,int depth) {
+   fprintf (outfile, "   %zd  %02zd.%03zd  %3d  %-16s(%s)",
             tree->lloc.filenr, tree->lloc.linenr, tree->lloc.offset,
             symbol, get_yytname (tree->symbol), tree->lexinfo->c_str());
    fprintf (outfile, "%*s\n", depth * 3, "");
    for (astree* child: tree->children) {
-      fprintf(stderr,"calling print on a child\n");
       astree::print (outfile, child, depth + 1);
    }
 }

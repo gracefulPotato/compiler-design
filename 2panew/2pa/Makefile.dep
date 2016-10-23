@@ -1,6 +1,6 @@
-# Makefile.dep created Sat Oct 22 18:30:31 PDT 2016 by make
+# Makefile.dep created Sun Oct 23 12:09:07 PDT 2016 by make
 astree.o: astree.cpp astree.h auxlib.h string_set.h lyutils.h yyparse.h
-lyutils.o: lyutils.cpp lyutils.h astree.h auxlib.h yyparse.h
+lyutils.o: lyutils.cpp lyutils.h astree.h auxlib.h yyparse.h string_set.h
 string_set.o: string_set.cpp string_set.h
 emitter.o: emitter.cpp astree.h auxlib.h emitter.h lyutils.h yyparse.h
 auxlib.o: auxlib.cpp auxlib.h

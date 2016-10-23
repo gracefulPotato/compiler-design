@@ -6,7 +6,6 @@
 
 #define RETURN(SYMBOL) { \
    yylval = new astree (SYMBOL, lexer::lloc, yytext); \
-   fprintf(stderr,"yytext: %s\n",yytext); \
    astree::print(tok,yylval,SYMBOL,0); \
    return SYMBOL; \
 }

@@ -7,18 +7,18 @@
     <style type="text/css">
       body {
         font-family: "Nimbus Sans L", Arial, sans-serif;
-        font-size: 9pt;
+	font-size: 9pt;
       }
       a:link {
-        color: #1f00ff;
-        text-decoration: none;
+	color: #1f00ff;
+	text-decoration: none;
       }
       a:visited {
-        color: #1f00ff;
-        text-decoration: none;
+	color: #1f00ff;
+	text-decoration: none;
       }
       a:hover {
-        color: red;
+	color: red;
       }
       #menu a {
         text-decoration: underline;
@@ -71,7 +71,7 @@
 <a name="rule_0" id="rule_0"></a>    0 <span class="i">$accept</span> → <span class="i">program</span> <b>$end</b>
 
 <a name="rule_1" id="rule_1"></a>    1 <span class="i">program</span> → <span class="i">program</span> <span class="i">token</span>
-<a name="rule_2" id="rule_2"></a>    2         | %empty
+<a name="rule_2" id="rule_2"></a>    2         | ε
 
 <a name="rule_3" id="rule_3"></a>    3 <span class="i">token</span> → <b>'('</b>
 <a name="rule_4" id="rule_4"></a>    4       | <b>')'</b>
@@ -188,7 +188,7 @@
 
 <p class="pre">  <a href="#rule_0">  0</a> <span class="i">$accept</span> → <span class="point">.</span> <span class="i">program</span> <b>$end</b>
   <a href="#rule_1">  1</a> <span class="i">program</span> → <span class="point">.</span> <span class="i">program</span> <span class="i">token</span>
-  <a href="#rule_2">  2</a>         | <span class="point">.</span> %empty
+  <a href="#rule_2">  2</a>         | <span class="point">.</span>
 
     $default  <a href="#rule_2">reduce using rule 2</a> (program)
 
@@ -590,7 +590,7 @@
 
 <div id="footer"><hr />This document was generated using
       <a href="http://www.gnu.org/software/bison/" title="GNU Bison">
-      GNU Bison 3.0.4</a>
+      GNU Bison 2.7</a>
       XML Automaton Report.<br />
       Verbatim copying and distribution of this entire page is
       permitted in any medium, provided this notice is preserved.</div></body>
