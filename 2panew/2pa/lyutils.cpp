@@ -78,7 +78,6 @@ void lexer::include() {
       }
       std::string filenamestr(filename);
       fprintf(tok,"# %2zd \"%s\"\n",linenr,filename);
-      string_set::intern(filename);
       lexer::lloc.linenr = linenr - 1;
       lexer::newfilename (filename);
    }
