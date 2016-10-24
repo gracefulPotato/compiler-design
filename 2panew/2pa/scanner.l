@@ -22,24 +22,20 @@
 
 DIGIT [0-9]
 LETTER [A-Za-z_]
-UNDERSCORE _
-NEWLINE '\n'
-QUOTE "
-ESCAPE [\\(t|n|0)]
-NEWLINECHAR \'\n\'
 NUMBER ({DIGIT}+)
 CHARCON ('([^\\'\n]|\\[\\'"0nt])')
-STRING (\"([^\\"\n]|\\[\\'"0nt])*\")
-IDENT (({LETTER}|{UNDERSCORE})({LETTER}|{DIGIT}|{UNDERSCORE})*)
-
+STRINGCON (\"([^\\"\n]|\\[\\'"0nt])*\")
+IDENT (({LETTER})({LETTER}|{DIGIT})*)
 
 %%
 
 " "             { }
 "#".*           { lexer::include(); }
-"'\\n'"         { RETURN (TOK_CHARCON); }
+"//".*          { }
+{CHARCON}       { RETURN (TOK_CHARCON); }
 \n              { lexer::newline(); }
-{STRING}        { RETURN (TOK_STRINGCON); }
+\t              { }
+{STRINGCON}     { RETURN (TOK_STRINGCON); }
 "("             { RETURN ('('); }
 ")"             { RETURN (')'); }
 ","             { RETURN (','); }
@@ -74,7 +70,6 @@ IDENT (({LETTER}|{UNDERSCORE})({LETTER}|{DIGIT}|{UNDERSCORE})*)
 "struct"        { RETURN (TOK_STRUCT); }
 "void"          { RETURN (TOK_VOID); }
 "while"         { RETURN (TOK_WHILE); }
-
 {NUMBER}        { RETURN (TOK_INTCON); }
 {IDENT}         { RETURN (TOK_IDENT); }
 .               { lexer::badchar (*yytext); }

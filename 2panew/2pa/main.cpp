@@ -108,7 +108,7 @@ string check_filename (string dotstr){
 }
 
 int main(int argc, char** argv){
-   string execname = basename (argv[0]);
+   exec::execname = basename (argv[0]);
    int exit_stat = EXIT_SUCCESS;
    int option;
    yy_flex_debug = 0;
@@ -147,7 +147,8 @@ int main(int argc, char** argv){
    outfile = fopen(dotstr.c_str(),"w");
    string procline;
    char* file = argv[fileindex];
-   pair<string,int> cpp_ret = cpp_line(file,execname,exit_stat,d_args);
+   pair<string,int> cpp_ret = cpp_line(file,exec::execname,
+       exit_stat,d_args);
    if(cpp_ret.second==EXIT_FAILURE){
        exit_stat = cpp_ret.second;
        fprintf(stderr,"Exiting with status %d\n",exit_stat);

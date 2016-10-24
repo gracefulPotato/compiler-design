@@ -1,0 +1,37 @@
+#  1 "94-syntax.oc"
+#  1 "<built-in>"
+#  1 "<command-line>"
+#  1 "/usr/include/stdc-predef.h"
+#  1 "<command-line>"
+#  1 "94-syntax.oc"
+   5  02.001  276  TOK_IDENT       (k)
+   5  03.001  260  TOK_INT         (int)
+   5  03.005  276  TOK_IDENT       (f)
+   5  03.006   40  '('             (()
+   5  03.007   41  ')'             ())
+   5  03.009  123  '{'             ({)
+   5  04.001  260  TOK_INT         (int)
+   5  04.005  276  TOK_IDENT       (a)
+   5  04.007   61  '='             (=)
+   5  04.009   59  ';'             (;)
+   5  05.001  265  TOK_RETURN      (return)
+   5  05.008  276  TOK_IDENT       (foo)
+   5  05.011   59  ';'             (;)
+   5  06.001  276  TOK_IDENT       (public)
+   5  06.008  276  TOK_IDENT       (static)
+   5  06.015  258  TOK_VOID        (void)
+   5  06.020  276  TOK_IDENT       (main)
+   5  06.025   40  '('             (()
+   5  06.026  276  TOK_IDENT       (String)
+   5  06.032  269  TOK_ARRAY       ([])
+   5  06.035  276  TOK_IDENT       (args)
+   5  06.039   41  ')'             ())
+   5  06.041  123  '{'             ({)
+   5  07.004  276  TOK_IDENT       (System)
+   5  07.010   46  '.'             (.)
+   5  07.011  276  TOK_IDENT       (exit)
+   5  07.016   40  '('             (()
+   5  07.017  277  TOK_INTCON      (255)
+   5  07.020   41  ')'             ())
+   5  07.021   59  ';'             (;)
+   5  08.001  125  '}'             (})

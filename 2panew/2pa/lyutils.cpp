@@ -53,6 +53,8 @@ void lexer::badchar (unsigned char bad) {
              isgraph (bad) ? "%c" : "\\%03o", bad);
    errllocprintf (lexer::lloc, "invalid source character (%s)\n",
                   buffer);
+   fprintf(stderr,"Exiting with status 1\n");
+   exit(1);
 }
 
 
