@@ -1,0 +1,16 @@
+0x1c2a110->{$undefined 7.27.1 "void":
+string_set[   1]:   12623033807595961729 0x1c257d8->"__assert_fail"
+                    11911796782241914524 0x1c29928->"void"
+string_set[   2]:   13497578857207247412 0x1c29d08->"string"
+string_set[   3]:    5344662657899890615 0x1c2a2f8->";"
+string_set[   5]:   12291392672316406109 0x1c2a0f8->"line"
+string_set[   6]:    3729804957429652673 0x1c250b8->"<<ROOT>>"
+string_set[  10]:    9386170080689500517 0x1c29dd8->"expr"
+string_set[  14]:   12868445110721718657 0x1c2a198->")"
+                    15816506932648033945 0x1c298d8->"("
+string_set[  15]:    4706206694200543916 0x1c29e78->","
+string_set[  17]:    4017852018407011111 0x1c29f68->"file"
+string_set[  21]:   12597418120160561823 0x1c2a058->"int"
+load_factor = 0.522
+bucket_count = 23
+max_bucket_size = 2

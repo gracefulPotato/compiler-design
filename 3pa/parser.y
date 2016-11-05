@@ -25,7 +25,7 @@ using namespace std;
 %printer { astree::dump (yyoutput, $$); } <>
 
 %initial-action {
-   parser::root = new astree (ROOT, {0, 0, 0}, "<<ROOT>>");
+   yylval = new astree (ROOT, {0, 0, 0}, "<<ROOT>>");
 }
 
 %token ROOT FUNCTION DECL
@@ -63,7 +63,7 @@ fielddecl : basetype TOK_IDENT
           ;
 basetype : TOK_VOID | TOK_CHAR | TOK_INT | TOK_STRING | TOK_IDENT;
 function : identdecl '(' ')' block         
-         | identdecl '(' params ')' block  { destroy($4); $2->adopt($3); $$=FUNCTION->adopt($1,$2,$5)}
+         | identdecl '(' params ')' block  { destroy($4); $$=$2->adopt($1,$3);$$=$$->adopt($5)}
          ;
 params : identdecl
        | params ',' identdecl

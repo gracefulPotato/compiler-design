@@ -60,10 +60,12 @@ void eprint_status (const char* command, int status) {
 
 // Run cpp against the lines of the file.
 void cpplines (){
-   for (;;) {   //infinite loop
-      int token = yylex();
-      if(token==YYEOF) break;
-   }
+   //for (;;) {   //infinite loop
+   //   int token = yylex();
+   //   if(token==YYEOF) break;
+   //}
+   yyparse();
+   yylval->dump_tree(outfile,0);
    string_set::dump (outfile);
 }
 

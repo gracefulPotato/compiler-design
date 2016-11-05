@@ -2391,7 +2391,7 @@ yyparse ()
 /* Line 1575 of yacc.c  */
 #line 27 "parser.y"
 {
-   parser::root = new astree (ROOT, {0, 0, 0}, "<<ROOT>>");
+   yylval = new astree (ROOT, {0, 0, 0}, "<<ROOT>>");
 }
 /* Line 1575 of yacc.c  */
 #line 2398 "yyparse.cpp"
@@ -2576,7 +2576,7 @@ yyreduce:
         case 16:
 /* Line 1792 of yacc.c  */
 #line 66 "parser.y"
-    { destroy((yyvsp[(4) - (5)])); (yyvsp[(2) - (5)])->adopt((yyvsp[(3) - (5)])); (yyval)=FUNCTION->adopt((yyvsp[(1) - (5)]),(yyvsp[(2) - (5)]),(yyvsp[(5) - (5)]));}
+    { destroy((yyvsp[(4) - (5)])); (yyval)=(yyvsp[(2) - (5)])->adopt((yyvsp[(1) - (5)]),(yyvsp[(3) - (5)]));(yyval)=(yyval)->adopt((yyvsp[(5) - (5)]));}
     break;
 
   case 22:
