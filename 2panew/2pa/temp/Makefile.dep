@@ -1,5 +1,8 @@
-main.o: main.cpp string_set.h cppstrtok.h auxlib.h
-cppstrtok.o: cppstrtok.cpp cppstrtok.h string_set.h
+# Makefile.dep created Sat Nov  5 12:36:48 PDT 2016 by make
+astree.o: astree.cpp astree.h auxlib.h string_set.h lyutils.h yyparse.h
+lyutils.o: lyutils.cpp lyutils.h astree.h auxlib.h yyparse.h string_set.h
 string_set.o: string_set.cpp string_set.h
+emitter.o: emitter.cpp astree.h auxlib.h emitter.h lyutils.h yyparse.h
 auxlib.o: auxlib.cpp auxlib.h
-oclib.o: oclib.c oclib.oh
+yylex.o: yylex.cpp lyutils.h astree.h auxlib.h yyparse.h
+yyparse.o: yyparse.cpp auxlib.h lyutils.h astree.h yyparse.h
