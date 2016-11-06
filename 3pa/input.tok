@@ -1,0 +1,22 @@
+#  1 "input.oc"
+#  1 "<built-in>"
+#  1 "<command-line>"
+#  1 "/usr/include/stdc-predef.h"
+#  1 "<command-line>"
+#  1 "input.oc"
+   5  01.001  264  TOK_INT         (int)
+   5  01.005  280  TOK_IDENT       (fac)
+   5  01.009   40  '('             (()
+   5  01.010  264  TOK_INT         (int)
+   5  01.014  280  TOK_IDENT       (n)
+   5  01.015   41  ')'             ())
+   5  01.017  123  '{'             ({)
+   5  02.005  264  TOK_INT         (int)
+   5  02.009  280  TOK_IDENT       (f)
+   5  02.011   61  '='             (=)
+   5  02.013  281  TOK_INTCON      (1)
+   5  02.014   59  ';'             (;)
+   5  03.005  268  TOK_WHILE       (while)
+   5  03.011   40  '('             (()
+   5  03.012  280  TOK_IDENT       (n)
+   5  03.014  278  TOK_GT          (>)

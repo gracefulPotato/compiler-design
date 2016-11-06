@@ -1,0 +1,22 @@
+   0  00.000    0  $undefined      (<<ROOT>>)
+0xbb79e0->{$undefined 0.0.0 "<<ROOT>>":
+
+
+ 0xbb79e0->{$undefined 0.0.0 "<<ROOT>>":
+
+string_set[   3]:   10319632053171904911 0xbbc4b8->"while"
+                     5344662657899890615 0xbbc358->";"
+                    11597697714117577063 0xbbc218->"="
+string_set[   6]:    3729804957429652673 0xbb7078->"<<ROOT>>"
+string_set[  11]:      21606623943142546 0xbbc088->"{"
+                     9826907452181669771 0xbbbf18->"n"
+string_set[  14]:   15816506932648033945 0xbbbb08->"("
+                    12868445110721718657 0xbbbfe8->")"
+                    10159970873491820195 0xbbc2b8->"1"
+string_set[  16]:   13693284975010602715 0xbb7a38->"fac"
+string_set[  17]:    8968846175329310707 0xbbc178->"f"
+string_set[  21]:   12597418120160561823 0xbbbb88->"int"
+string_set[  22]:   14526079891305879776 0xbbc5f8->">"
+load_factor = 0.565
+bucket_count = 23
+max_bucket_size = 3
