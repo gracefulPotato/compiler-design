@@ -21,6 +21,7 @@ extern char* yytext;
 extern int yy_flex_debug;
 extern int yydebug;
 extern size_t yyleng; 
+extern astree* yyparse_astree;
 
 int yylex();
 int yylex_destroy();
@@ -31,6 +32,7 @@ const char *get_yytname (int symbol);
 static string tokstr;//=null;
 extern FILE* tok;
 extern FILE* outfile;
+extern FILE* ast;
 
 struct lexer {
    static bool interactive;

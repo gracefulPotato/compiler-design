@@ -33,7 +33,12 @@ astree::~astree() {
 }
 
 astree* astree::adopt (astree* child1, astree* child2) {
-   if (child1 != nullptr) children.push_back (child1);
+   if (child1 != nullptr){
+       children.push_back (child1);
+       fprintf(stderr,"adding child, children.size()= %lu\n",children.size());
+       yyparse_astree->dump_tree(ast,0);
+   }else
+       fprintf(stderr,"childnullptr");
    if (child2 != nullptr) children.push_back (child2);
    return this;
 }
@@ -49,16 +54,20 @@ void astree::dump_node (FILE* outfile) {
             this, get_yytname (symbol),
             lloc.filenr, lloc.linenr, lloc.offset,
             lexinfo->c_str());
+   //fprintf(stderr,"children.size(): %lu",children.size());
    for (size_t child = 0; child < children.size(); ++child) {
       fprintf (outfile, " %p", children.at(child));
    }
 }
 
 void astree::dump_tree (FILE* outfile, int depth) {
-   fprintf (outfile, "%*s", depth * 3, "");
+   fprintf (outfile, "%*s", depth * 3, "\n");
    dump_node (outfile);
-   fprintf (outfile, "\n");
-   for (astree* child: children) child->dump_tree (outfile, depth + 1);
+   //fprintf (outfile, "\nchildren.size(): %lu\n",children.size());
+   for (astree* child: children){
+       //fprintf(stderr,"printing child");
+       child->dump_tree (outfile, depth + 1);
+   }
    fflush (NULL);
 }
 
@@ -91,3 +100,7 @@ void errllocprintf (const location& lloc, const char* format,
               lexer::filename (lloc.filenr), lloc.linenr, lloc.offset,
               buffer);
 }
+astree* new_parseroot() { 
+   return new astree (TOK_ROOT, {0, 0, 0}, "");
+}
+

@@ -1,3 +1,4 @@
+
 %{
 // Dummy parser for scanner project.
 #include <string>
@@ -24,10 +25,6 @@ using namespace std;
 %destructor { destroy ($$); } <>
 %printer { astree::dump (yyoutput, $$); } <>
 
-%initial-action {
-   yylval = new astree (ROOT, {0, 0, 0}, "<<ROOT>>");
-}
-
 %token ROOT FUNCTION DECL
 %token TOK_VOID TOK_CHAR TOK_INT TOK_STRING
 %token TOK_IF TOK_ELSE TOK_WHILE TOK_RETURN TOK_STRUCT
@@ -46,70 +43,20 @@ using namespace std;
 %left  '*' '/' '%'
 %right POS NEG '!' TOK_NEW
 
-%start program
+%initial-action {
+   yyparse_astree = new astree (TOK_ROOT, {0, 0, 0}, "<<ROOT>>");
+   fprintf(stderr,"created astree\n");
+}
+
+%start start
 
 %%
-
-program : structdef
-        | function
-        | statement
-        ;
-structdef : TOK_STRUCT TOK_IDENT '{' '}'
-          | TOK_STRUCT TOK_IDENT '{' fielddecl '}'
-          | TOK_STRUCT TOK_IDENT '{' fielddecl';'fielddecl '}'
-          ;
-fielddecl : basetype TOK_IDENT
-          | basetype TOK_ARRAY TOK_IDENT
-          ;
-basetype : TOK_VOID | TOK_CHAR | TOK_INT | TOK_STRING | TOK_IDENT;
-function : identdecl '(' ')' block         
-         | identdecl '(' params ')' block  { destroy($4); $$=$2->adopt($1,$3);$$=$$->adopt($5)}
-         ;
-params : identdecl
-       | params ',' identdecl
-       ;
-identdecl : basetype TOK_IDENT
-          | basetype TOK_ARRAY TOK_IDENT
-          ;
-block : '{' '}'           
-      | '{' statement '}'  { destroy($3); $$=$1->adopt($2); }
-      | ';'
+start : program     {$$ = $1;}
       ;
-statement : block | vardecl | while | ifelse | return | expr';';
-vardecl : identdecl '=' expr ';';
-while : TOK_WHILE '(' expr ')' statement
-ifelse : TOK_IF '(' expr ')' statement %prec TOK_ELSE     {destroy($2,$4);$$=$1->adopt($3,$5);}  
-       | TOK_IF	'(' expr ')' statement TOK_ELSE statement {}
-       ;
-return : TOK_RETURN ';'             { destroy ($2); $$ = $1; }
-       | TOK_RETURN expr ';'        { destroy ($3); $$ = $1->adopt ($2); }
-       ;
-expr : expr BINOP expr              { $$ = $2->adopt ($1, $3); }
-     | UNOP expr                    { $$ = $1->adopt ($2); }
-     | allocator                    { $$ = $1; }
-     | call                         { $$ = $1; }
-     | '(' expr ')'                 { destroy ($1, $3); $$ = $2; }
-     | variable                     { $$ = $1; }
-     | constant                     { $$ = $1; }
-     ;
-allocator : TOK_NEW TOK_IDENT '('')'
-          | TOK_NEW TOK_STRING '(' expr ')' {destroy($3,$5);$$=$1->adopt($4);}
-          | TOK_NEW basetype '[' expr ']' {destroy($3,$5);$$=$1->adopt($4);}
-          ;
-call : TOK_IDENT '('')'
-     | TOK_IDENT '('expr')'
-     ;
-variable : TOK_IDENT                { $$ = $1; }
-         | expr'['expr']'           
-         | expr'.'TOK_IDENT
-         ;
-constant : TOK_INTCON               { $$ = $1; }
-         | TOK_CHARCON              { $$ = $1; }
-         | TOK_STRINGCON            { $$ = $1; }
-         | TOK_NULL                 { $$ = $1; }
-         ;
-UNOP : '-';
-BINOP : '+' | '-' | '*' | '/';
+program : program token {$$=$1->adopt($2);fprintf(stderr,"adopting");}
+        |               {$$=yyparse_astree;} 
+        ;
+
 token   : '(' | ')' | '[' | ']' | '{' | '}' | ';' | ',' | '.'
         | '=' | '+' | '-' | '*' | '/' | '%' | '!'
         | TOK_VOID | TOK_CHAR | TOK_INT | TOK_STRING
@@ -121,8 +68,6 @@ token   : '(' | ')' | '[' | ']' | '{' | '}' | ';' | ',' | '.'
         ;
 
 %%
-
-
 const char *get_yytname (int symbol) {
    return yytname [YYTRANSLATE (symbol)];
 }

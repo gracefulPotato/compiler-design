@@ -1,5 +1,5 @@
-0xe98630->{ROOT 0.0.0 "<<ROOT>>":
-string_set[   1]:    3729804957429652673 0xe980b8->"<<ROOT>>"
+0x2278630->{$end 0.0.0 "<<ROOT>>":
+string_set[   1]:    3729804957429652673 0x22780b8->"<<ROOT>>"
 load_factor = 0.500
 bucket_count = 2
 max_bucket_size = 1

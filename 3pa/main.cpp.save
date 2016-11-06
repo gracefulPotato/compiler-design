@@ -22,7 +22,6 @@ const string CPP = "/usr/bin/cpp";
 constexpr size_t LINESIZE = 1024;
 FILE* tok;
 FILE* outfile;
-FILE* ast;
 
 // Chomp the last character from a buffer if it is delim.
 void chomp (char* string, char delim) {
@@ -66,10 +65,8 @@ void cpplines (){
    //   if(token==YYEOF) break;
    //}
    yyparse();
-   astree::print(outfile,yyparse_astree,0);
-   yyparse_astree->dump(outfile,yyparse_astree);
-   fprintf(outfile,"\n\n");
-   yyparse_astree->dump_tree(outfile,0);
+   parser::root->dump(outfile,parser::root);
+   parser::root->dump_tree(outfile,0);
    fprintf(outfile,"\n\n");
    string_set::dump (outfile);
 }
@@ -109,10 +106,8 @@ string check_filename (string dotstr){
    int dot_index = dotstr.find_last_of(".");
    dotstr=dotstr.substr(0,dot_index)+".str";
    tokstr=dotstr.substr(0,dot_index)+".tok";
-   string aststr=dotstr.substr(0,dot_index)+".ast";
    if(file_exists(tokstr.c_str())) remove(tokstr.c_str());
    tok = fopen(tokstr.c_str(),"w");
-   ast = fopen(aststr.c_str(),"w");
    return dotstr;
 }
 
@@ -165,7 +160,6 @@ int main(int argc, char** argv){
    }
    fclose(outfile);
    fclose(tok);
-   fclose(ast);
    fprintf(stderr,"Exiting with status %d\n",exit_stat);
    return exit_stat;
 }

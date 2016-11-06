@@ -18,6 +18,7 @@ size_t lexer::last_yyleng = 0;
 vector<string> lexer::filenames;
 
 astree* parser::root = nullptr;
+astree* yyparse_astree;
 
 //tokstr = "defaultvalue";
 
