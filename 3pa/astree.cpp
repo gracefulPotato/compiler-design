@@ -36,7 +36,8 @@ astree* astree::adopt (astree* child1, astree* child2) {
    if (child1 != nullptr){
        children.push_back (child1);
        fprintf(stderr,"adding child, children.size()= %lu\n",children.size());
-       yyparse_astree->dump_tree(ast,0);
+       fprintf(stderr, "yytext=YYEOF: %d",yytext==YYEOF);
+       //yyparse_astree->dump_tree(ast,0);
    }else
        fprintf(stderr,"childnullptr");
    if (child2 != nullptr) children.push_back (child2);

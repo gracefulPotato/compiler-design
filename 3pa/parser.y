@@ -25,7 +25,8 @@ using namespace std;
 %destructor { destroy ($$); } <>
 %printer { astree::dump (yyoutput, $$); } <>
 
-%token ROOT FUNCTION DECL
+%token END 0 "end of file"
+%token ROOT FUNCTION DECL END_OF_FILE
 %token TOK_VOID TOK_CHAR TOK_INT TOK_STRING
 %token TOK_IF TOK_ELSE TOK_WHILE TOK_RETURN TOK_STRUCT
 %token TOK_NULL TOK_NEW TOK_ARRAY
@@ -50,12 +51,31 @@ using namespace std;
 
 %start start
 
+
 %%
 start : program     {$$ = $1;}
       ;
 program : program token {$$=$1->adopt($2);fprintf(stderr,"adopting");}
         |               {$$=yyparse_astree;} 
         ;
+endoffile : END {fprintf(stderr,"ENDING FILE\n");}
+          ;
+function : identdecl '(' ')' block
+         | identdecl '(' params ')' block  { destroy($4); $$=$2->adopt($1,$3);$$=$$->adopt($5);}
+         ;
+params : identdecl
+       | params ',' identdecl
+       ;
+identdecl : basetype TOK_IDENT
+          | basetype TOK_ARRAY TOK_IDENT
+          ;
+basetype : TOK_VOID | TOK_CHAR | TOK_INT | TOK_STRING | TOK_IDENT;
+
+block : '{' '}'
+      | '{' statement '}'  { destroy($3); $$=$1->adopt($2); }
+      | ';'
+      ;
+statement : token;
 
 token   : '(' | ')' | '[' | ']' | '{' | '}' | ';' | ',' | '.'
         | '=' | '+' | '-' | '*' | '/' | '%' | '!'

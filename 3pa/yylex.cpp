@@ -596,7 +596,7 @@ static yyconst flex_int16_t yy_rule_linenum[45] =
        42,   43,   44,   45,   46,   47,   48,   49,   50,   51,
        52,   53,   54,   55,   56,   57,   58,   59,   60,   61,
        62,   63,   64,   65,   66,   67,   68,   69,   70,   71,
-       72,   73,   74,   75
+       72,   73,   74,   76
     } ;
 
 /* The intent behind this definition is that it'll catch
@@ -619,7 +619,7 @@ char *yytext;
    astree::print(tok,yylval,SYMBOL,0); \
    return SYMBOL; \
 }
-
+#define yyterminate() return token::END
 #line 624 "yylex.cpp"
 
 #define INITIAL 0
@@ -1193,19 +1193,21 @@ YY_RULE_SETUP
 #line 74 "scanner.l"
 { RETURN (TOK_IDENT); }
 	YY_BREAK
+case YY_STATE_EOF(INITIAL):
+#line 75 "scanner.l"
+{ yyparse_astree->dump_tree(ast,0);RETURN (0);}
+	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 75 "scanner.l"
+#line 76 "scanner.l"
 { lexer::badchar (*yytext); }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 77 "scanner.l"
+#line 78 "scanner.l"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
-#line 1207 "yylex.cpp"
-case YY_STATE_EOF(INITIAL):
-	yyterminate();
+#line 1211 "yylex.cpp"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -2284,7 +2286,7 @@ void yyfree (void * ptr )
 
 /* %ok-for-header */
 
-#line 77 "scanner.l"
+#line 78 "scanner.l"
 
 
 

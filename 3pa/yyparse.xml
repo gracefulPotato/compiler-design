@@ -10,7 +10,7 @@
         <lhs>$accept</lhs>
         <rhs>
           <symbol>start</symbol>
-          <symbol>$end</symbol>
+          <symbol>&quot;end of file&quot;</symbol>
         </rhs>
       </rule>
       <rule number="1" usefulness="useful">
@@ -278,71 +278,190 @@
           <symbol>TOK_ROOT</symbol>
         </rhs>
       </rule>
+      <rule number="45" usefulness="useless-in-grammar">
+        <lhs>endoffile</lhs>
+        <rhs>
+          <symbol>&quot;end of file&quot;</symbol>
+        </rhs>
+      </rule>
+      <rule number="46" usefulness="useless-in-grammar">
+        <lhs>function</lhs>
+        <rhs>
+          <symbol>identdecl</symbol>
+          <symbol>'('</symbol>
+          <symbol>')'</symbol>
+          <symbol>block</symbol>
+        </rhs>
+      </rule>
+      <rule number="47" usefulness="useless-in-grammar">
+        <lhs>function</lhs>
+        <rhs>
+          <symbol>identdecl</symbol>
+          <symbol>'('</symbol>
+          <symbol>params</symbol>
+          <symbol>')'</symbol>
+          <symbol>block</symbol>
+        </rhs>
+      </rule>
+      <rule number="48" usefulness="useless-in-grammar">
+        <lhs>params</lhs>
+        <rhs>
+          <symbol>identdecl</symbol>
+        </rhs>
+      </rule>
+      <rule number="49" usefulness="useless-in-grammar">
+        <lhs>params</lhs>
+        <rhs>
+          <symbol>params</symbol>
+          <symbol>','</symbol>
+          <symbol>identdecl</symbol>
+        </rhs>
+      </rule>
+      <rule number="50" usefulness="useless-in-grammar">
+        <lhs>identdecl</lhs>
+        <rhs>
+          <symbol>basetype</symbol>
+          <symbol>TOK_IDENT</symbol>
+        </rhs>
+      </rule>
+      <rule number="51" usefulness="useless-in-grammar">
+        <lhs>identdecl</lhs>
+        <rhs>
+          <symbol>basetype</symbol>
+          <symbol>TOK_ARRAY</symbol>
+          <symbol>TOK_IDENT</symbol>
+        </rhs>
+      </rule>
+      <rule number="52" usefulness="useless-in-grammar">
+        <lhs>basetype</lhs>
+        <rhs>
+          <symbol>TOK_VOID</symbol>
+        </rhs>
+      </rule>
+      <rule number="53" usefulness="useless-in-grammar">
+        <lhs>basetype</lhs>
+        <rhs>
+          <symbol>TOK_CHAR</symbol>
+        </rhs>
+      </rule>
+      <rule number="54" usefulness="useless-in-grammar">
+        <lhs>basetype</lhs>
+        <rhs>
+          <symbol>TOK_INT</symbol>
+        </rhs>
+      </rule>
+      <rule number="55" usefulness="useless-in-grammar">
+        <lhs>basetype</lhs>
+        <rhs>
+          <symbol>TOK_STRING</symbol>
+        </rhs>
+      </rule>
+      <rule number="56" usefulness="useless-in-grammar">
+        <lhs>basetype</lhs>
+        <rhs>
+          <symbol>TOK_IDENT</symbol>
+        </rhs>
+      </rule>
+      <rule number="57" usefulness="useless-in-grammar">
+        <lhs>block</lhs>
+        <rhs>
+          <symbol>'{'</symbol>
+          <symbol>'}'</symbol>
+        </rhs>
+      </rule>
+      <rule number="58" usefulness="useless-in-grammar">
+        <lhs>block</lhs>
+        <rhs>
+          <symbol>'{'</symbol>
+          <symbol>statement</symbol>
+          <symbol>'}'</symbol>
+        </rhs>
+      </rule>
+      <rule number="59" usefulness="useless-in-grammar">
+        <lhs>block</lhs>
+        <rhs>
+          <symbol>';'</symbol>
+        </rhs>
+      </rule>
+      <rule number="60" usefulness="useless-in-grammar">
+        <lhs>statement</lhs>
+        <rhs>
+          <symbol>token</symbol>
+        </rhs>
+      </rule>
     </rules>
     <terminals>
-      <terminal symbol-number="0" token-number="0" name="$end" usefulness="useful"/>
-      <terminal symbol-number="46" token-number="33" name="'!'" usefulness="useful" prec="6" assoc="right"/>
-      <terminal symbol-number="45" token-number="37" name="'%'" usefulness="useful" prec="5" assoc="left"/>
-      <terminal symbol-number="49" token-number="40" name="'('" usefulness="useful"/>
-      <terminal symbol-number="50" token-number="41" name="')'" usefulness="useful"/>
-      <terminal symbol-number="43" token-number="42" name="'*'" usefulness="useful" prec="5" assoc="left"/>
-      <terminal symbol-number="41" token-number="43" name="'+'" usefulness="useful" prec="4" assoc="left"/>
-      <terminal symbol-number="56" token-number="44" name="','" usefulness="useful"/>
-      <terminal symbol-number="42" token-number="45" name="'-'" usefulness="useful" prec="4" assoc="left"/>
-      <terminal symbol-number="57" token-number="46" name="'.'" usefulness="useful"/>
-      <terminal symbol-number="44" token-number="47" name="'/'" usefulness="useful" prec="5" assoc="left"/>
+      <terminal symbol-number="0" token-number="0" name="&quot;end of file&quot;" usefulness="useful"/>
+      <terminal symbol-number="47" token-number="33" name="'!'" usefulness="useful" prec="6" assoc="right"/>
+      <terminal symbol-number="46" token-number="37" name="'%'" usefulness="useful" prec="5" assoc="left"/>
+      <terminal symbol-number="50" token-number="40" name="'('" usefulness="useful"/>
+      <terminal symbol-number="51" token-number="41" name="')'" usefulness="useful"/>
+      <terminal symbol-number="44" token-number="42" name="'*'" usefulness="useful" prec="5" assoc="left"/>
+      <terminal symbol-number="42" token-number="43" name="'+'" usefulness="useful" prec="4" assoc="left"/>
+      <terminal symbol-number="52" token-number="44" name="','" usefulness="useful"/>
+      <terminal symbol-number="43" token-number="45" name="'-'" usefulness="useful" prec="4" assoc="left"/>
+      <terminal symbol-number="58" token-number="46" name="'.'" usefulness="useful"/>
+      <terminal symbol-number="45" token-number="47" name="'/'" usefulness="useful" prec="5" assoc="left"/>
       <terminal symbol-number="55" token-number="59" name="';'" usefulness="useful"/>
-      <terminal symbol-number="40" token-number="61" name="'='" usefulness="useful" prec="2" assoc="right"/>
-      <terminal symbol-number="51" token-number="91" name="'['" usefulness="useful"/>
-      <terminal symbol-number="52" token-number="93" name="']'" usefulness="useful"/>
+      <terminal symbol-number="41" token-number="61" name="'='" usefulness="useful" prec="2" assoc="right"/>
+      <terminal symbol-number="56" token-number="91" name="'['" usefulness="useful"/>
+      <terminal symbol-number="57" token-number="93" name="']'" usefulness="useful"/>
       <terminal symbol-number="53" token-number="123" name="'{'" usefulness="useful"/>
       <terminal symbol-number="54" token-number="125" name="'}'" usefulness="useful"/>
       <terminal symbol-number="1" token-number="256" name="error" usefulness="useful"/>
       <terminal symbol-number="3" token-number="258" name="ROOT" usefulness="unused-in-grammar"/>
       <terminal symbol-number="4" token-number="259" name="FUNCTION" usefulness="unused-in-grammar"/>
       <terminal symbol-number="5" token-number="260" name="DECL" usefulness="unused-in-grammar"/>
-      <terminal symbol-number="6" token-number="261" name="TOK_VOID" usefulness="useful"/>
-      <terminal symbol-number="7" token-number="262" name="TOK_CHAR" usefulness="useful"/>
-      <terminal symbol-number="8" token-number="263" name="TOK_INT" usefulness="useful"/>
-      <terminal symbol-number="9" token-number="264" name="TOK_STRING" usefulness="useful"/>
-      <terminal symbol-number="10" token-number="265" name="TOK_IF" usefulness="useful" prec="1" assoc="right"/>
-      <terminal symbol-number="11" token-number="266" name="TOK_ELSE" usefulness="useful" prec="1" assoc="right"/>
-      <terminal symbol-number="12" token-number="267" name="TOK_WHILE" usefulness="useful"/>
-      <terminal symbol-number="13" token-number="268" name="TOK_RETURN" usefulness="useful"/>
-      <terminal symbol-number="14" token-number="269" name="TOK_STRUCT" usefulness="useful"/>
-      <terminal symbol-number="15" token-number="270" name="TOK_NULL" usefulness="useful"/>
-      <terminal symbol-number="16" token-number="271" name="TOK_NEW" usefulness="useful" prec="6" assoc="right"/>
-      <terminal symbol-number="17" token-number="272" name="TOK_ARRAY" usefulness="useful"/>
-      <terminal symbol-number="18" token-number="273" name="TOK_EQ" usefulness="useful" prec="3" assoc="left"/>
-      <terminal symbol-number="19" token-number="274" name="TOK_NE" usefulness="useful" prec="3" assoc="left"/>
-      <terminal symbol-number="20" token-number="275" name="TOK_LT" usefulness="useful" prec="3" assoc="left"/>
-      <terminal symbol-number="21" token-number="276" name="TOK_LE" usefulness="useful" prec="3" assoc="left"/>
-      <terminal symbol-number="22" token-number="277" name="TOK_GT" usefulness="useful" prec="3" assoc="left"/>
-      <terminal symbol-number="23" token-number="278" name="TOK_GE" usefulness="useful" prec="3" assoc="left"/>
-      <terminal symbol-number="24" token-number="279" name="TOK_IDENT" usefulness="useful"/>
-      <terminal symbol-number="25" token-number="280" name="TOK_INTCON" usefulness="useful"/>
-      <terminal symbol-number="26" token-number="281" name="TOK_CHARCON" usefulness="useful"/>
-      <terminal symbol-number="27" token-number="282" name="TOK_STRINGCON" usefulness="useful"/>
-      <terminal symbol-number="28" token-number="283" name="TOK_BLOCK" usefulness="unused-in-grammar"/>
-      <terminal symbol-number="29" token-number="284" name="TOK_CALL" usefulness="unused-in-grammar"/>
-      <terminal symbol-number="30" token-number="285" name="TOK_IFELSE" usefulness="unused-in-grammar"/>
-      <terminal symbol-number="31" token-number="286" name="TOK_INITDECL" usefulness="unused-in-grammar"/>
-      <terminal symbol-number="32" token-number="287" name="TOK_POS" usefulness="unused-in-grammar"/>
-      <terminal symbol-number="33" token-number="288" name="TOK_NEG" usefulness="unused-in-grammar"/>
-      <terminal symbol-number="34" token-number="289" name="TOK_NEWARRAY" usefulness="unused-in-grammar"/>
-      <terminal symbol-number="35" token-number="290" name="TOK_TYPEID" usefulness="unused-in-grammar"/>
-      <terminal symbol-number="36" token-number="291" name="TOK_FIELD" usefulness="unused-in-grammar"/>
-      <terminal symbol-number="37" token-number="292" name="TOK_ORD" usefulness="useful"/>
-      <terminal symbol-number="38" token-number="293" name="TOK_CHR" usefulness="useful"/>
-      <terminal symbol-number="39" token-number="294" name="TOK_ROOT" usefulness="useful"/>
-      <terminal symbol-number="47" token-number="295" name="NEG" usefulness="unused-in-grammar" prec="6" assoc="right"/>
-      <terminal symbol-number="48" token-number="296" name="POS" usefulness="unused-in-grammar" prec="6" assoc="right"/>
+      <terminal symbol-number="6" token-number="261" name="END_OF_FILE" usefulness="unused-in-grammar"/>
+      <terminal symbol-number="7" token-number="262" name="TOK_VOID" usefulness="useful"/>
+      <terminal symbol-number="8" token-number="263" name="TOK_CHAR" usefulness="useful"/>
+      <terminal symbol-number="9" token-number="264" name="TOK_INT" usefulness="useful"/>
+      <terminal symbol-number="10" token-number="265" name="TOK_STRING" usefulness="useful"/>
+      <terminal symbol-number="11" token-number="266" name="TOK_IF" usefulness="useful" prec="1" assoc="right"/>
+      <terminal symbol-number="12" token-number="267" name="TOK_ELSE" usefulness="useful" prec="1" assoc="right"/>
+      <terminal symbol-number="13" token-number="268" name="TOK_WHILE" usefulness="useful"/>
+      <terminal symbol-number="14" token-number="269" name="TOK_RETURN" usefulness="useful"/>
+      <terminal symbol-number="15" token-number="270" name="TOK_STRUCT" usefulness="useful"/>
+      <terminal symbol-number="16" token-number="271" name="TOK_NULL" usefulness="useful"/>
+      <terminal symbol-number="17" token-number="272" name="TOK_NEW" usefulness="useful" prec="6" assoc="right"/>
+      <terminal symbol-number="18" token-number="273" name="TOK_ARRAY" usefulness="useful"/>
+      <terminal symbol-number="19" token-number="274" name="TOK_EQ" usefulness="useful" prec="3" assoc="left"/>
+      <terminal symbol-number="20" token-number="275" name="TOK_NE" usefulness="useful" prec="3" assoc="left"/>
+      <terminal symbol-number="21" token-number="276" name="TOK_LT" usefulness="useful" prec="3" assoc="left"/>
+      <terminal symbol-number="22" token-number="277" name="TOK_LE" usefulness="useful" prec="3" assoc="left"/>
+      <terminal symbol-number="23" token-number="278" name="TOK_GT" usefulness="useful" prec="3" assoc="left"/>
+      <terminal symbol-number="24" token-number="279" name="TOK_GE" usefulness="useful" prec="3" assoc="left"/>
+      <terminal symbol-number="25" token-number="280" name="TOK_IDENT" usefulness="useful"/>
+      <terminal symbol-number="26" token-number="281" name="TOK_INTCON" usefulness="useful"/>
+      <terminal symbol-number="27" token-number="282" name="TOK_CHARCON" usefulness="useful"/>
+      <terminal symbol-number="28" token-number="283" name="TOK_STRINGCON" usefulness="useful"/>
+      <terminal symbol-number="29" token-number="284" name="TOK_BLOCK" usefulness="unused-in-grammar"/>
+      <terminal symbol-number="30" token-number="285" name="TOK_CALL" usefulness="unused-in-grammar"/>
+      <terminal symbol-number="31" token-number="286" name="TOK_IFELSE" usefulness="unused-in-grammar"/>
+      <terminal symbol-number="32" token-number="287" name="TOK_INITDECL" usefulness="unused-in-grammar"/>
+      <terminal symbol-number="33" token-number="288" name="TOK_POS" usefulness="unused-in-grammar"/>
+      <terminal symbol-number="34" token-number="289" name="TOK_NEG" usefulness="unused-in-grammar"/>
+      <terminal symbol-number="35" token-number="290" name="TOK_NEWARRAY" usefulness="unused-in-grammar"/>
+      <terminal symbol-number="36" token-number="291" name="TOK_TYPEID" usefulness="unused-in-grammar"/>
+      <terminal symbol-number="37" token-number="292" name="TOK_FIELD" usefulness="unused-in-grammar"/>
+      <terminal symbol-number="38" token-number="293" name="TOK_ORD" usefulness="useful"/>
+      <terminal symbol-number="39" token-number="294" name="TOK_CHR" usefulness="useful"/>
+      <terminal symbol-number="40" token-number="295" name="TOK_ROOT" usefulness="useful"/>
+      <terminal symbol-number="48" token-number="296" name="NEG" usefulness="unused-in-grammar" prec="6" assoc="right"/>
+      <terminal symbol-number="49" token-number="297" name="POS" usefulness="unused-in-grammar" prec="6" assoc="right"/>
     </terminals>
     <nonterminals>
-      <nonterminal symbol-number="58" name="$accept" usefulness="useful"/>
-      <nonterminal symbol-number="59" name="start" usefulness="useful"/>
-      <nonterminal symbol-number="60" name="program" usefulness="useful"/>
-      <nonterminal symbol-number="61" name="token" usefulness="useful"/>
+      <nonterminal symbol-number="59" name="$accept" usefulness="useful"/>
+      <nonterminal symbol-number="60" name="start" usefulness="useful"/>
+      <nonterminal symbol-number="61" name="program" usefulness="useful"/>
+      <nonterminal symbol-number="62" name="token" usefulness="useful"/>
+      <nonterminal symbol-number="63" name="endoffile" usefulness="useless-in-grammar"/>
+      <nonterminal symbol-number="64" name="function" usefulness="useless-in-grammar"/>
+      <nonterminal symbol-number="65" name="params" usefulness="useless-in-grammar"/>
+      <nonterminal symbol-number="66" name="identdecl" usefulness="useless-in-grammar"/>
+      <nonterminal symbol-number="67" name="basetype" usefulness="useless-in-grammar"/>
+      <nonterminal symbol-number="68" name="block" usefulness="useless-in-grammar"/>
+      <nonterminal symbol-number="69" name="statement" usefulness="useless-in-grammar"/>
     </nonterminals>
   </grammar>
 
@@ -374,7 +493,7 @@
       </itemset>
       <actions>
         <transitions>
-          <transition type="shift" symbol="$end" state="3"/>
+          <transition type="shift" symbol="&quot;end of file&quot;" state="3"/>
         </transitions>
         <errors/>
         <reductions/>
@@ -386,7 +505,7 @@
       <itemset>
         <item rule-number="1" point="1">
           <lookaheads>
-            <symbol>$end</symbol>
+            <symbol>&quot;end of file&quot;</symbol>
           </lookaheads>
         </item>
         <item rule-number="2" point="1"/>
@@ -468,12 +587,12 @@
           <transition type="shift" symbol="'!'" state="35"/>
           <transition type="shift" symbol="'('" state="36"/>
           <transition type="shift" symbol="')'" state="37"/>
-          <transition type="shift" symbol="'['" state="38"/>
-          <transition type="shift" symbol="']'" state="39"/>
-          <transition type="shift" symbol="'{'" state="40"/>
-          <transition type="shift" symbol="'}'" state="41"/>
-          <transition type="shift" symbol="';'" state="42"/>
-          <transition type="shift" symbol="','" state="43"/>
+          <transition type="shift" symbol="','" state="38"/>
+          <transition type="shift" symbol="'{'" state="39"/>
+          <transition type="shift" symbol="'}'" state="40"/>
+          <transition type="shift" symbol="';'" state="41"/>
+          <transition type="shift" symbol="'['" state="42"/>
+          <transition type="shift" symbol="']'" state="43"/>
           <transition type="shift" symbol="'.'" state="44"/>
           <transition type="goto" symbol="token" state="45"/>
         </transitions>
@@ -977,33 +1096,19 @@
 
     <state number="38">
       <itemset>
-        <item rule-number="6" point="1"/>
+        <item rule-number="11" point="1"/>
       </itemset>
       <actions>
         <transitions/>
         <errors/>
         <reductions>
-          <reduction symbol="$default" rule="6" enabled="true"/>
+          <reduction symbol="$default" rule="11" enabled="true"/>
         </reductions>
       </actions>
       <solved-conflicts/>
     </state>
 
     <state number="39">
-      <itemset>
-        <item rule-number="7" point="1"/>
-      </itemset>
-      <actions>
-        <transitions/>
-        <errors/>
-        <reductions>
-          <reduction symbol="$default" rule="7" enabled="true"/>
-        </reductions>
-      </actions>
-      <solved-conflicts/>
-    </state>
-
-    <state number="40">
       <itemset>
         <item rule-number="8" point="1"/>
       </itemset>
@@ -1017,7 +1122,7 @@
       <solved-conflicts/>
     </state>
 
-    <state number="41">
+    <state number="40">
       <itemset>
         <item rule-number="9" point="1"/>
       </itemset>
@@ -1031,7 +1136,7 @@
       <solved-conflicts/>
     </state>
 
-    <state number="42">
+    <state number="41">
       <itemset>
         <item rule-number="10" point="1"/>
       </itemset>
@@ -1045,15 +1150,29 @@
       <solved-conflicts/>
     </state>
 
-    <state number="43">
+    <state number="42">
       <itemset>
-        <item rule-number="11" point="1"/>
+        <item rule-number="6" point="1"/>
       </itemset>
       <actions>
         <transitions/>
         <errors/>
         <reductions>
-          <reduction symbol="$default" rule="11" enabled="true"/>
+          <reduction symbol="$default" rule="6" enabled="true"/>
+        </reductions>
+      </actions>
+      <solved-conflicts/>
+    </state>
+
+    <state number="43">
+      <itemset>
+        <item rule-number="7" point="1"/>
+      </itemset>
+      <actions>
+        <transitions/>
+        <errors/>
+        <reductions>
+          <reduction symbol="$default" rule="7" enabled="true"/>
         </reductions>
       </actions>
       <solved-conflicts/>

@@ -66,6 +66,7 @@ void cpplines (){
    //   if(token==YYEOF) break;
    //}
    yyparse();
+   fprintf(stderr,"just returned from yyparse()\n");
    astree::print(outfile,yyparse_astree,0);
    yyparse_astree->dump(outfile,yyparse_astree);
    fprintf(outfile,"\n\n");
@@ -121,7 +122,7 @@ int main(int argc, char** argv){
    int exit_stat = EXIT_SUCCESS;
    int option;
    yy_flex_debug = 0;
-   int yydebug = 0;
+   yydebug = 0;
    string d_args="";
    while((option=getopt(argc,argv,"lyD:@:"))!=-1){
        if(option==EOF) break;

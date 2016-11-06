@@ -9,7 +9,7 @@
    astree::print(tok,yylval,SYMBOL,0); \
    return SYMBOL; \
 }
-
+#define yyterminate() return token::END
 %}
 
 %option 8bit
@@ -72,6 +72,7 @@ IDENT (({LETTER})({LETTER}|{DIGIT})*)
 "while"         { RETURN (TOK_WHILE); }
 {NUMBER}        { RETURN (TOK_INTCON); }
 {IDENT}         { RETURN (TOK_IDENT); }
+<<EOF>>         { yyparse_astree->dump_tree(ast,0);RETURN (0);}
 .               { lexer::badchar (*yytext); }
 
 %%
