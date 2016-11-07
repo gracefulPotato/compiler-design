@@ -25,7 +25,7 @@ using namespace std;
 %destructor { destroy ($$); } <>
 %printer { astree::dump (yyoutput, $$); } <>
 
-%token ROOT FUNCTION DECL END_OF_FILE
+%token ROOT FUNCTION DECL PARAM DECLID BLOCK VARDECL
 %token TOK_VOID TOK_CHAR TOK_INT TOK_STRING
 %token TOK_IF TOK_ELSE TOK_WHILE TOK_RETURN TOK_STRUCT
 %token TOK_NULL TOK_NEW TOK_ARRAY
@@ -69,28 +69,36 @@ fielddecl : basetype TOK_IDENT
           | basetype TOK_ARRAY TOK_IDENT
           ;
 
-function : identdecl '(' ')' block
-         | identdecl '(' params ')' block  { destroy($4); $$=$2->adopt($1,$3);$$=$$->adopt($5);}
+function : identdecl '(' ')' block   {$4=astree::new_subroot(BLOCK,0,0,0,"{");$$=astree::new_subroot(FUNCTION,0,0,0,"")->adopt($1,$4)}
+         | identdecl '(' params ')' block {destroy($4);$3=astree::new_subroot(PARAM,0,0,0,"(")->adopt($3);$5=astree::new_subroot(BLOCK,0,0,0,"{");$$=astree::new_subroot(FUNCTION,0,0,0,"")->adopt($1,$3);$$=$$->adopt($5);}
          ;
-params : identdecl
-       | params ',' identdecl
+params : identdecl             {$$=$1;}
+       | params ',' identdecl  {$$=$1->adopt($2);}
        ;
-identdecl : basetype TOK_IDENT
-          | basetype TOK_ARRAY TOK_IDENT
+identdecl : basetype TOK_IDENT  {$$=$1->adopt(astree::new_subroot(DECLID,0,0,0,"PLACEHOLDER"));}
+          | basetype TOK_ARRAY TOK_IDENT {$$=$1->adopt($2,astree::new_subroot(DECLID,0,0,0,"PLACEHOLDER"));}
           ;
 basetype : TOK_VOID | TOK_CHAR | TOK_INT | TOK_STRING | TOK_IDENT;
 
-block : '{' '}'
-      | '{' blockrec '}'  { destroy($3); $$=$1->adopt($2); }
+block : '{' '}'    {destroy($2);$$=astree::new_subroot(BLOCK,0,0,0,"{");}
+      | '{' blockrec '}'  { destroy($3); $$=astree::new_subroot(BLOCK,0,0,0,"{")->adopt($2); }
       | ';'
       ;
 blockrec : blockrec statement   { $$=$1->adopt($2);}
          | statement            { $$=$1;}
          ;
-statement : block | vardecl | while | ifelse | return | expr';';
+statement : block 
+          | vardecl {$$=$1;} 
+          | while 
+          | ifelse 
+          | return 
+          | expr';'
+          ;
 
-vardecl : identdecl '=' expr ';';
-while : TOK_WHILE '(' expr ')' statement
+vardecl : identdecl '=' expr ';'  {destroy($2,$4);$$=astree::new_subroot(VARDECL,0,0,0,"=")->adopt($1,$3);}
+        ;
+while : TOK_WHILE '(' expr ')' statement  {destroy($2,$4); $$=$1->adopt($3,$5);}
+      ;
 ifelse : TOK_IF '(' expr ')' statement %prec TOK_ELSE     {destroy($2,$4);$$=$1->adopt($3,$5);}
        | TOK_IF '(' expr ')' statement TOK_ELSE statement {}
        ;
@@ -122,7 +130,8 @@ constant : TOK_INTCON               { $$ = $1; }
          | TOK_NULL                 { $$ = $1; }
          ;
 UNOP : '-';
-BINOP : '+' | '=' | '-' | '*' | '/';
+BINOP : '+' | '=' | '-' | '*' | '/' | TOK_NE | TOK_EQ | TOK_LT
+      | TOK_LE | TOK_GT | TOK_GE;
 
 token   : '(' | ')' | '[' | ']' | '{' | '}' | ';' | ',' | '.'
         | '=' | '+' | '-' | '*' | '/' | '%' | '!'

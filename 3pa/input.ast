@@ -1,0 +1,19 @@
+
+ROOT "<<ROOT>>" 0.0.0
+|  FUNCTION "" 0.0.0
+|  |  INT "int" 5.1.1
+|  |  |  DECLID "PLACEHOLDER" 0.0.0
+|  |  PARAM "(" 0.0.0
+|  |  |  INT "int" 5.1.10
+|  |  |  |  DECLID "PLACEHOLDER" 0.0.0
+|  |  BLOCK "{" 0.0.0
+|  VARDECL "=" 0.0.0
+|  |  INT "int" 5.9.1
+|  |  |  DECLID "PLACEHOLDER" 0.0.0
+|  |  INTCON "1" 5.9.9
+|  WHILE "while" 5.10.1
+|  |  LE "<=" 5.10.10
+|  |  |  IDENT "n" 5.10.8
+|  |  |  INTCON "5" 5.10.13
+|  |  BLOCK "{" 0.0.0
+|  |  |  IDENT "puti" 5.11.4

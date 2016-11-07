@@ -51,19 +51,21 @@ astree* astree::adopt_sym (astree* child, int symbol_) {
 
 
 void astree::dump_node (FILE* outfile) {
-   fprintf (outfile, "%p->{%s %zd.%zd.%zd \"%s\":",
-            this, get_yytname (symbol),
-            lloc.filenr, lloc.linenr, lloc.offset,
-            lexinfo->c_str());
+   char* tname = const_cast<char*>(get_yytname (symbol));
+   if(strstr(tname,"TOK_") == tname) tname+=4;
+   fprintf (outfile, "%s \"%s\" %zd.%zd.%zd",
+            tname,lexinfo->c_str(),
+            lloc.filenr, lloc.linenr, lloc.offset);
    //fprintf(stderr,"children.size(): %lu",children.size());
-   for (size_t child = 0; child < children.size(); ++child) {
-      fprintf (outfile, " %p", children.at(child));
-   }
+   //for (size_t child = 0; child < children.size(); ++child) {
+   //   fprintf (outfile, " %p", children.at(child));
+   //}
 }
 
 void astree::dump_tree (FILE* outfile, int depth) {
    fprintf (outfile,"\n");
-   fprintf (outfile, "%*s", depth * 3, " ");
+   for(int i=0;i<depth;i++) fprintf(outfile,"|  ");
+   //fprintf (outfile, "%*s", depth, "|  ");
    dump_node (outfile);
    //fprintf (outfile, "\nchildren.size(): %lu\n",children.size());
    for (astree* child: children){
@@ -102,7 +104,7 @@ void errllocprintf (const location& lloc, const char* format,
               lexer::filename (lloc.filenr), lloc.linenr, lloc.offset,
               buffer);
 }
-astree* new_parseroot() { 
-   return new astree (TOK_ROOT, {0, 0, 0}, "");
+astree* astree::new_subroot(int token,int l1, int l2, int l3, char* text) { 
+   return new astree (token, {l1, l2, l3}, text);
 }
 

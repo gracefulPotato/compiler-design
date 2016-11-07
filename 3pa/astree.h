@@ -32,7 +32,7 @@ struct astree {
    void dump_tree (FILE*, int depth = 0);
    static void dump (FILE* outfile, astree* tree);
    static void print (FILE* file,astree* tree,int sym,int depth = 0);
-   astree* new_parseroot();
+   static astree* new_subroot(int token, int l1,int l2, int l3,char* text);
 };
 
 void destroy (astree* tree1, astree* tree2 = nullptr);
@@ -40,5 +40,6 @@ void destroy (astree* tree1, astree* tree2 = nullptr);
 void errllocprintf (const location&, const char* format, const char*);
 
 #endif
+
 
 
