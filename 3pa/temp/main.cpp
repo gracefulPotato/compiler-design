@@ -58,6 +58,12 @@ void eprint_status (const char* command, int status) {
    fprintf (stderr, "\n");
 }
 
+// Run cpp against the lines of the file.
+void cpplines (){
+   yyparse();
+   string_set::dump (outfile);
+}
+
 
 pair<string,int> cpp_line(char* filenm,string exec,
     int extstat,string d){
@@ -69,9 +75,7 @@ pair<string,int> cpp_line(char* filenm,string exec,
          fprintf (stderr, "%s: %s: %s\n",
                   exec.c_str(), command.c_str(), strerror (errno));
     }else {
-         int parse_status = yyparse();
-         string_set::dump (outfile);
-         if(parse_status==1) return pair<string,int>("",parse_status);
+         cpplines();
          int pclose_rc = pclose (yyin);
          eprint_status (command.c_str(), pclose_rc);
          if (pclose_rc != 0) extstat = EXIT_FAILURE;

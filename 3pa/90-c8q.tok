@@ -1,0 +1,9 @@
+#  1 "90-c8q.oc"
+#  1 "<built-in>"
+#  1 "<command-line>"
+#  1 "/usr/include/stdc-predef.h"
+#  1 "<command-line>"
+#  1 "90-c8q.oc"
+   5  01.001  267  TOK_CHAR        (char)
+   5  01.006  284  TOK_IDENT       (O)
+   5  01.007   91  '['             ([)

@@ -66,27 +66,34 @@ ROOT "<<ROOT>>" 0.0.0
 |  |  |  |  DECLID "status" 7.36.16
 |  |  ';' ";" 7.36.23
 |  VARDECL "=" 8.5.1
-|  |  INT "int" 8.5.1
-|  |  |  DECLID "a" 8.5.5
-|  |  INTCON "3" 8.5.9
+|  |  STRING "string" 8.5.1
+|  |  |  ARRAY "[]" 8.5.7
+|  |  |  DECLID "argv" 8.5.10
+|  |  CALL "(" 8.5.25
+|  |  |  IDENT "getargv" 8.5.17
 |  VARDECL "=" 8.6.1
 |  |  INT "int" 8.6.1
-|  |  |  DECLID "b" 8.6.5
-|  |  INTCON "8" 8.6.9
-|  VARDECL "=" 8.7.1
-|  |  INT "int" 8.7.1
-|  |  |  DECLID "c" 8.7.5
-|  |  '+' "+" 8.7.11
-|  |  |  IDENT "a" 8.7.9
-|  |  |  IDENT "b" 8.7.13
-|  '=' "=" 8.8.3
-|  |  IDENT "a" 8.8.1
-|  |  '+' "+" 8.8.7
-|  |  |  IDENT "b" 8.8.5
-|  |  |  IDENT "c" 8.8.9
-|  CALL "(" 8.9.6
-|  |  IDENT "puti" 8.9.1
-|  |  IDENT "a" 8.9.7
-|  CALL "(" 8.10.6
-|  |  IDENT "putc" 8.10.1
-|  |  CHARCON "'\n'" 8.10.7
+|  |  |  DECLID "argi" 8.6.5
+|  |  INTCON "1" 8.6.12
+|  WHILE "while" 8.7.1
+|  |  NE "!=" 8.7.19
+|  |  |  IDENT "argv" 8.7.8
+|  |  |  NULL "null" 8.7.22
+|  |  BLOCK "{" 8.7.28
+|  |  |  IF "if" 8.8.4
+|  |  |  |  GT ">" 8.8.13
+|  |  |  |  |  IDENT "argi" 8.8.8
+|  |  |  |  |  INTCON "1" 8.8.15
+|  |  |  |  CALL "(" 8.8.23
+|  |  |  |  |  IDENT "putc" 8.8.18
+|  |  |  |  |  CHARCON "' '" 8.8.24
+|  |  |  |  CALL "(" 8.9.9
+|  |  |  |  |  IDENT "puts" 8.9.4
+|  |  |  |  |  IDENT "argv" 8.9.10
+|  |  |  |  '=' "=" 8.10.9
+|  |  |  |  |  IDENT "argi" 8.10.4
+|  |  |  |  |  '+' "+" 8.10.16
+|  |  |  |  |  |  IDENT "argi" 8.10.11
+|  |  |  |  |  |  INTCON "1" 8.10.18
+|  CALL "(" 8.12.6
+|  |  IDENT "endl" 8.12.1

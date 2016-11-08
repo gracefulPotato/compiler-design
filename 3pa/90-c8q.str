@@ -1,0 +1,7 @@
+string_set[   0]:    1547029504053110495 0x1120a38->"O"
+string_set[   2]:   13581035385482130682 0x1124e98->"["
+string_set[   3]:     342363981814211588 0x1124b88->"char"
+                     3729804957429652673 0x1120078->"<<ROOT>>"
+load_factor = 0.800
+bucket_count = 5
+max_bucket_size = 2

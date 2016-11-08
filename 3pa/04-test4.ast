@@ -37,23 +37,23 @@ ROOT "<<ROOT>>" 0.0.0
 |  |  |  STRING "string" 7.30.12
 |  |  |  |  DECLID "s" 7.30.19
 |  |  ';' ";" 7.30.21
-|  FUNCTION "" 7.31.11
+|  FUNCTION "" 7.31.1
 |  |  VOID "void" 7.31.1
 |  |  |  DECLID "endl" 7.31.6
 |  |  ';' ";" 7.31.13
-|  FUNCTION "" 7.32.10
+|  FUNCTION "" 7.32.1
 |  |  INT "int" 7.32.1
 |  |  |  DECLID "getc" 7.32.5
 |  |  ';' ";" 7.32.12
-|  FUNCTION "" 7.33.13
+|  FUNCTION "" 7.33.1
 |  |  STRING "string" 7.33.1
 |  |  |  DECLID "getw" 7.33.8
 |  |  ';' ";" 7.33.15
-|  FUNCTION "" 7.34.14
+|  FUNCTION "" 7.34.1
 |  |  STRING "string" 7.34.1
 |  |  |  DECLID "getln" 7.34.8
 |  |  ';' ";" 7.34.16
-|  FUNCTION "" 7.35.18
+|  FUNCTION "" 7.35.1
 |  |  STRING "string" 7.35.1
 |  |  |  ARRAY "[]" 7.35.7
 |  |  |  DECLID "getargv" 7.35.10
