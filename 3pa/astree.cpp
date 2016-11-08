@@ -104,7 +104,11 @@ void errllocprintf (const location& lloc, const char* format,
               lexer::filename (lloc.filenr), lloc.linenr, lloc.offset,
               buffer);
 }
-astree* astree::new_subroot(int token,int l1, int l2, int l3, char* text) { 
-   return new astree (token, {l1, l2, l3}, text);
+astree* astree::new_subroot(int token,int l1,int* l2, int l3, char* text) { 
+   location lloc;
+   lloc.filenr = l1;
+   lloc.linenr = *l2;
+   lloc.offset = l3;
+   return new astree (token,lloc, text);
 }
 

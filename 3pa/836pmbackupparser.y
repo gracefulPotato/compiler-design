@@ -69,21 +69,19 @@ fielddecl : basetype TOK_IDENT {$$=$1->adopt($2);}
           | basetype TOK_ARRAY TOK_IDENT {$$=$1->adopt($2,$3);}
           ;
 
-function : identdecl '(' ')' block   {$2=new astree(FUNCTION,$2->lloc,"");$$=$2->adopt($1,$4);}
-         | identdecl '(' params ')' block {destroy($4);$2=new astree(PARAM,$2->lloc,"(");$2->adopt($3);
-                                           $$=new astree(FUNCTION,$2->lloc,"");
-                                           $$=$$->adopt($1,$2);$$=$$->adopt($5);}
+function : identdecl '(' ')' block   {$$=astree::new_subroot(FUNCTION,0,&yylloc.last_line,0,"")->adopt($1,$4);}
+         | identdecl '(' params ')' block {destroy($4);$3=astree::new_subroot(PARAM,0,&yylloc.last_line,0,"(")->adopt($3);$$=astree::new_subroot(FUNCTION,0,&yylloc.last_line,0,"")->adopt($1,$3);$$=$$->adopt($5);}
          ;
 params : identdecl             {$$=$1;}
        | params ',' identdecl  {$$=$1->adopt($2);}
        ;
-identdecl : basetype TOK_IDENT  {$$=$1->adopt(new astree(DECLID,$2->lloc,$2->lexinfo->c_str()));}
-          | basetype TOK_ARRAY TOK_IDENT {$$=$1->adopt($2,new astree(DECLID,$3->lloc,$3->lexinfo->c_str()));}
+identdecl : basetype TOK_IDENT  {$$=$1->adopt(astree::new_subroot(DECLID,0,&yylloc.last_line,0,"PLACEHOLDER"));}
+          | basetype TOK_ARRAY TOK_IDENT {$$=$1->adopt($2,astree::new_subroot(DECLID,0,&yylloc.last_line,0,"PLACEHOLDER"));}
           ;
 basetype : TOK_VOID | TOK_CHAR | TOK_INT | TOK_STRING | TOK_IDENT;
 
-block : '{' '}'    {destroy($2);$$=new astree(BLOCK,$1->lloc,"{");}
-      | '{' blockrec '}'  {$1=new astree(BLOCK,$1->lloc,"{");$$=$1->adopt($2); }
+block : '{' '}'    {destroy($2);$$=astree::new_subroot(BLOCK,0,&yylloc.last_line,0,"{");}
+      | '{' blockrec '}'  {$$=astree::new_subroot(BLOCK,0,&yylloc.last_line,0,"{")->adopt($2); }
       | ';'
       ;
 blockrec : blockrec statement   { $$=$$->adopt($2);fprintf(stderr,"In recursive block definition\n");}
@@ -97,7 +95,7 @@ statement : block  {$$=$1;}
           | expr';'  {destroy($2);$$=$1;}
           ;
 
-vardecl : identdecl '=' expr ';'  {destroy($4);$2=new astree(VARDECL,$1->lloc,"=");$$=$2->adopt($1,$3);}
+vardecl : identdecl '=' expr ';'  {destroy($2,$4);$$=astree::new_subroot(VARDECL,0,&yylloc.last_line,0,"=")->adopt($1,$3);}
         ;
 while : TOK_WHILE '(' expr ')' statement  {destroy($2,$4); $$=$1->adopt($3,$5);}
       ;
@@ -119,12 +117,12 @@ allocator : TOK_NEW TOK_IDENT '('')' {destroy($3,$4);$$=$1->adopt($2);}
           | TOK_NEW TOK_STRING '(' expr ')' {destroy($3,$5);$$=$1->adopt($4);}
           | TOK_NEW basetype '[' expr ']' {destroy($3,$5);$$=$1->adopt($4);}
           ;
-call : TOK_IDENT '('')'     {$2=new astree(CALL,$2->lloc,"(");$$=$2->adopt($1);}
-     | TOK_IDENT '('expr')' {$2=new astree(CALL,$2->lloc,"(");$$=$2->adopt($1,$3);}
+call : TOK_IDENT '('')'     {$$=astree::new_subroot(CALL,0,&yylloc.last_line,0,"(")->adopt($1);}
+     | TOK_IDENT '('expr')' {$$=astree::new_subroot(CALL,0,&yylloc.last_line,0,"(")->adopt($1,$3);}
      ;
 variable : TOK_IDENT                { $$ = $1; }
          | expr'['expr']'
-         | expr'.'TOK_IDENT         { $2=new astree(TOK_FIELD,$3->lloc,$3->lexinfo->c_str());$$ = $2->adopt($1,$3); }
+         | expr'.'TOK_IDENT         { $3=astree::new_subroot(TOK_FIELD,0,&yylloc.last_line,0,"PLACEHOLDER");$$ = $2->adopt($1,$3); }
          ;
 constant : TOK_INTCON               { $$ = $1; }
          | TOK_CHARCON              { $$ = $1; }

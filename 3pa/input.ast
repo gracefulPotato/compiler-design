@@ -1,21 +1,21 @@
 
 ROOT "<<ROOT>>" 0.0.0
-|  FUNCTION "" 0.0.0
+|  FUNCTION "" 5.1.9
 |  |  INT "int" 5.1.1
-|  |  |  DECLID "PLACEHOLDER" 0.0.0
-|  |  PARAM "(" 0.0.0
+|  |  |  DECLID "fac" 5.1.5
+|  |  PARAM "(" 5.1.9
 |  |  |  INT "int" 5.1.10
-|  |  |  |  DECLID "PLACEHOLDER" 0.0.0
-|  |  BLOCK "{" 0.0.0
-|  |  |  VARDECL "=" 0.0.0
+|  |  |  |  DECLID "n" 5.1.14
+|  |  BLOCK "{" 5.1.17
+|  |  |  VARDECL "=" 5.2.5
 |  |  |  |  INT "int" 5.2.5
-|  |  |  |  |  DECLID "PLACEHOLDER" 0.0.0
+|  |  |  |  |  DECLID "f" 5.2.9
 |  |  |  |  INTCON "1" 5.2.13
 |  |  |  |  WHILE "while" 5.3.5
 |  |  |  |  |  GT ">" 5.3.14
 |  |  |  |  |  |  IDENT "n" 5.3.12
 |  |  |  |  |  |  INTCON "1" 5.3.16
-|  |  |  |  |  BLOCK "{" 0.0.0
+|  |  |  |  |  BLOCK "{" 5.3.19
 |  |  |  |  |  |  '=' "=" 5.4.11
 |  |  |  |  |  |  |  IDENT "f" 5.4.9
 |  |  |  |  |  |  |  '*' "*" 5.4.15
@@ -28,17 +28,17 @@ ROOT "<<ROOT>>" 0.0.0
 |  |  |  |  |  |  |  |  |  INTCON "1" 5.5.17
 |  |  |  |  RETURN "return" 5.7.5
 |  |  |  |  |  IDENT "f" 5.7.12
-|  VARDECL "=" 0.0.0
+|  VARDECL "=" 5.9.1
 |  |  INT "int" 5.9.1
-|  |  |  DECLID "PLACEHOLDER" 0.0.0
+|  |  |  DECLID "n" 5.9.5
 |  |  INTCON "1" 5.9.9
 |  WHILE "while" 5.10.1
 |  |  LE "<=" 5.10.10
 |  |  |  IDENT "n" 5.10.8
 |  |  |  INTCON "5" 5.10.13
-|  |  BLOCK "{" 0.0.0
-|  |  |  CALL "(" 0.0.0
+|  |  BLOCK "{" 5.10.16
+|  |  |  CALL "(" 5.11.9
 |  |  |  |  IDENT "puti" 5.11.4
-|  |  |  |  CALL "(" 0.0.0
+|  |  |  |  CALL "(" 5.11.14
 |  |  |  |  |  IDENT "fac" 5.11.10
 |  |  |  |  |  IDENT "n" 5.11.15
