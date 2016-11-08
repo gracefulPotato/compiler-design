@@ -1,16 +1,24 @@
 Grace O'Hair-Sherman
 gohairsh
 CMPS 104A Compiler Design
-Assignment 1
+Assignment 3
 
 files:
 
+astree.cpp
+astree.h
 auxlib.cpp
 auxlib.h
-cppstrtok.cpp
-cppstrtok.h
+emitter.cpp
+emitter.h
+lyutils.cpp
+lyutils.h
 main.cpp
 Makefile
+oclib.c
+oclib.oh
+parser.y
 README
+scanner.l
 string_set.cpp
 string_set.h
