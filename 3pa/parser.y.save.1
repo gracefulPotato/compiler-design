@@ -1,4 +1,6 @@
+
 %{
+// Dummy parser for scanner project.
 #include <string>
 #include <vector>
 using namespace std;
@@ -22,8 +24,11 @@ using namespace std;
 
 %destructor { destroy ($$); } <>
 %printer { astree::dump (yyoutput, $$); } <>
+%new_function { 
+   new_func = new astree (FUNCTION, {0,0,0},"");
+}
 
-%token ROOT FUNCTION DECL PARAM DECLID BLOCK VARDECL CALL
+%token ROOT FUNCTION DECL PARAM
 %token TOK_VOID TOK_CHAR TOK_INT TOK_STRING
 %token TOK_IF TOK_ELSE TOK_WHILE TOK_RETURN TOK_STRUCT
 %token TOK_NULL TOK_NEW TOK_ARRAY
@@ -40,7 +45,6 @@ using namespace std;
 %left  '+' '-'
 %left  '*' '/' '%'
 %right POS NEG '!' TOK_NEW
-%left '.' '['
 
 %initial-action {
    yyparse_astree = new astree (TOK_ROOT, {0, 0, 0}, "<<ROOT>>");
@@ -60,42 +64,35 @@ program : program function {$$=$1->adopt($2);fprintf(stderr,"adopting function")
         |               {$$=yyparse_astree;} 
         ;
 
-structdef : TOK_STRUCT TOK_IDENT '{' '}' {destroy($3,$4);$$=$1->adopt($2);}
-          | TOK_STRUCT TOK_IDENT '{' fielddecl ';' '}' {destroy($3,$5);destroy($6);$$=$1->adopt($2,$4);}
-          | TOK_STRUCT TOK_IDENT '{' fielddecl';'fielddecl '}'{destroy($3,$5);destroy($7);$$=$1->adopt($2,$4);$$->adopt($6);}
+structdef : TOK_STRUCT TOK_IDENT '{' '}'
+          | TOK_STRUCT TOK_IDENT '{' fielddecl ';' '}'
+          | TOK_STRUCT TOK_IDENT '{' fielddecl';'fielddecl '}'
           ;
-fielddecl : basetype TOK_IDENT {$$=$1->adopt($2);}
-          | basetype TOK_ARRAY TOK_IDENT {$$=$1->adopt($2,$3);}
+fielddecl : basetype TOK_IDENT
+          | basetype TOK_ARRAY TOK_IDENT
           ;
 
-function : identdecl '(' ')' block   {$$=astree::new_subroot(FUNCTION,0,0,0,"")->adopt($1,$4);}
-         | identdecl '(' params ')' block {destroy($4);$3=astree::new_subroot(PARAM,0,0,0,"(")->adopt($3);$$=astree::new_subroot(FUNCTION,0,0,0,"")->adopt($1,$3);$$=$$->adopt($5);}
+function : identdecl '(' ')' block   {$$=new_function()->adopt($1,$2,$4)}
+         | identdecl '(' params ')' block {destroy($4); $$=$2->adopt($1,$3);$$=$$->adopt($5);}
          ;
-params : identdecl             {$$=$1;}
-       | params ',' identdecl  {$$=$1->adopt($2);}
+params : identdecl
+       | params ',' identdecl
        ;
-identdecl : basetype TOK_IDENT  {$$=$1->adopt(astree::new_subroot(DECLID,0,0,0,"PLACEHOLDER"));}
-          | basetype TOK_ARRAY TOK_IDENT {$$=$1->adopt($2,astree::new_subroot(DECLID,0,0,0,"PLACEHOLDER"));}
+identdecl : basetype TOK_IDENT
+          | basetype TOK_ARRAY TOK_IDENT
           ;
 basetype : TOK_VOID | TOK_CHAR | TOK_INT | TOK_STRING | TOK_IDENT;
 
-block : '{' '}'    {destroy($2);$$=astree::new_subroot(BLOCK,0,0,0,"{");}
-      | '{' blockrec '}'  {$$=astree::new_subroot(BLOCK,0,0,0,"{")->adopt($2); }
+block : '{' '}'    {destroy($2);$$=$1;}
+      | '{' blockrec '}'  { destroy($3); $$=$1->adopt($2); }
       | ';'
       ;
-blockrec : blockrec statement   { $$=$$->adopt($2);fprintf(stderr,"In recursive block definition\n");}
+blockrec : blockrec statement   { $$=$1->adopt($2);}
          | statement            { $$=$1;}
          ;
-statement : block  {$$=$1;}
-          | vardecl {$$=$1;} 
-          | while  {$$=$1;}
-          | ifelse  {$$=$1;}
-          | return  {$$=$1;}
-          | expr';'  {destroy($2);$$=$1;}
-          ;
+statement : block | vardecl | while | ifelse | return | expr';';
 
-vardecl : identdecl '=' expr ';'  {destroy($2,$4);$$=astree::new_subroot(VARDECL,0,0,0,"=")->adopt($1,$3);}
-        ;
+vardecl : identdecl '=' expr ';';
 while : TOK_WHILE '(' expr ')' statement  {destroy($2,$4); $$=$1->adopt($3,$5);}
       ;
 ifelse : TOK_IF '(' expr ')' statement %prec TOK_ELSE     {destroy($2,$4);$$=$1->adopt($3,$5);}
@@ -107,21 +104,21 @@ return : TOK_RETURN ';'             { destroy ($2); $$ = $1; }
 expr : expr BINOP expr              { $$ = $2->adopt ($1, $3); }
      | UNOP expr                    { $$ = $1->adopt ($2); }
      | allocator                    { $$ = $1; }
-     | call                         {$$ = $1; }
+     | call                         { $$ = $1; }
      | '(' expr ')'                 { destroy ($1, $3); $$ = $2; }
      | variable                     { $$ = $1; }
      | constant                     { $$ = $1; }
      ;
-allocator : TOK_NEW TOK_IDENT '('')' {destroy($3,$4);$$=$1->adopt($2);}
+allocator : TOK_NEW TOK_IDENT '('')'
           | TOK_NEW TOK_STRING '(' expr ')' {destroy($3,$5);$$=$1->adopt($4);}
           | TOK_NEW basetype '[' expr ']' {destroy($3,$5);$$=$1->adopt($4);}
           ;
-call : TOK_IDENT '('')'     {$$=astree::new_subroot(CALL,0,0,0,"(")->adopt($1);}
-     | TOK_IDENT '('expr')' {$$=astree::new_subroot(CALL,0,0,0,"(")->adopt($1,$3);}
+call : TOK_IDENT '('')'
+     | TOK_IDENT '('expr')'
      ;
 variable : TOK_IDENT                { $$ = $1; }
          | expr'['expr']'
-         | expr'.'TOK_IDENT         { $3=astree::new_subroot(TOK_FIELD,0,0,0,"PLACEHOLDER");$$ = $2->adopt($1,$3); }
+         | expr'.'TOK_IDENT         { $$ = $1->adopt($3); }
          ;
 constant : TOK_INTCON               { $$ = $1; }
          | TOK_CHARCON              { $$ = $1; }
@@ -130,7 +127,7 @@ constant : TOK_INTCON               { $$ = $1; }
          ;
 UNOP : '-';
 BINOP : '+' | '=' | '-' | '*' | '/' | TOK_NE | TOK_EQ | TOK_LT
-      | TOK_LE | TOK_GT | TOK_GE | '.' | '[';
+      | TOK_LE | TOK_GT | TOK_GE;
 
 token   : '(' | ')' | '[' | ']' | '{' | '}' | ';' | ',' | '.'
         | '=' | '+' | '-' | '*' | '/' | '%' | '!'

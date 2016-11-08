@@ -1,4 +1,4 @@
-
+"
 ROOT "<<ROOT>>" 0.0.0
 |  FUNCTION "" 0.0.0
 |  |  VOID "void" 7.26.1
@@ -66,9 +66,6 @@ ROOT "<<ROOT>>" 0.0.0
 |  |  |  |  DECLID "PLACEHOLDER" 0.0.0
 |  |  ';' ";" 7.36.23
 |  STRUCT "struct" 8.5.1
-|  |  IDENT "foo" 8.5.8
-|  |  INT "int" 8.6.4
-|  |  |  IDENT "a" 8.6.8
 |  VARDECL "=" 0.0.0
 |  |  INT "int" 8.9.1
 |  |  |  DECLID "PLACEHOLDER" 0.0.0
@@ -77,20 +74,17 @@ ROOT "<<ROOT>>" 0.0.0
 |  |  IDENT "foo" 8.10.1
 |  |  |  DECLID "PLACEHOLDER" 0.0.0
 |  |  NEW "new" 8.10.9
-|  |  |  IDENT "foo" 8.10.13
 |  '=' "=" 8.11.5
-|  |  '.' "." 8.11.2
-|  |  |  IDENT "b" 8.11.1
-|  |  |  FIELD "PLACEHOLDER" 0.0.0
+|  |  IDENT "b" 8.11.1
+|  |  |  IDENT "a" 8.11.3
 |  |  INTCON "8" 8.11.7
 |  '=' "=" 8.12.3
 |  |  IDENT "a" 8.12.1
 |  |  '*' "*" 8.12.7
 |  |  |  IDENT "a" 8.12.5
 |  |  |  '+' "+" 8.12.13
-|  |  |  |  '.' "." 8.12.10
-|  |  |  |  |  IDENT "b" 8.12.9
-|  |  |  |  |  FIELD "PLACEHOLDER" 0.0.0
+|  |  |  |  IDENT "b" 8.12.9
+|  |  |  |  |  IDENT "a" 8.12.11
 |  |  |  |  INTCON "6" 8.12.15
 |  ';' ";" 8.12.17
 |  CALL "(" 0.0.0
@@ -101,8 +95,7 @@ ROOT "<<ROOT>>" 0.0.0
 |  |  CHARCON "' '" 8.15.7
 |  CALL "(" 0.0.0
 |  |  IDENT "puti" 8.16.1
-|  |  '.' "." 8.16.8
-|  |  |  IDENT "b" 8.16.7
-|  |  |  FIELD "PLACEHOLDER" 0.0.0
+|  |  IDENT "b" 8.16.7
+|  |  |  IDENT "a" 8.16.9
 |  CALL "(" 0.0.0
 |  |  IDENT "endl" 8.17.1
